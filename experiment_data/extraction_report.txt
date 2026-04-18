@@ -1,0 +1,45 @@
+============================================================
+FUNCTION EXTRACTION REPORT
+============================================================
+
+Project: requests
+  Files scanned:        3
+  Total functions:      101
+  Excluded (constructor):5
+  Excluded (dunder):    0
+  Excluded (getter):    0
+  Excluded (too short): 11
+  Excluded (too long):  6
+  Passed filtering:     50
+  Final sample:         30
+  Complexity (sampled): low=11, medium=14, high=5
+
+Project: arrow
+  Files scanned:        10
+  Total functions:      175
+  Excluded (constructor):5
+  Excluded (dunder):    0
+  Excluded (getter):    0
+  Excluded (too short): 27
+  Excluded (too long):  15
+  Passed filtering:     52
+  Final sample:         30
+  Complexity (sampled): low=15, medium=13, high=2
+
+Project: more_itertools
+  Files scanned:        3
+  Total functions:      263
+  Excluded (constructor):12
+  Excluded (dunder):    0
+  Excluded (getter):    0
+  Excluded (too short): 41
+  Excluded (too long):  18
+  Passed filtering:     121
+  Final sample:         30
+  Complexity (sampled): low=12, medium=15, high=3
+
+============================================================
+TOTAL: 90 functions sampled for experiment
+Total generation tasks: 360 (×4 strategies)
+Total API calls: 1080 (×3 trials)
+============================================================

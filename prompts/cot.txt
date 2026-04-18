@@ -1,0 +1,15 @@
+You are given the following Python function. Before writing any test code,
+reason step by step about the function's behaviour:
+
+Step 1: Describe what the function is supposed to do.
+Step 2: Identify the key input parameters and their expected types and ranges.
+Step 3: List the normal cases that should be tested.
+Step 4: Identify edge cases and boundary conditions.
+Step 5: Consider what error or exception conditions might arise.
+
+After completing your reasoning, generate a comprehensive set of unit
+tests for this function using pytest.
+The tests should cover normal cases, edge cases, and potential error conditions.
+
+Function:
+{{FUNCTION_SOURCE}}

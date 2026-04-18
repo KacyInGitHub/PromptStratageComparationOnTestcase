@@ -1,0 +1,4 @@
+radon>=6.0,<7
+requests>=2.28.0
+arrow>=1.2.0
+more-itertools>=10.0.0

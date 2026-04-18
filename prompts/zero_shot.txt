@@ -1,0 +1,8 @@
+You are given the following Python function.
+Generate a comprehensive set of unit tests for this function using pytest.
+The tests should cover normal cases, edge cases, and potential error conditions.
+
+Function:
+{{FUNCTION_SOURCE}}
+
+Generate only the test code. Do not include explanations.
