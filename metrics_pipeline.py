@@ -116,10 +116,16 @@ CLASS_MAP = {
     ("arrow",    "parser.py"):           "DateTimeParser",
 }
 
-COV_PKG_MAP = {
-    "requests":      "requests",
-    "arrow":         "arrow",
-    "more_itertools": "more_itertools",
+# 模块点路径映射（用于 importlib 定位实际文件）
+MODULE_DOTTED = {
+    "requests/models.py": "requests.models",
+    "requests/utils.py":  "requests.utils",
+    "arrow.py":           "arrow.arrow",
+    "locales.py":         "arrow.locales",
+    "parser.py":          "arrow.parser",
+    "util.py":            "arrow.util",
+    "more.py":            "more_itertools.more",
+    "recipes.py":         "more_itertools.recipes",
 }
 
 
@@ -280,80 +286,195 @@ def metric_assertions(records: list) -> list:
 
 
 # ─────────────────────────────────────────────
-# 指标三：行覆盖率 & 分支覆盖率
+# 指标三：行覆盖率 & 分支覆盖率（函数级）
 # ─────────────────────────────────────────────
+def get_func_lines(module: str, func_name: str) -> tuple:
+    """
+    用 importlib 定位模块文件，再用 AST 找到函数的起止行号。
+    返回 (文件绝对路径, 起始行, 结束行)，找不到返回 (None, None, None)。
+    """
+    import importlib.util
+
+    dotted = MODULE_DOTTED.get(module)
+    if not dotted:
+        return None, None, None
+
+    spec = importlib.util.find_spec(dotted)
+    if not spec or not spec.origin:
+        return None, None, None
+
+    file_path = spec.origin
+    try:
+        with open(file_path, encoding="utf-8") as f:
+            source = f.read()
+        tree = ast.parse(source)
+        for node in ast.walk(tree):
+            if (isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
+                    and node.name == func_name):
+                return file_path, node.lineno, node.end_lineno
+    except Exception:
+        pass
+
+    return file_path, None, None
+
+
 def metric_coverage(records: list, timeout: int = 60) -> list:
     """
-    使用 pytest-cov 计算行覆盖率和分支覆盖率。
-    依赖：pip install pytest pytest-cov requests arrow more-itertools
-    需要实际执行测试，速度较慢。
+    函数级行覆盖率 & 分支覆盖率。
+    使用 `coverage run --source=<dotted> -m pytest` 方案，
+    可正确追踪 site-packages 中已安装的包，解决 pytest --cov
+    对绝对路径无法识别的问题。
+    分母只统计被测函数内的可执行行/分支。
+    依赖：pip install coverage pytest requests arrow more-itertools
     """
     results = []
-    total = len(records)
+    total   = len(records)
 
     for i, r in enumerate(records):
-        out     = base_record(r)
-        project = r["project"]
-        module  = r["module"]
-        source  = fix_imports(r.get("tests_source", ""), project, module)
-        cov_pkg = COV_PKG_MAP.get(project, project)
+        out       = base_record(r)
+        project   = r["project"]
+        module    = r["module"]
+        func_name = r["name"]
+        test_src  = fix_imports(r.get("tests_source", ""), project, module)
 
         print(
             f"  [coverage {i+1:03d}/{total}] "
-            f"{r['strategy']:<12} {r['project']}.{r['name']}",
+            f"{r['strategy']:<12} {project}.{func_name}",
             end=" ... ", flush=True,
         )
 
-        uid      = uuid.uuid4().hex
-        tmp_test = f"/tmp/test_{uid}.py"
-        cov_json = f"/tmp/cov_{uid}.json"
+        # 1. 定位被测函数的行号范围
+        file_path, start_line, end_line = get_func_lines(module, func_name)
+        dotted = MODULE_DOTTED.get(module)
+
+        if not file_path or not dotted:
+            out["coverage"] = {
+                "line_rate": None, "branch_rate": None,
+                "error": f"cannot locate module: {module}",
+            }
+            print("module not found")
+            results.append(out)
+            continue
+
+        if not start_line:
+            out["coverage"] = {
+                "line_rate": None, "branch_rate": None,
+                "error": f"function '{func_name}' not found",
+            }
+            print("func not found")
+            results.append(out)
+            continue
+
+        uid           = uuid.uuid4().hex
+        tmp_test      = f"/tmp/test_{uid}.py"
+        cov_data_file = f"/tmp/.coverage_{uid}"
+        cov_json      = f"/tmp/cov_{uid}.json"
 
         with open(tmp_test, "w", encoding="utf-8") as f:
-            f.write(source)
+            f.write(test_src)
 
         try:
+            # 2. coverage run --source=<dotted.module> --branch -m pytest
             subprocess.run(
                 [
-                    sys.executable, "-m", "pytest", tmp_test,
-                    f"--cov={cov_pkg}",
-                    "--cov-branch",
-                    f"--cov-report=json:{cov_json}",
-                    "-q", "--no-header", "--tb=no",
+                    sys.executable, "-m", "coverage", "run",
+                    f"--data-file={cov_data_file}",
+                    f"--source={dotted}",
+                    "--branch",
+                    "-m", "pytest", tmp_test,
+                    "-q", "--tb=no", "--no-header",
                 ],
                 capture_output=True, text=True, timeout=timeout,
             )
 
-            if not os.path.exists(cov_json):
-                out["coverage"] = {"line_rate": None, "branch_rate": None,
-                                   "error": "no coverage output"}
-                print("no output")
-            else:
-                with open(cov_json, encoding="utf-8") as f:
-                    data = json.load(f)
-                totals = data.get("totals", {})
-                stmts  = totals.get("num_statements",   0)
-                clines = totals.get("covered_lines",    0)
-                brans  = totals.get("num_branches",     0)
-                cbrans = totals.get("covered_branches", 0)
+            # 3. 导出 JSON 报告
+            subprocess.run(
+                [
+                    sys.executable, "-m", "coverage", "json",
+                    f"--data-file={cov_data_file}",
+                    "-o", cov_json,
+                ],
+                capture_output=True, text=True, timeout=30,
+            )
 
+            if not os.path.exists(cov_json):
                 out["coverage"] = {
-                    "line_rate":        round(clines / stmts,  4) if stmts else None,
-                    "branch_rate":      round(cbrans / brans,  4) if brans else None,
-                    "covered_lines":    clines,
-                    "num_statements":   stmts,
-                    "covered_branches": cbrans,
-                    "num_branches":     brans,
+                    "line_rate": None, "branch_rate": None,
+                    "error": "no coverage output",
                 }
-                lr = out["coverage"]["line_rate"]
-                br = out["coverage"]["branch_rate"]
-                print(f"line={lr}  branch={br}")
+                print("no output")
+                results.append(out)
+                continue
+
+            with open(cov_json, encoding="utf-8") as f:
+                cov_data = json.load(f)
+
+            # 4. 找到对应文件的数据（先绝对路径匹配，再文件名兜底）
+            file_data = None
+            for fname, fdata in cov_data.get("files", {}).items():
+                if os.path.abspath(fname) == os.path.abspath(file_path):
+                    file_data = fdata
+                    break
+            if not file_data:
+                base = os.path.basename(file_path)
+                for fname, fdata in cov_data.get("files", {}).items():
+                    if os.path.basename(fname) == base:
+                        file_data = fdata
+                        break
+
+            if not file_data:
+                out["coverage"] = {
+                    "line_rate": None, "branch_rate": None,
+                    "error": "file not found in coverage report",
+                }
+                print("not in report")
+                results.append(out)
+                continue
+
+            # 5. 只统计函数行号范围内的行和分支
+            func_line_set  = set(range(start_line, end_line + 1))
+            executed_lines = set(file_data.get("executed_lines", []))
+            missing_lines  = set(file_data.get("missing_lines",  []))
+            func_all       = (executed_lines | missing_lines) & func_line_set
+            func_covered   = executed_lines & func_line_set
+
+            line_rate = (
+                len(func_covered) / len(func_all)
+                if func_all else None
+            )
+
+            exec_br      = file_data.get("executed_branches", [])
+            miss_br      = file_data.get("missing_branches",  [])
+            func_exec_br = [b for b in exec_br if start_line <= b[0] <= end_line]
+            func_miss_br = [b for b in miss_br if start_line <= b[0] <= end_line]
+            total_br     = len(func_exec_br) + len(func_miss_br)
+
+            branch_rate = (
+                len(func_exec_br) / total_br
+                if total_br else None
+            )
+
+            out["coverage"] = {
+                "line_rate":           round(line_rate,   4) if line_rate   is not None else None,
+                "branch_rate":         round(branch_rate, 4) if branch_rate is not None else None,
+                "covered_lines":       len(func_covered),
+                "total_func_lines":    len(func_all),
+                "covered_branches":    len(func_exec_br),
+                "total_func_branches": total_br,
+                "func_line_range":     [start_line, end_line],
+            }
+            lr = out["coverage"]["line_rate"]
+            br = out["coverage"]["branch_rate"]
+            print(f"line={lr}  branch={br}")
 
         except subprocess.TimeoutExpired:
-            out["coverage"] = {"line_rate": None, "branch_rate": None,
-                               "timeout": True}
+            out["coverage"] = {
+                "line_rate": None, "branch_rate": None,
+                "timeout": True,
+            }
             print("timeout")
         finally:
-            for p in [tmp_test, cov_json]:
+            for p in [tmp_test, cov_json, cov_data_file]:
                 if os.path.exists(p):
                     os.unlink(p)
 
@@ -530,6 +651,12 @@ def print_summary(results: list, metric: str):
             lr = safe_avg([r.get("coverage", {}).get("line_rate")   for r in recs])
             br = safe_avg([r.get("coverage", {}).get("branch_rate") for r in recs])
             print(f"  {s:<18} {fmt(lr):>12} {fmt(br):>12}")
+
+        no_branch_count = sum(
+            1 for r in recs
+            if r.get("coverage", {}).get("total_func_branches", 0) == 0
+        )
+        print(f"    (其中 {no_branch_count} 个函数无分支，分支覆盖率不适用)")
 
     if metric in ("mutation", "all", "merge"):
         print(f"\n{'策略':<20} {'变异得分':>12} {'平均killed':>12} {'平均survived':>14}")

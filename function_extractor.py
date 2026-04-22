@@ -219,12 +219,29 @@ def scan_file(
                     break
 
         # 应用筛选规则
+        # excluded, reason = is_excluded(node, source_lines)
+        # if excluded:
+        #     key = f"excluded_{reason.split('(')[0]}"
+        #     if key in stats:
+        #         stats[key] += 1
+        #     continue
+
+        # 将 reason 映射到正确的 stats key
+        REASON_TO_KEY = {
+            "constructor": "excluded_constructor",
+            "dunder_method": "excluded_dunder",
+            "pure_getter": "excluded_getter",  # 修复这里
+        }
+
         excluded, reason = is_excluded(node, source_lines)
         if excluded:
-            key = f"excluded_{reason.split('(')[0]}"
+            base = reason.split("(")[0]
+            key = REASON_TO_KEY.get(base, f"excluded_{base}")
             if key in stats:
                 stats[key] += 1
             continue
+
+
 
         # 提取源代码
         source = extract_source(source_lines, node)
