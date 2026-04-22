@@ -15,8 +15,8 @@ metrics_pipeline.py
 
   # 合并多个已有结果文件
   python metrics_pipeline.py --metric merge \
-      --merge_files results_complexity.json results_coverage.json results_mutation.json \
-      --output results_merged.json
+      --merge_files results_complexity.json results_coverage.json results_assertions.json \
+      --output metrics_results.json
 """
 
 import ast
