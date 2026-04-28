@@ -1,5 +1,12 @@
 """
 plot_results_v2.py  —  基于真实统计数据生成论文图表
+
+输出：
+  fig1_rq2_execution.pdf   RQ2 执行通过率（分组柱状图 + 折线趋势）
+  fig2_rq1_coverage.pdf    RQ1 覆盖率（并排柱状图 + 误差棒）
+  fig3_rq3_quality.pdf     RQ3 可读性指标（并排柱状图）
+  fig4_passk.pdf           Pass@1 vs Pass@3（分组柱状图）
+  fig5_summary.pdf         六指标汇总热力图
 """
 import matplotlib
 matplotlib.use("Agg")
