@@ -11,7 +11,6 @@ plot_results_v2.py  —  基于真实统计数据生成论文图表
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-import matplotlib.patches as mpatches
 import numpy as np
 
 plt.rcParams.update({
