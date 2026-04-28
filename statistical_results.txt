@@ -1,0 +1,182 @@
+=================================================================
+STATISTICAL ANALYSIS REPORT
+Bonferroni-adjusted threshold: p < 0.0083
+=================================================================
+
+─────────────────────────────────────────────────────────────────
+  RQ2_CORRECTNESS
+─────────────────────────────────────────────────────────────────
+
+  [compilation_rate]
+  Strategy           Mean   Median      IQR     n
+  ----------------------------------------------
+  CoT              0.9926   1.0000   0.0000   270
+  few_shot         1.0000   1.0000   0.0000   270
+  role_based       0.9889   1.0000   0.0000   270
+  zero_shot        0.9963   1.0000   0.0000   270
+
+  Shapiro-Wilk normality test:
+    CoT             W=0.0586  p=0.0000  non-normal
+    few_shot        W=1.0000  p=1.0000  normal
+    role_based      W=0.0788  p=0.0000  non-normal
+    zero_shot       W=0.0347  p=0.0000  non-normal
+
+  Kruskal-Wallis:  H=3.3489  p=0.3409  ns  not significant
+
+  Post-hoc Wilcoxon (Bonferroni-corrected):
+  Pair                                W    p_raw    p_adj       r effect     sig
+  ------------------------------------------------------------------------
+  CoT vs few_shot                  0.00   0.1573   0.9438  0.0074 negligible 
+  CoT vs role_based                6.00   0.6547   1.0000 -0.0037 negligible 
+  CoT vs zero_shot                 2.00   0.5637   1.0000  0.0037 negligible 
+  few_shot vs role_based           0.00   0.0833   0.4996 -0.0111 negligible 
+  few_shot vs zero_shot            0.00   0.3173   1.0000 -0.0037 negligible 
+  role_based vs zero_shot          2.50   0.3173   1.0000  0.0074 negligible 
+
+  [execution_pass_rate]
+  Strategy           Mean   Median      IQR     n
+  ----------------------------------------------
+  CoT              0.4474   0.4286   0.8000   270
+  few_shot         0.4969   0.6667   0.8987   270
+  role_based       0.3711   0.2929   0.7458   270
+  zero_shot        0.3659   0.2679   0.7143   270
+
+  Shapiro-Wilk normality test:
+    CoT             W=0.8621  p=0.0000  non-normal
+    few_shot        W=0.8030  p=0.0000  non-normal
+    role_based      W=0.8281  p=0.0000  non-normal
+    zero_shot       W=0.8290  p=0.0000  non-normal
+
+  Kruskal-Wallis:  H=23.2076  p=0.0  ***  SIGNIFICANT
+
+  Post-hoc Wilcoxon (Bonferroni-corrected):
+  Pair                                W    p_raw    p_adj       r effect     sig
+  ------------------------------------------------------------------------
+  CoT vs few_shot               9575.00   0.0553   0.3316  0.0702 negligible 
+  CoT vs role_based             8291.50   0.0139   0.0833 -0.1212 small      
+  CoT vs zero_shot              7868.50   0.0057   0.0343 -0.1261 small      *
+  few_shot vs role_based        6486.00   0.0000   0.0000 -0.1894 small      *
+  few_shot vs zero_shot         5947.00   0.0000   0.0000 -0.1934 small      *
+  role_based vs zero_shot       6175.50   0.9637   1.0000 -0.0049 negligible 
+
+  Pass@k:
+    CoT             Pass@1=0.6815  Pass@3=0.9685
+    few_shot        Pass@1=0.6556  Pass@3=0.9600
+    role_based      Pass@1=0.5926  Pass@3=0.9335
+    zero_shot       Pass@1=0.5926  Pass@3=0.9335
+
+─────────────────────────────────────────────────────────────────
+  RQ1_COVERAGE
+─────────────────────────────────────────────────────────────────
+
+  [line_coverage]
+  Strategy           Mean   Median      IQR     n
+  ----------------------------------------------
+  CoT              0.3637   0.1667   0.8069    72
+  few_shot         0.5372   0.5000   0.9091    76
+  role_based       0.4190   0.1667   0.9000    71
+  zero_shot        0.4764   0.2000   0.9091    69
+
+  Shapiro-Wilk normality test:
+    CoT             W=0.7027  p=0.0000  non-normal
+    few_shot        W=0.7365  p=0.0000  non-normal
+    role_based      W=0.7245  p=0.0000  non-normal
+    zero_shot       W=0.7346  p=0.0000  non-normal
+
+  Kruskal-Wallis:  H=3.7316  p=0.2919  ns  not significant
+
+  Post-hoc Wilcoxon (Bonferroni-corrected):
+  Pair                                W    p_raw    p_adj       r effect     sig
+  ------------------------------------------------------------------------
+  CoT vs few_shot                477.00   0.0088   0.0529  0.1800 small      
+  CoT vs role_based              595.00   0.3918   1.0000  0.0813 negligible 
+  CoT vs zero_shot               329.50   0.0533   0.3199  0.1187 small      
+  few_shot vs role_based         363.50   0.0821   0.4926 -0.1137 small      
+  few_shot vs zero_shot          535.50   0.3247   1.0000 -0.0882 negligible 
+  role_based vs zero_shot        499.50   0.6541   1.0000  0.0204 negligible 
+
+  [branch_coverage]
+  Strategy           Mean   Median      IQR     n
+  ----------------------------------------------
+  CoT              0.2692   0.0000   0.8125    62
+  few_shot         0.4718   0.0000   1.0000    65
+  role_based       0.3217   0.0000   0.8750    61
+  zero_shot        0.4013   0.0000   1.0000    58
+
+  Shapiro-Wilk normality test:
+    CoT             W=0.5935  p=0.0000  non-normal
+    few_shot        W=0.6695  p=0.0000  non-normal
+    role_based      W=0.6490  p=0.0000  non-normal
+    zero_shot       W=0.6686  p=0.0000  non-normal
+
+  Kruskal-Wallis:  H=7.3582  p=0.0613  ns  not significant
+
+  Post-hoc Wilcoxon (Bonferroni-corrected):
+  Pair                                W    p_raw    p_adj       r effect     sig
+  ------------------------------------------------------------------------
+  CoT vs few_shot                 66.00   0.0061   0.0366  0.2318 small      *
+  CoT vs role_based              168.50   0.6134   1.0000  0.0615 negligible 
+  CoT vs zero_shot               125.00   0.1129   0.6773  0.1498 small      
+  few_shot vs role_based          97.50   0.0415   0.2489 -0.1607 small      
+  few_shot vs zero_shot          185.00   0.1995   1.0000 -0.1026 small      
+  role_based vs zero_shot        152.00   0.3594   1.0000  0.0862 negligible 
+
+  Note: 74 function-strategy pairs excluded (no conditional branches).
+
+─────────────────────────────────────────────────────────────────
+  RQ3_READABILITY
+─────────────────────────────────────────────────────────────────
+
+  [cyclomatic_complexity]
+  Strategy           Mean   Median      IQR     n
+  ----------------------------------------------
+  CoT              3.3238   2.5000   2.5350    79
+  few_shot         2.1129   2.0000   0.3125    80
+  role_based       3.3022   2.3600   1.6700    79
+  zero_shot        3.1242   2.3900   1.8150    80
+
+  Shapiro-Wilk normality test:
+    CoT             W=0.7879  p=0.0000  non-normal
+    few_shot        W=0.7965  p=0.0000  non-normal
+    role_based      W=0.5670  p=0.0000  non-normal
+    zero_shot       W=0.5545  p=0.0000  non-normal
+
+  Kruskal-Wallis:  H=15.5783  p=0.0014  **  SIGNIFICANT
+
+  Post-hoc Wilcoxon (Bonferroni-corrected):
+  Pair                                W    p_raw    p_adj       r effect     sig
+  ------------------------------------------------------------------------
+  CoT vs few_shot                636.50   0.0000   0.0001 -0.2778 small      *
+  CoT vs role_based             1275.00   0.4283   1.0000 -0.0301 negligible 
+  CoT vs zero_shot              1177.00   0.1903   1.0000 -0.0208 negligible 
+  few_shot vs role_based         679.50   0.0001   0.0005  0.3237 medium     *
+  few_shot vs zero_shot          593.50   0.0000   0.0000  0.2808 small      *
+  role_based vs zero_shot       1306.00   0.6606   1.0000 -0.0074 negligible 
+
+  [assertion_density]
+  Strategy           Mean   Median      IQR     n
+  ----------------------------------------------
+  CoT              2.3073   1.4300   2.5450    79
+  few_shot         1.1056   1.0000   0.3250    80
+  role_based       2.2910   1.3600   1.6800    79
+  zero_shot        2.1136   1.3900   1.8150    80
+
+  Shapiro-Wilk normality test:
+    CoT             W=0.7891  p=0.0000  non-normal
+    few_shot        W=0.7922  p=0.0000  non-normal
+    role_based      W=0.5664  p=0.0000  non-normal
+    zero_shot       W=0.5562  p=0.0000  non-normal
+
+  Kruskal-Wallis:  H=15.0955  p=0.0017  **  SIGNIFICANT
+
+  Post-hoc Wilcoxon (Bonferroni-corrected):
+  Pair                                W    p_raw    p_adj       r effect     sig
+  ------------------------------------------------------------------------
+  CoT vs few_shot                679.50   0.0000   0.0002 -0.2677 small      *
+  CoT vs role_based             1334.50   0.5059   1.0000 -0.0247 negligible 
+  CoT vs zero_shot              1180.50   0.1967   1.0000 -0.0141 negligible 
+  few_shot vs role_based         701.50   0.0001   0.0005  0.3157 medium     *
+  few_shot vs zero_shot          600.00   0.0000   0.0000  0.2867 small      *
+  role_based vs zero_shot       1312.50   0.6862   1.0000  0.0003 negligible 
+
+=================================================================
