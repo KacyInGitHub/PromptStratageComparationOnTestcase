@@ -1,0 +1,7275 @@
+[
+  {
+    "function_id": "requests.copy",
+    "unique_fid": "requests.copy.L384",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "copy",
+    "lineno": 384,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": null,
+      "covered_lines": 10,
+      "total_func_lines": 10,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        384,
+        393
+      ]
+    }
+  },
+  {
+    "function_id": "requests.path_url",
+    "unique_fid": "requests.path_url.L88",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "path_url",
+    "lineno": 88,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.0833,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 12,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        88,
+        106
+      ]
+    }
+  },
+  {
+    "function_id": "requests.close",
+    "unique_fid": "requests.close.L1030",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "close",
+    "lineno": 1030,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        1030,
+        1041
+      ]
+    }
+  },
+  {
+    "function_id": "requests.urldefragauth",
+    "unique_fid": "requests.urldefragauth.L1052",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "urldefragauth",
+    "lineno": 1052,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "requests.address_in_network",
+    "unique_fid": "requests.address_in_network.L670",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "address_in_network",
+    "lineno": 670,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": null,
+      "covered_lines": 6,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        669,
+        681
+      ]
+    }
+  },
+  {
+    "function_id": "requests.prepare",
+    "unique_fid": "requests.prepare.L353",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "prepare",
+    "lineno": 353,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.125,
+      "branch_rate": null,
+      "covered_lines": 1,
+      "total_func_lines": 8,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        353,
+        379
+      ]
+    }
+  },
+  {
+    "function_id": "requests.parse_list_header",
+    "unique_fid": "requests.parse_list_header.L363",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "parse_list_header",
+    "lineno": 363,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 7,
+      "total_func_lines": 7,
+      "covered_branches": 4,
+      "total_func_branches": 4,
+      "func_line_range": [
+        365,
+        393
+      ]
+    }
+  },
+  {
+    "function_id": "requests.deregister_hook",
+    "unique_fid": "requests.deregister_hook.L220",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "deregister_hook",
+    "lineno": 220,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": null,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        220,
+        229
+      ]
+    }
+  },
+  {
+    "function_id": "requests.is_ipv4_address",
+    "unique_fid": "requests.is_ipv4_address.L696",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "is_ipv4_address",
+    "lineno": 696,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": null,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        695,
+        703
+      ]
+    }
+  },
+  {
+    "function_id": "requests.from_key_val_list",
+    "unique_fid": "requests.from_key_val_list.L306",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "from_key_val_list",
+    "lineno": 306,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        308,
+        332
+      ]
+    }
+  },
+  {
+    "function_id": "requests.prepare_cookies",
+    "unique_fid": "requests.prepare_cookies.L612",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "prepare_cookies",
+    "lineno": 612,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "requests.prepare_content_length",
+    "unique_fid": "requests.prepare_content_length.L574",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "prepare_content_length",
+    "lineno": 574,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.1429,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 7,
+      "covered_branches": 0,
+      "total_func_branches": 6,
+      "func_line_range": [
+        574,
+        588
+      ]
+    }
+  },
+  {
+    "function_id": "requests.register_hook",
+    "unique_fid": "requests.register_hook.L209",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "register_hook",
+    "lineno": 209,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.1429,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 7,
+      "covered_branches": 0,
+      "total_func_branches": 6,
+      "func_line_range": [
+        209,
+        218
+      ]
+    }
+  },
+  {
+    "function_id": "requests.prepare_auth",
+    "unique_fid": "requests.prepare_auth.L590",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "prepare_auth",
+    "lineno": 590,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.1,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 10,
+      "covered_branches": 0,
+      "total_func_branches": 6,
+      "func_line_range": [
+        590,
+        610
+      ]
+    }
+  },
+  {
+    "function_id": "requests.raise_for_status",
+    "unique_fid": "requests.raise_for_status.L1001",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "raise_for_status",
+    "lineno": 1001,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.0714,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 14,
+      "covered_branches": 0,
+      "total_func_branches": 8,
+      "func_line_range": [
+        1001,
+        1028
+      ]
+    }
+  },
+  {
+    "function_id": "requests.to_key_val_list",
+    "unique_fid": "requests.to_key_val_list.L333",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "to_key_val_list",
+    "lineno": 333,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.125,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 8,
+      "covered_branches": 0,
+      "total_func_branches": 6,
+      "func_line_range": [
+        335,
+        361
+      ]
+    }
+  },
+  {
+    "function_id": "requests.is_valid_cidr",
+    "unique_fid": "requests.is_valid_cidr.L707",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "is_valid_cidr",
+    "lineno": 707,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.0714,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 14,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        706,
+        727
+      ]
+    }
+  },
+  {
+    "function_id": "requests._validate_header_part",
+    "unique_fid": "requests._validate_header_part.L1033",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "_validate_header_part",
+    "lineno": 1033,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 9,
+      "total_func_lines": 9,
+      "covered_branches": 6,
+      "total_func_branches": 6,
+      "func_line_range": [
+        1032,
+        1048
+      ]
+    }
+  },
+  {
+    "function_id": "requests.parse_header_links",
+    "unique_fid": "requests.parse_header_links.L902",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "parse_header_links",
+    "lineno": 902,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.75,
+      "branch_rate": 0.8333,
+      "covered_lines": 15,
+      "total_func_lines": 20,
+      "covered_branches": 5,
+      "total_func_branches": 6,
+      "func_line_range": [
+        901,
+        935
+      ]
+    }
+  },
+  {
+    "function_id": "requests.iter_slices",
+    "unique_fid": "requests.iter_slices.L569",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "iter_slices",
+    "lineno": 569,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.1429,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 7,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        568,
+        575
+      ]
+    }
+  },
+  {
+    "function_id": "requests.content",
+    "unique_fid": "requests.content.L893",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "content",
+    "lineno": 893,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.1111,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 9,
+      "covered_branches": 0,
+      "total_func_branches": 6,
+      "func_line_range": [
+        893,
+        909
+      ]
+    }
+  },
+  {
+    "function_id": "requests.resolve_proxies",
+    "unique_fid": "requests.resolve_proxies.L852",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "resolve_proxies",
+    "lineno": 852,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.9167,
+      "branch_rate": 0.75,
+      "covered_lines": 11,
+      "total_func_lines": 12,
+      "covered_branches": 3,
+      "total_func_branches": 4,
+      "func_line_range": [
+        851,
+        875
+      ]
+    }
+  },
+  {
+    "function_id": "requests.unquote_header_value",
+    "unique_fid": "requests.unquote_header_value.L430",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "unquote_header_value",
+    "lineno": 430,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 6,
+      "total_func_lines": 6,
+      "covered_branches": 4,
+      "total_func_branches": 4,
+      "func_line_range": [
+        432,
+        454
+      ]
+    }
+  },
+  {
+    "function_id": "requests.text",
+    "unique_fid": "requests.text.L912",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "text",
+    "lineno": 912,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.0833,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 12,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        912,
+        947
+      ]
+    }
+  },
+  {
+    "function_id": "requests.set_environ",
+    "unique_fid": "requests.set_environ.L732",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "set_environ",
+    "lineno": 732,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.0909,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 11,
+      "covered_branches": 0,
+      "total_func_branches": 6,
+      "func_line_range": [
+        731,
+        749
+      ]
+    }
+  },
+  {
+    "function_id": "requests.json",
+    "unique_fid": "requests.json.L949",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "json",
+    "lineno": 949,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "requests.extract_zipped_paths",
+    "unique_fid": "requests.extract_zipped_paths.L256",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "extract_zipped_paths",
+    "lineno": 256,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.05,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 20,
+      "covered_branches": 0,
+      "total_func_branches": 10,
+      "func_line_range": [
+        257,
+        292
+      ]
+    }
+  },
+  {
+    "function_id": "requests.generate",
+    "unique_fid": "requests.generate.L818",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "generate",
+    "lineno": 818,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.0,
+      "branch_rate": 0.0,
+      "covered_lines": 0,
+      "total_func_lines": 18,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        818,
+        839
+      ]
+    }
+  },
+  {
+    "function_id": "requests.proxy_bypass_registry",
+    "unique_fid": "requests.proxy_bypass_registry.L75",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "proxy_bypass_registry",
+    "lineno": 75,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "requests.get_netrc_auth",
+    "unique_fid": "requests.get_netrc_auth.L205",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "get_netrc_auth",
+    "lineno": 205,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.037,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 27,
+      "covered_branches": 0,
+      "total_func_branches": 12,
+      "func_line_range": [
+        206,
+        247
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._ordinal_number",
+    "unique_fid": "arrow._ordinal_number.L5849",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_ordinal_number",
+    "lineno": 5849,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        5847,
+        5853
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.strptime",
+    "unique_fid": "arrow.strptime.L353",
+    "project": "arrow",
+    "module": "arrow.py",
+    "name": "strptime",
+    "lineno": 353,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 5,
+      "total_func_lines": 5,
+      "covered_branches": 2,
+      "total_func_branches": 2,
+      "func_line_range": [
+        353,
+        385
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.now",
+    "unique_fid": "arrow.now.L182",
+    "project": "arrow",
+    "module": "arrow.py",
+    "name": "now",
+    "lineno": 182,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.2,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 5,
+      "covered_branches": 0,
+      "total_func_branches": 2,
+      "func_line_range": [
+        182,
+        210
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.get_locale_by_class_name",
+    "unique_fid": "arrow.get_locale_by_class_name.L63",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "get_locale_by_class_name",
+    "lineno": 63,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.2,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 5,
+      "covered_branches": 0,
+      "total_func_branches": 2,
+      "func_line_range": [
+        63,
+        75
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.get_locale",
+    "unique_fid": "arrow.get_locale.L46",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "get_locale",
+    "lineno": 46,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 2,
+      "func_line_range": [
+        46,
+        60
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_timeframe",
+    "unique_fid": "arrow._format_timeframe.L6091",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_timeframe",
+    "lineno": 6091,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.1,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 10,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        6089,
+        6106
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.to",
+    "unique_fid": "arrow.to.L1057",
+    "project": "arrow",
+    "module": "arrow.py",
+    "name": "to",
+    "lineno": 1057,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 0.5,
+      "covered_lines": 5,
+      "total_func_lines": 5,
+      "covered_branches": 1,
+      "total_func_branches": 2,
+      "func_line_range": [
+        1057,
+        1101
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.describe",
+    "unique_fid": "arrow.describe.L6483",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "describe",
+    "lineno": 6483,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.2,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 5,
+      "covered_branches": 0,
+      "total_func_branches": 2,
+      "func_line_range": [
+        6481,
+        6498
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_timeframe",
+    "unique_fid": "arrow._format_timeframe.L5300",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_timeframe",
+    "lineno": 5300,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.125,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 8,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        5298,
+        5307
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.fromdatetime",
+    "unique_fid": "arrow.fromdatetime.L302",
+    "project": "arrow",
+    "module": "arrow.py",
+    "name": "fromdatetime",
+    "lineno": 302,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 6,
+      "total_func_lines": 6,
+      "covered_branches": 4,
+      "total_func_branches": 4,
+      "func_line_range": [
+        302,
+        335
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.describe",
+    "unique_fid": "arrow.describe.L2111",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "describe",
+    "lineno": 2111,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.2,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 5,
+      "covered_branches": 0,
+      "total_func_branches": 2,
+      "func_line_range": [
+        2109,
+        2130
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_timeframe",
+    "unique_fid": "arrow._format_timeframe.L6464",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_timeframe",
+    "lineno": 6464,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.1,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 10,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        6462,
+        6479
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_timeframe",
+    "unique_fid": "arrow._format_timeframe.L3927",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_timeframe",
+    "lineno": 3927,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.1429,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 7,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        3925,
+        3934
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.utcfromtimestamp",
+    "unique_fid": "arrow.utcfromtimestamp.L276",
+    "project": "arrow",
+    "module": "arrow.py",
+    "name": "utcfromtimestamp",
+    "lineno": 276,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 6,
+      "total_func_lines": 6,
+      "covered_branches": 2,
+      "total_func_branches": 2,
+      "func_line_range": [
+        276,
+        299
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_timeframe",
+    "unique_fid": "arrow._format_timeframe.L5560",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_timeframe",
+    "lineno": 5560,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.125,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 8,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        5558,
+        5567
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.meridian",
+    "unique_fid": "arrow.meridian.L246",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "meridian",
+    "lineno": 246,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        246,
+        257
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_relative",
+    "unique_fid": "arrow._format_relative.L4199",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_relative",
+    "lineno": 4199,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.125,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 8,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        4197,
+        4213
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._parse_multiformat",
+    "unique_fid": "arrow._parse_multiformat.L830",
+    "project": "arrow",
+    "module": "parser.py",
+    "name": "_parse_multiformat",
+    "lineno": 830,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.0833,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 12,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        830,
+        861
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.fromtimestamp",
+    "unique_fid": "arrow.fromtimestamp.L239",
+    "project": "arrow",
+    "module": "arrow.py",
+    "name": "fromtimestamp",
+    "lineno": 239,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.1,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 10,
+      "covered_branches": 0,
+      "total_func_branches": 6,
+      "func_line_range": [
+        239,
+        273
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._ordinal_number",
+    "unique_fid": "arrow._ordinal_number.L4285",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_ordinal_number",
+    "lineno": 4285,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.0833,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 12,
+      "covered_branches": 0,
+      "total_func_branches": 10,
+      "func_line_range": [
+        4283,
+        4294
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.describe_multi",
+    "unique_fid": "arrow.describe_multi.L148",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "describe_multi",
+    "lineno": 148,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 0.875,
+      "covered_lines": 13,
+      "total_func_lines": 13,
+      "covered_branches": 7,
+      "total_func_branches": 8,
+      "func_line_range": [
+        148,
+        179
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_timeframe",
+    "unique_fid": "arrow._format_timeframe.L3606",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_timeframe",
+    "lineno": 3606,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.1,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 10,
+      "covered_branches": 0,
+      "total_func_branches": 6,
+      "func_line_range": [
+        3604,
+        3615
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.normalize_timestamp",
+    "unique_fid": "arrow.normalize_timestamp.L70",
+    "project": "arrow",
+    "module": "util.py",
+    "name": "normalize_timestamp",
+    "lineno": 70,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.125,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 8,
+      "covered_branches": 0,
+      "total_func_branches": 6,
+      "func_line_range": [
+        73,
+        82
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_relative",
+    "unique_fid": "arrow._format_relative.L4092",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_relative",
+    "lineno": 4092,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.125,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 8,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        4090,
+        4106
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_relative",
+    "unique_fid": "arrow._format_relative.L1241",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_relative",
+    "lineno": 1241,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.1,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 10,
+      "covered_branches": 0,
+      "total_func_branches": 8,
+      "func_line_range": [
+        1241,
+        1256
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._get_frames",
+    "unique_fid": "arrow._get_frames.L1852",
+    "project": "arrow",
+    "module": "arrow.py",
+    "name": "_get_frames",
+    "lineno": 1852,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.0909,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 11,
+      "covered_branches": 0,
+      "total_func_branches": 8,
+      "func_line_range": [
+        1850,
+        1880
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.is_timestamp",
+    "unique_fid": "arrow.is_timestamp.L45",
+    "project": "arrow",
+    "module": "util.py",
+    "name": "is_timestamp",
+    "lineno": 45,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.1,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 10,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        48,
+        58
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._get_tzinfo",
+    "unique_fid": "arrow._get_tzinfo.L1824",
+    "project": "arrow",
+    "module": "arrow.py",
+    "name": "_get_tzinfo",
+    "lineno": 1824,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.1111,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 9,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        1822,
+        1832
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.parse",
+    "unique_fid": "arrow.parse.L895",
+    "project": "arrow",
+    "module": "parser.py",
+    "name": "parse",
+    "lineno": 895,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.05,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 20,
+      "covered_branches": 0,
+      "total_func_branches": 10,
+      "func_line_range": [
+        895,
+        937
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_timeframe",
+    "unique_fid": "arrow._format_timeframe.L3427",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_timeframe",
+    "lineno": 3427,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.0625,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 16,
+      "covered_branches": 0,
+      "total_func_branches": 10,
+      "func_line_range": [
+        3425,
+        3449
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.triplewise",
+    "unique_fid": "more_itertools.triplewise.L762",
+    "project": "more_itertools",
+    "module": "recipes.py",
+    "name": "triplewise",
+    "lineno": 762,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "more_itertools.split_into",
+    "unique_fid": "more_itertools.split_into.L1709",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "split_into",
+    "lineno": 1709,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.1429,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 7,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        1706,
+        1748
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.first",
+    "unique_fid": "more_itertools.first.L245",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "first",
+    "lineno": 245,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        245,
+        269
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.circular_shifts",
+    "unique_fid": "more_itertools.circular_shifts.L3136",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "circular_shifts",
+    "lineno": 3136,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.0909,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 11,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        3138,
+        3165
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.consecutive_groups",
+    "unique_fid": "more_itertools.consecutive_groups.L2778",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "consecutive_groups",
+    "lineno": 2778,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        2780,
+        2827
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.rstrip",
+    "unique_fid": "more_itertools.rstrip.L2563",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "rstrip",
+    "lineno": 2563,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.1,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 10,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        2565,
+        2588
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.repeat_last",
+    "unique_fid": "more_itertools.repeat_last.L1808",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "repeat_last",
+    "lineno": 1808,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 6,
+      "total_func_lines": 6,
+      "covered_branches": 2,
+      "total_func_branches": 2,
+      "func_line_range": [
+        1805,
+        1821
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.sliced",
+    "unique_fid": "more_itertools.sliced.L1513",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "sliced",
+    "lineno": 1513,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 0.8333,
+      "covered_lines": 10,
+      "total_func_lines": 10,
+      "covered_branches": 5,
+      "total_func_branches": 6,
+      "func_line_range": [
+        1510,
+        1541
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.roundrobin",
+    "unique_fid": "more_itertools.roundrobin.L372",
+    "project": "more_itertools",
+    "module": "recipes.py",
+    "name": "roundrobin",
+    "lineno": 372,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "more_itertools.substrings",
+    "unique_fid": "more_itertools.substrings.L1071",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "substrings",
+    "lineno": 1071,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 6,
+      "total_func_lines": 6,
+      "covered_branches": 2,
+      "total_func_branches": 2,
+      "func_line_range": [
+        1068,
+        1087
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.random_combination",
+    "unique_fid": "more_itertools.random_combination.L618",
+    "project": "more_itertools",
+    "module": "recipes.py",
+    "name": "random_combination",
+    "lineno": 618,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.2,
+      "branch_rate": null,
+      "covered_lines": 1,
+      "total_func_lines": 5,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        628,
+        641
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.decorator",
+    "unique_fid": "more_itertools.decorator.L3217",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "decorator",
+    "lineno": 3217,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.0,
+      "branch_rate": null,
+      "covered_lines": 0,
+      "total_func_lines": 9,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        3219,
+        3229
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.substrings_indexes",
+    "unique_fid": "more_itertools.substrings_indexes.L1093",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "substrings_indexes",
+    "lineno": 1093,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 5,
+      "total_func_lines": 5,
+      "covered_branches": 2,
+      "total_func_branches": 2,
+      "func_line_range": [
+        1090,
+        1121
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.unique_to_each",
+    "unique_fid": "more_itertools.unique_to_each.L980",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "unique_to_each",
+    "lineno": 980,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.2,
+      "branch_rate": null,
+      "covered_lines": 1,
+      "total_func_lines": 5,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        980,
+        1010
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.split_at",
+    "unique_fid": "more_itertools.split_at.L1547",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "split_at",
+    "lineno": 1547,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.8889,
+      "branch_rate": 0.9,
+      "covered_lines": 16,
+      "total_func_lines": 18,
+      "covered_branches": 9,
+      "total_func_branches": 10,
+      "func_line_range": [
+        1544,
+        1585
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.exactly_n",
+    "unique_fid": "more_itertools.exactly_n.L3105",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "exactly_n",
+    "lineno": 3105,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.0714,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 14,
+      "covered_branches": 0,
+      "total_func_branches": 10,
+      "func_line_range": [
+        3107,
+        3135
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.rlocate",
+    "unique_fid": "more_itertools.rlocate.L3312",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "rlocate",
+    "lineno": 3312,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 8,
+      "total_func_lines": 8,
+      "covered_branches": 2,
+      "total_func_branches": 2,
+      "func_line_range": [
+        3314,
+        3354
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.idft",
+    "unique_fid": "more_itertools.idft.L5126",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "idft",
+    "lineno": 5126,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 6,
+      "total_func_lines": 6,
+      "covered_branches": 2,
+      "total_func_branches": 2,
+      "func_line_range": [
+        5140,
+        5161
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.peek",
+    "unique_fid": "more_itertools.peek.L390",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "peek",
+    "lineno": 390,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.1111,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 9,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        390,
+        404
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.random_derangement",
+    "unique_fid": "more_itertools.random_derangement.L1426",
+    "project": "more_itertools",
+    "module": "recipes.py",
+    "name": "random_derangement",
+    "lineno": 1426,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.0833,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 12,
+      "covered_branches": 0,
+      "total_func_branches": 6,
+      "func_line_range": [
+        1583,
+        1599
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools._extract_buffered",
+    "unique_fid": "more_itertools._extract_buffered.L5291",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "_extract_buffered",
+    "lineno": 5291,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.0625,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 16,
+      "covered_branches": 0,
+      "total_func_branches": 6,
+      "func_line_range": [
+        5305,
+        5324
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.count_cycle",
+    "unique_fid": "more_itertools.count_cycle.L2439",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "count_cycle",
+    "lineno": 2439,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "timeout": true
+    }
+  },
+  {
+    "function_id": "more_itertools.is_scalar",
+    "unique_fid": "more_itertools.is_scalar.L4595",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "is_scalar",
+    "lineno": 4595,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.0,
+      "branch_rate": 0.0,
+      "covered_lines": 0,
+      "total_func_lines": 8,
+      "covered_branches": 0,
+      "total_func_branches": 2,
+      "func_line_range": [
+        4609,
+        4617
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.index",
+    "unique_fid": "more_itertools.index.L2417",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "index",
+    "lineno": 2417,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.0909,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 11,
+      "covered_branches": 0,
+      "total_func_branches": 10,
+      "func_line_range": [
+        2414,
+        2426
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.set_partitions_helper",
+    "unique_fid": "more_itertools.set_partitions_helper.L3490",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "set_partitions_helper",
+    "lineno": 3490,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.0,
+      "branch_rate": 0.0,
+      "covered_lines": 0,
+      "total_func_lines": 12,
+      "covered_branches": 0,
+      "total_func_branches": 10,
+      "func_line_range": [
+        3499,
+        3511
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools._extract_monotonic",
+    "unique_fid": "more_itertools._extract_monotonic.L5274",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "_extract_monotonic",
+    "lineno": 5274,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.0769,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 13,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        5288,
+        5302
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.value_chain",
+    "unique_fid": "more_itertools.value_chain.L4303",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "value_chain",
+    "lineno": 4303,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 10,
+      "total_func_lines": 10,
+      "covered_branches": 4,
+      "total_func_branches": 4,
+      "func_line_range": [
+        4317,
+        4349
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.combination_index",
+    "unique_fid": "more_itertools.combination_index.L4368",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "combination_index",
+    "lineno": 4368,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.0455,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 22,
+      "covered_branches": 0,
+      "total_func_branches": 12,
+      "func_line_range": [
+        4382,
+        4421
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools._get_slice",
+    "unique_fid": "more_itertools._get_slice.L443",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "_get_slice",
+    "lineno": 443,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": 0.0625,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 16,
+      "covered_branches": 0,
+      "total_func_branches": 8,
+      "func_line_range": [
+        443,
+        467
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools._reader",
+    "unique_fid": "more_itertools._reader.L4074",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "_reader",
+    "lineno": 4074,
+    "strategy": "CoT",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "requests.copy",
+    "unique_fid": "requests.copy.L384",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "copy",
+    "lineno": 384,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": null,
+      "covered_lines": 10,
+      "total_func_lines": 10,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        384,
+        393
+      ]
+    }
+  },
+  {
+    "function_id": "requests.path_url",
+    "unique_fid": "requests.path_url.L88",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "path_url",
+    "lineno": 88,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.0833,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 12,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        88,
+        106
+      ]
+    }
+  },
+  {
+    "function_id": "requests.close",
+    "unique_fid": "requests.close.L1030",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "close",
+    "lineno": 1030,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        1030,
+        1041
+      ]
+    }
+  },
+  {
+    "function_id": "requests.urldefragauth",
+    "unique_fid": "requests.urldefragauth.L1052",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "urldefragauth",
+    "lineno": 1052,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 2,
+      "func_line_range": [
+        1051,
+        1065
+      ]
+    }
+  },
+  {
+    "function_id": "requests.address_in_network",
+    "unique_fid": "requests.address_in_network.L670",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "address_in_network",
+    "lineno": 670,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": null,
+      "covered_lines": 6,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        669,
+        681
+      ]
+    }
+  },
+  {
+    "function_id": "requests.prepare",
+    "unique_fid": "requests.prepare.L353",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "prepare",
+    "lineno": 353,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.125,
+      "branch_rate": null,
+      "covered_lines": 1,
+      "total_func_lines": 8,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        353,
+        379
+      ]
+    }
+  },
+  {
+    "function_id": "requests.parse_list_header",
+    "unique_fid": "requests.parse_list_header.L363",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "parse_list_header",
+    "lineno": 363,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 7,
+      "total_func_lines": 7,
+      "covered_branches": 4,
+      "total_func_branches": 4,
+      "func_line_range": [
+        365,
+        393
+      ]
+    }
+  },
+  {
+    "function_id": "requests.deregister_hook",
+    "unique_fid": "requests.deregister_hook.L220",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "deregister_hook",
+    "lineno": 220,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": null,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        220,
+        229
+      ]
+    }
+  },
+  {
+    "function_id": "requests.is_ipv4_address",
+    "unique_fid": "requests.is_ipv4_address.L696",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "is_ipv4_address",
+    "lineno": 696,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": null,
+      "covered_lines": 6,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        695,
+        703
+      ]
+    }
+  },
+  {
+    "function_id": "requests.from_key_val_list",
+    "unique_fid": "requests.from_key_val_list.L306",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "from_key_val_list",
+    "lineno": 306,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        308,
+        332
+      ]
+    }
+  },
+  {
+    "function_id": "requests.prepare_cookies",
+    "unique_fid": "requests.prepare_cookies.L612",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "prepare_cookies",
+    "lineno": 612,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "requests.prepare_content_length",
+    "unique_fid": "requests.prepare_content_length.L574",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "prepare_content_length",
+    "lineno": 574,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.1429,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 7,
+      "covered_branches": 0,
+      "total_func_branches": 6,
+      "func_line_range": [
+        574,
+        588
+      ]
+    }
+  },
+  {
+    "function_id": "requests.register_hook",
+    "unique_fid": "requests.register_hook.L209",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "register_hook",
+    "lineno": 209,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.1429,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 7,
+      "covered_branches": 0,
+      "total_func_branches": 6,
+      "func_line_range": [
+        209,
+        218
+      ]
+    }
+  },
+  {
+    "function_id": "requests.prepare_auth",
+    "unique_fid": "requests.prepare_auth.L590",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "prepare_auth",
+    "lineno": 590,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.8,
+      "branch_rate": 1.0,
+      "covered_lines": 8,
+      "total_func_lines": 10,
+      "covered_branches": 6,
+      "total_func_branches": 6,
+      "func_line_range": [
+        590,
+        610
+      ]
+    }
+  },
+  {
+    "function_id": "requests.raise_for_status",
+    "unique_fid": "requests.raise_for_status.L1001",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "raise_for_status",
+    "lineno": 1001,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.0714,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 14,
+      "covered_branches": 0,
+      "total_func_branches": 8,
+      "func_line_range": [
+        1001,
+        1028
+      ]
+    }
+  },
+  {
+    "function_id": "requests.to_key_val_list",
+    "unique_fid": "requests.to_key_val_list.L333",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "to_key_val_list",
+    "lineno": 333,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "requests.is_valid_cidr",
+    "unique_fid": "requests.is_valid_cidr.L707",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "is_valid_cidr",
+    "lineno": 707,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 14,
+      "total_func_lines": 14,
+      "covered_branches": 4,
+      "total_func_branches": 4,
+      "func_line_range": [
+        706,
+        727
+      ]
+    }
+  },
+  {
+    "function_id": "requests._validate_header_part",
+    "unique_fid": "requests._validate_header_part.L1033",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "_validate_header_part",
+    "lineno": 1033,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 9,
+      "total_func_lines": 9,
+      "covered_branches": 6,
+      "total_func_branches": 6,
+      "func_line_range": [
+        1032,
+        1048
+      ]
+    }
+  },
+  {
+    "function_id": "requests.parse_header_links",
+    "unique_fid": "requests.parse_header_links.L902",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "parse_header_links",
+    "lineno": 902,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 20,
+      "total_func_lines": 20,
+      "covered_branches": 6,
+      "total_func_branches": 6,
+      "func_line_range": [
+        901,
+        935
+      ]
+    }
+  },
+  {
+    "function_id": "requests.iter_slices",
+    "unique_fid": "requests.iter_slices.L569",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "iter_slices",
+    "lineno": 569,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 7,
+      "total_func_lines": 7,
+      "covered_branches": 4,
+      "total_func_branches": 4,
+      "func_line_range": [
+        568,
+        575
+      ]
+    }
+  },
+  {
+    "function_id": "requests.content",
+    "unique_fid": "requests.content.L893",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "content",
+    "lineno": 893,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.1111,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 9,
+      "covered_branches": 0,
+      "total_func_branches": 6,
+      "func_line_range": [
+        893,
+        909
+      ]
+    }
+  },
+  {
+    "function_id": "requests.resolve_proxies",
+    "unique_fid": "requests.resolve_proxies.L852",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "resolve_proxies",
+    "lineno": 852,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.9167,
+      "branch_rate": 0.75,
+      "covered_lines": 11,
+      "total_func_lines": 12,
+      "covered_branches": 3,
+      "total_func_branches": 4,
+      "func_line_range": [
+        851,
+        875
+      ]
+    }
+  },
+  {
+    "function_id": "requests.unquote_header_value",
+    "unique_fid": "requests.unquote_header_value.L430",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "unquote_header_value",
+    "lineno": 430,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 6,
+      "total_func_lines": 6,
+      "covered_branches": 4,
+      "total_func_branches": 4,
+      "func_line_range": [
+        432,
+        454
+      ]
+    }
+  },
+  {
+    "function_id": "requests.text",
+    "unique_fid": "requests.text.L912",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "text",
+    "lineno": 912,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.0833,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 12,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        912,
+        947
+      ]
+    }
+  },
+  {
+    "function_id": "requests.set_environ",
+    "unique_fid": "requests.set_environ.L732",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "set_environ",
+    "lineno": 732,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.0909,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 11,
+      "covered_branches": 0,
+      "total_func_branches": 6,
+      "func_line_range": [
+        731,
+        749
+      ]
+    }
+  },
+  {
+    "function_id": "requests.json",
+    "unique_fid": "requests.json.L949",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "json",
+    "lineno": 949,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.0714,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 14,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        949,
+        982
+      ]
+    }
+  },
+  {
+    "function_id": "requests.extract_zipped_paths",
+    "unique_fid": "requests.extract_zipped_paths.L256",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "extract_zipped_paths",
+    "lineno": 256,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.05,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 20,
+      "covered_branches": 0,
+      "total_func_branches": 10,
+      "func_line_range": [
+        257,
+        292
+      ]
+    }
+  },
+  {
+    "function_id": "requests.generate",
+    "unique_fid": "requests.generate.L818",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "generate",
+    "lineno": 818,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.0,
+      "branch_rate": 0.0,
+      "covered_lines": 0,
+      "total_func_lines": 18,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        818,
+        839
+      ]
+    }
+  },
+  {
+    "function_id": "requests.proxy_bypass_registry",
+    "unique_fid": "requests.proxy_bypass_registry.L75",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "proxy_bypass_registry",
+    "lineno": 75,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.0,
+      "branch_rate": 0.0,
+      "covered_lines": 0,
+      "total_func_lines": 25,
+      "covered_branches": 0,
+      "total_func_branches": 10,
+      "func_line_range": [
+        76,
+        112
+      ]
+    }
+  },
+  {
+    "function_id": "requests.get_netrc_auth",
+    "unique_fid": "requests.get_netrc_auth.L205",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "get_netrc_auth",
+    "lineno": 205,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.037,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 27,
+      "covered_branches": 0,
+      "total_func_branches": 12,
+      "func_line_range": [
+        206,
+        247
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._ordinal_number",
+    "unique_fid": "arrow._ordinal_number.L5849",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_ordinal_number",
+    "lineno": 5849,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        5847,
+        5853
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.strptime",
+    "unique_fid": "arrow.strptime.L353",
+    "project": "arrow",
+    "module": "arrow.py",
+    "name": "strptime",
+    "lineno": 353,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 5,
+      "total_func_lines": 5,
+      "covered_branches": 2,
+      "total_func_branches": 2,
+      "func_line_range": [
+        353,
+        385
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.now",
+    "unique_fid": "arrow.now.L182",
+    "project": "arrow",
+    "module": "arrow.py",
+    "name": "now",
+    "lineno": 182,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 5,
+      "total_func_lines": 5,
+      "covered_branches": 2,
+      "total_func_branches": 2,
+      "func_line_range": [
+        182,
+        210
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.get_locale_by_class_name",
+    "unique_fid": "arrow.get_locale_by_class_name.L63",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "get_locale_by_class_name",
+    "lineno": 63,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.8,
+      "branch_rate": 0.5,
+      "covered_lines": 4,
+      "total_func_lines": 5,
+      "covered_branches": 1,
+      "total_func_branches": 2,
+      "func_line_range": [
+        63,
+        75
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.get_locale",
+    "unique_fid": "arrow.get_locale.L46",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "get_locale",
+    "lineno": 46,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 2,
+      "func_line_range": [
+        46,
+        60
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_timeframe",
+    "unique_fid": "arrow._format_timeframe.L6091",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_timeframe",
+    "lineno": 6091,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.1,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 10,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        6089,
+        6106
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.to",
+    "unique_fid": "arrow.to.L1057",
+    "project": "arrow",
+    "module": "arrow.py",
+    "name": "to",
+    "lineno": 1057,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 5,
+      "total_func_lines": 5,
+      "covered_branches": 2,
+      "total_func_branches": 2,
+      "func_line_range": [
+        1057,
+        1101
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.describe",
+    "unique_fid": "arrow.describe.L6483",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "describe",
+    "lineno": 6483,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.2,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 5,
+      "covered_branches": 0,
+      "total_func_branches": 2,
+      "func_line_range": [
+        6481,
+        6498
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_timeframe",
+    "unique_fid": "arrow._format_timeframe.L5300",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_timeframe",
+    "lineno": 5300,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.125,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 8,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        5298,
+        5307
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.fromdatetime",
+    "unique_fid": "arrow.fromdatetime.L302",
+    "project": "arrow",
+    "module": "arrow.py",
+    "name": "fromdatetime",
+    "lineno": 302,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 6,
+      "total_func_lines": 6,
+      "covered_branches": 4,
+      "total_func_branches": 4,
+      "func_line_range": [
+        302,
+        335
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.describe",
+    "unique_fid": "arrow.describe.L2111",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "describe",
+    "lineno": 2111,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.2,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 5,
+      "covered_branches": 0,
+      "total_func_branches": 2,
+      "func_line_range": [
+        2109,
+        2130
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_timeframe",
+    "unique_fid": "arrow._format_timeframe.L6464",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_timeframe",
+    "lineno": 6464,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.1,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 10,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        6462,
+        6479
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_timeframe",
+    "unique_fid": "arrow._format_timeframe.L3927",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_timeframe",
+    "lineno": 3927,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.1429,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 7,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        3925,
+        3934
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.utcfromtimestamp",
+    "unique_fid": "arrow.utcfromtimestamp.L276",
+    "project": "arrow",
+    "module": "arrow.py",
+    "name": "utcfromtimestamp",
+    "lineno": 276,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 6,
+      "total_func_lines": 6,
+      "covered_branches": 2,
+      "total_func_branches": 2,
+      "func_line_range": [
+        276,
+        299
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_timeframe",
+    "unique_fid": "arrow._format_timeframe.L5560",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_timeframe",
+    "lineno": 5560,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.125,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 8,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        5558,
+        5567
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.meridian",
+    "unique_fid": "arrow.meridian.L246",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "meridian",
+    "lineno": 246,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        246,
+        257
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_relative",
+    "unique_fid": "arrow._format_relative.L4199",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_relative",
+    "lineno": 4199,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.125,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 8,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        4197,
+        4213
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._parse_multiformat",
+    "unique_fid": "arrow._parse_multiformat.L830",
+    "project": "arrow",
+    "module": "parser.py",
+    "name": "_parse_multiformat",
+    "lineno": 830,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.8333,
+      "branch_rate": 0.75,
+      "covered_lines": 10,
+      "total_func_lines": 12,
+      "covered_branches": 3,
+      "total_func_branches": 4,
+      "func_line_range": [
+        830,
+        861
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.fromtimestamp",
+    "unique_fid": "arrow.fromtimestamp.L239",
+    "project": "arrow",
+    "module": "arrow.py",
+    "name": "fromtimestamp",
+    "lineno": 239,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.9,
+      "branch_rate": 0.8333,
+      "covered_lines": 9,
+      "total_func_lines": 10,
+      "covered_branches": 5,
+      "total_func_branches": 6,
+      "func_line_range": [
+        239,
+        273
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._ordinal_number",
+    "unique_fid": "arrow._ordinal_number.L4285",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_ordinal_number",
+    "lineno": 4285,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.0833,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 12,
+      "covered_branches": 0,
+      "total_func_branches": 10,
+      "func_line_range": [
+        4283,
+        4294
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.describe_multi",
+    "unique_fid": "arrow.describe_multi.L148",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "describe_multi",
+    "lineno": 148,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.0769,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 13,
+      "covered_branches": 0,
+      "total_func_branches": 8,
+      "func_line_range": [
+        148,
+        179
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_timeframe",
+    "unique_fid": "arrow._format_timeframe.L3606",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_timeframe",
+    "lineno": 3606,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.1,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 10,
+      "covered_branches": 0,
+      "total_func_branches": 6,
+      "func_line_range": [
+        3604,
+        3615
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.normalize_timestamp",
+    "unique_fid": "arrow.normalize_timestamp.L70",
+    "project": "arrow",
+    "module": "util.py",
+    "name": "normalize_timestamp",
+    "lineno": 70,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.875,
+      "branch_rate": 0.8333,
+      "covered_lines": 7,
+      "total_func_lines": 8,
+      "covered_branches": 5,
+      "total_func_branches": 6,
+      "func_line_range": [
+        73,
+        82
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_relative",
+    "unique_fid": "arrow._format_relative.L4092",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_relative",
+    "lineno": 4092,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.125,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 8,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        4090,
+        4106
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_relative",
+    "unique_fid": "arrow._format_relative.L1241",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_relative",
+    "lineno": 1241,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.1,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 10,
+      "covered_branches": 0,
+      "total_func_branches": 8,
+      "func_line_range": [
+        1241,
+        1256
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._get_frames",
+    "unique_fid": "arrow._get_frames.L1852",
+    "project": "arrow",
+    "module": "arrow.py",
+    "name": "_get_frames",
+    "lineno": 1852,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.0909,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 11,
+      "covered_branches": 0,
+      "total_func_branches": 8,
+      "func_line_range": [
+        1850,
+        1880
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.is_timestamp",
+    "unique_fid": "arrow.is_timestamp.L45",
+    "project": "arrow",
+    "module": "util.py",
+    "name": "is_timestamp",
+    "lineno": 45,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 10,
+      "total_func_lines": 10,
+      "covered_branches": 4,
+      "total_func_branches": 4,
+      "func_line_range": [
+        48,
+        58
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._get_tzinfo",
+    "unique_fid": "arrow._get_tzinfo.L1824",
+    "project": "arrow",
+    "module": "arrow.py",
+    "name": "_get_tzinfo",
+    "lineno": 1824,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.1111,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 9,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        1822,
+        1832
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.parse",
+    "unique_fid": "arrow.parse.L895",
+    "project": "arrow",
+    "module": "parser.py",
+    "name": "parse",
+    "lineno": 895,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.05,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 20,
+      "covered_branches": 0,
+      "total_func_branches": 10,
+      "func_line_range": [
+        895,
+        937
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_timeframe",
+    "unique_fid": "arrow._format_timeframe.L3427",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_timeframe",
+    "lineno": 3427,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.0625,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 16,
+      "covered_branches": 0,
+      "total_func_branches": 10,
+      "func_line_range": [
+        3425,
+        3449
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.triplewise",
+    "unique_fid": "more_itertools.triplewise.L762",
+    "project": "more_itertools",
+    "module": "recipes.py",
+    "name": "triplewise",
+    "lineno": 762,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": null,
+      "covered_lines": 6,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        772,
+        785
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.split_into",
+    "unique_fid": "more_itertools.split_into.L1709",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "split_into",
+    "lineno": 1709,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.1429,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 7,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        1706,
+        1748
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.first",
+    "unique_fid": "more_itertools.first.L245",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "first",
+    "lineno": 245,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 6,
+      "total_func_lines": 6,
+      "covered_branches": 4,
+      "total_func_branches": 4,
+      "func_line_range": [
+        245,
+        269
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.circular_shifts",
+    "unique_fid": "more_itertools.circular_shifts.L3136",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "circular_shifts",
+    "lineno": 3136,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.0909,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 11,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        3138,
+        3165
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.consecutive_groups",
+    "unique_fid": "more_itertools.consecutive_groups.L2778",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "consecutive_groups",
+    "lineno": 2778,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        2780,
+        2827
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.rstrip",
+    "unique_fid": "more_itertools.rstrip.L2563",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "rstrip",
+    "lineno": 2563,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 10,
+      "total_func_lines": 10,
+      "covered_branches": 4,
+      "total_func_branches": 4,
+      "func_line_range": [
+        2565,
+        2588
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.repeat_last",
+    "unique_fid": "more_itertools.repeat_last.L1808",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "repeat_last",
+    "lineno": 1808,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 6,
+      "total_func_lines": 6,
+      "covered_branches": 2,
+      "total_func_branches": 2,
+      "func_line_range": [
+        1805,
+        1821
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.sliced",
+    "unique_fid": "more_itertools.sliced.L1513",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "sliced",
+    "lineno": 1513,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 10,
+      "total_func_lines": 10,
+      "covered_branches": 6,
+      "total_func_branches": 6,
+      "func_line_range": [
+        1510,
+        1541
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.roundrobin",
+    "unique_fid": "more_itertools.roundrobin.L372",
+    "project": "more_itertools",
+    "module": "recipes.py",
+    "name": "roundrobin",
+    "lineno": 372,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 5,
+      "total_func_lines": 5,
+      "covered_branches": 2,
+      "total_func_branches": 2,
+      "func_line_range": [
+        391,
+        406
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.substrings",
+    "unique_fid": "more_itertools.substrings.L1071",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "substrings",
+    "lineno": 1071,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 6,
+      "total_func_lines": 6,
+      "covered_branches": 2,
+      "total_func_branches": 2,
+      "func_line_range": [
+        1068,
+        1087
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.random_combination",
+    "unique_fid": "more_itertools.random_combination.L618",
+    "project": "more_itertools",
+    "module": "recipes.py",
+    "name": "random_combination",
+    "lineno": 618,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": null,
+      "covered_lines": 5,
+      "total_func_lines": 5,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        628,
+        641
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.decorator",
+    "unique_fid": "more_itertools.decorator.L3217",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "decorator",
+    "lineno": 3217,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.0,
+      "branch_rate": null,
+      "covered_lines": 0,
+      "total_func_lines": 9,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        3219,
+        3229
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.substrings_indexes",
+    "unique_fid": "more_itertools.substrings_indexes.L1093",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "substrings_indexes",
+    "lineno": 1093,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 5,
+      "total_func_lines": 5,
+      "covered_branches": 2,
+      "total_func_branches": 2,
+      "func_line_range": [
+        1090,
+        1121
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.unique_to_each",
+    "unique_fid": "more_itertools.unique_to_each.L980",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "unique_to_each",
+    "lineno": 980,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.2,
+      "branch_rate": null,
+      "covered_lines": 1,
+      "total_func_lines": 5,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        980,
+        1010
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.split_at",
+    "unique_fid": "more_itertools.split_at.L1547",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "split_at",
+    "lineno": 1547,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 18,
+      "total_func_lines": 18,
+      "covered_branches": 10,
+      "total_func_branches": 10,
+      "func_line_range": [
+        1544,
+        1585
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.exactly_n",
+    "unique_fid": "more_itertools.exactly_n.L3105",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "exactly_n",
+    "lineno": 3105,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 14,
+      "total_func_lines": 14,
+      "covered_branches": 10,
+      "total_func_branches": 10,
+      "func_line_range": [
+        3107,
+        3135
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.rlocate",
+    "unique_fid": "more_itertools.rlocate.L3312",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "rlocate",
+    "lineno": 3312,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "timeout": true
+    }
+  },
+  {
+    "function_id": "more_itertools.idft",
+    "unique_fid": "more_itertools.idft.L5126",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "idft",
+    "lineno": 5126,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 6,
+      "total_func_lines": 6,
+      "covered_branches": 2,
+      "total_func_branches": 2,
+      "func_line_range": [
+        5140,
+        5161
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.peek",
+    "unique_fid": "more_itertools.peek.L390",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "peek",
+    "lineno": 390,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.1111,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 9,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        390,
+        404
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.random_derangement",
+    "unique_fid": "more_itertools.random_derangement.L1426",
+    "project": "more_itertools",
+    "module": "recipes.py",
+    "name": "random_derangement",
+    "lineno": 1426,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 12,
+      "total_func_lines": 12,
+      "covered_branches": 6,
+      "total_func_branches": 6,
+      "func_line_range": [
+        1583,
+        1599
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools._extract_buffered",
+    "unique_fid": "more_itertools._extract_buffered.L5291",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "_extract_buffered",
+    "lineno": 5291,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.0625,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 16,
+      "covered_branches": 0,
+      "total_func_branches": 6,
+      "func_line_range": [
+        5305,
+        5324
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.count_cycle",
+    "unique_fid": "more_itertools.count_cycle.L2439",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "count_cycle",
+    "lineno": 2439,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "timeout": true
+    }
+  },
+  {
+    "function_id": "more_itertools.is_scalar",
+    "unique_fid": "more_itertools.is_scalar.L4595",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "is_scalar",
+    "lineno": 4595,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.0,
+      "branch_rate": 0.0,
+      "covered_lines": 0,
+      "total_func_lines": 8,
+      "covered_branches": 0,
+      "total_func_branches": 2,
+      "func_line_range": [
+        4609,
+        4617
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.index",
+    "unique_fid": "more_itertools.index.L2417",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "index",
+    "lineno": 2417,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.0909,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 11,
+      "covered_branches": 0,
+      "total_func_branches": 10,
+      "func_line_range": [
+        2414,
+        2426
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.set_partitions_helper",
+    "unique_fid": "more_itertools.set_partitions_helper.L3490",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "set_partitions_helper",
+    "lineno": 3490,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.0,
+      "branch_rate": 0.0,
+      "covered_lines": 0,
+      "total_func_lines": 12,
+      "covered_branches": 0,
+      "total_func_branches": 10,
+      "func_line_range": [
+        3499,
+        3511
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools._extract_monotonic",
+    "unique_fid": "more_itertools._extract_monotonic.L5274",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "_extract_monotonic",
+    "lineno": 5274,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.0769,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 13,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        5288,
+        5302
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.value_chain",
+    "unique_fid": "more_itertools.value_chain.L4303",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "value_chain",
+    "lineno": 4303,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 10,
+      "total_func_lines": 10,
+      "covered_branches": 4,
+      "total_func_branches": 4,
+      "func_line_range": [
+        4317,
+        4349
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.combination_index",
+    "unique_fid": "more_itertools.combination_index.L4368",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "combination_index",
+    "lineno": 4368,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 22,
+      "total_func_lines": 22,
+      "covered_branches": 12,
+      "total_func_branches": 12,
+      "func_line_range": [
+        4382,
+        4421
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools._get_slice",
+    "unique_fid": "more_itertools._get_slice.L443",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "_get_slice",
+    "lineno": 443,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.0625,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 16,
+      "covered_branches": 0,
+      "total_func_branches": 8,
+      "func_line_range": [
+        443,
+        467
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools._reader",
+    "unique_fid": "more_itertools._reader.L4074",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "_reader",
+    "lineno": 4074,
+    "strategy": "few_shot",
+    "coverage": {
+      "line_rate": 0.0385,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 26,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        4088,
+        4123
+      ]
+    }
+  },
+  {
+    "function_id": "requests.copy",
+    "unique_fid": "requests.copy.L384",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "copy",
+    "lineno": 384,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.1,
+      "branch_rate": null,
+      "covered_lines": 1,
+      "total_func_lines": 10,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        384,
+        393
+      ]
+    }
+  },
+  {
+    "function_id": "requests.path_url",
+    "unique_fid": "requests.path_url.L88",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "path_url",
+    "lineno": 88,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.0833,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 12,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        88,
+        106
+      ]
+    }
+  },
+  {
+    "function_id": "requests.close",
+    "unique_fid": "requests.close.L1030",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "close",
+    "lineno": 1030,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        1030,
+        1041
+      ]
+    }
+  },
+  {
+    "function_id": "requests.urldefragauth",
+    "unique_fid": "requests.urldefragauth.L1052",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "urldefragauth",
+    "lineno": 1052,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 2,
+      "func_line_range": [
+        1051,
+        1065
+      ]
+    }
+  },
+  {
+    "function_id": "requests.address_in_network",
+    "unique_fid": "requests.address_in_network.L670",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "address_in_network",
+    "lineno": 670,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": null,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        669,
+        681
+      ]
+    }
+  },
+  {
+    "function_id": "requests.prepare",
+    "unique_fid": "requests.prepare.L353",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "prepare",
+    "lineno": 353,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": null,
+      "covered_lines": 8,
+      "total_func_lines": 8,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        353,
+        379
+      ]
+    }
+  },
+  {
+    "function_id": "requests.parse_list_header",
+    "unique_fid": "requests.parse_list_header.L363",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "parse_list_header",
+    "lineno": 363,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 7,
+      "total_func_lines": 7,
+      "covered_branches": 4,
+      "total_func_branches": 4,
+      "func_line_range": [
+        365,
+        393
+      ]
+    }
+  },
+  {
+    "function_id": "requests.deregister_hook",
+    "unique_fid": "requests.deregister_hook.L220",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "deregister_hook",
+    "lineno": 220,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": null,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        220,
+        229
+      ]
+    }
+  },
+  {
+    "function_id": "requests.is_ipv4_address",
+    "unique_fid": "requests.is_ipv4_address.L696",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "is_ipv4_address",
+    "lineno": 696,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": null,
+      "covered_lines": 6,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        695,
+        703
+      ]
+    }
+  },
+  {
+    "function_id": "requests.from_key_val_list",
+    "unique_fid": "requests.from_key_val_list.L306",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "from_key_val_list",
+    "lineno": 306,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        308,
+        332
+      ]
+    }
+  },
+  {
+    "function_id": "requests.prepare_cookies",
+    "unique_fid": "requests.prepare_cookies.L612",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "prepare_cookies",
+    "lineno": 612,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "requests.prepare_content_length",
+    "unique_fid": "requests.prepare_content_length.L574",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "prepare_content_length",
+    "lineno": 574,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.1429,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 7,
+      "covered_branches": 0,
+      "total_func_branches": 6,
+      "func_line_range": [
+        574,
+        588
+      ]
+    }
+  },
+  {
+    "function_id": "requests.register_hook",
+    "unique_fid": "requests.register_hook.L209",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "register_hook",
+    "lineno": 209,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.1429,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 7,
+      "covered_branches": 0,
+      "total_func_branches": 6,
+      "func_line_range": [
+        209,
+        218
+      ]
+    }
+  },
+  {
+    "function_id": "requests.prepare_auth",
+    "unique_fid": "requests.prepare_auth.L590",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "prepare_auth",
+    "lineno": 590,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.1,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 10,
+      "covered_branches": 0,
+      "total_func_branches": 6,
+      "func_line_range": [
+        590,
+        610
+      ]
+    }
+  },
+  {
+    "function_id": "requests.raise_for_status",
+    "unique_fid": "requests.raise_for_status.L1001",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "raise_for_status",
+    "lineno": 1001,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.0714,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 14,
+      "covered_branches": 0,
+      "total_func_branches": 8,
+      "func_line_range": [
+        1001,
+        1028
+      ]
+    }
+  },
+  {
+    "function_id": "requests.to_key_val_list",
+    "unique_fid": "requests.to_key_val_list.L333",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "to_key_val_list",
+    "lineno": 333,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 8,
+      "total_func_lines": 8,
+      "covered_branches": 6,
+      "total_func_branches": 6,
+      "func_line_range": [
+        335,
+        361
+      ]
+    }
+  },
+  {
+    "function_id": "requests.is_valid_cidr",
+    "unique_fid": "requests.is_valid_cidr.L707",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "is_valid_cidr",
+    "lineno": 707,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 14,
+      "total_func_lines": 14,
+      "covered_branches": 4,
+      "total_func_branches": 4,
+      "func_line_range": [
+        706,
+        727
+      ]
+    }
+  },
+  {
+    "function_id": "requests._validate_header_part",
+    "unique_fid": "requests._validate_header_part.L1033",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "_validate_header_part",
+    "lineno": 1033,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.1111,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 9,
+      "covered_branches": 0,
+      "total_func_branches": 6,
+      "func_line_range": [
+        1032,
+        1048
+      ]
+    }
+  },
+  {
+    "function_id": "requests.parse_header_links",
+    "unique_fid": "requests.parse_header_links.L902",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "parse_header_links",
+    "lineno": 902,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "requests.iter_slices",
+    "unique_fid": "requests.iter_slices.L569",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "iter_slices",
+    "lineno": 569,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 7,
+      "total_func_lines": 7,
+      "covered_branches": 4,
+      "total_func_branches": 4,
+      "func_line_range": [
+        568,
+        575
+      ]
+    }
+  },
+  {
+    "function_id": "requests.content",
+    "unique_fid": "requests.content.L893",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "content",
+    "lineno": 893,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.1111,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 9,
+      "covered_branches": 0,
+      "total_func_branches": 6,
+      "func_line_range": [
+        893,
+        909
+      ]
+    }
+  },
+  {
+    "function_id": "requests.resolve_proxies",
+    "unique_fid": "requests.resolve_proxies.L852",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "resolve_proxies",
+    "lineno": 852,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.9167,
+      "branch_rate": 0.75,
+      "covered_lines": 11,
+      "total_func_lines": 12,
+      "covered_branches": 3,
+      "total_func_branches": 4,
+      "func_line_range": [
+        851,
+        875
+      ]
+    }
+  },
+  {
+    "function_id": "requests.unquote_header_value",
+    "unique_fid": "requests.unquote_header_value.L430",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "unquote_header_value",
+    "lineno": 430,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.8333,
+      "branch_rate": 0.5,
+      "covered_lines": 5,
+      "total_func_lines": 6,
+      "covered_branches": 2,
+      "total_func_branches": 4,
+      "func_line_range": [
+        432,
+        454
+      ]
+    }
+  },
+  {
+    "function_id": "requests.text",
+    "unique_fid": "requests.text.L912",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "text",
+    "lineno": 912,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.0833,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 12,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        912,
+        947
+      ]
+    }
+  },
+  {
+    "function_id": "requests.set_environ",
+    "unique_fid": "requests.set_environ.L732",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "set_environ",
+    "lineno": 732,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.0909,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 11,
+      "covered_branches": 0,
+      "total_func_branches": 6,
+      "func_line_range": [
+        731,
+        749
+      ]
+    }
+  },
+  {
+    "function_id": "requests.json",
+    "unique_fid": "requests.json.L949",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "json",
+    "lineno": 949,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.0714,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 14,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        949,
+        982
+      ]
+    }
+  },
+  {
+    "function_id": "requests.extract_zipped_paths",
+    "unique_fid": "requests.extract_zipped_paths.L256",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "extract_zipped_paths",
+    "lineno": 256,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "requests.generate",
+    "unique_fid": "requests.generate.L818",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "generate",
+    "lineno": 818,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.0,
+      "branch_rate": 0.0,
+      "covered_lines": 0,
+      "total_func_lines": 18,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        818,
+        839
+      ]
+    }
+  },
+  {
+    "function_id": "requests.proxy_bypass_registry",
+    "unique_fid": "requests.proxy_bypass_registry.L75",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "proxy_bypass_registry",
+    "lineno": 75,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "requests.get_netrc_auth",
+    "unique_fid": "requests.get_netrc_auth.L205",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "get_netrc_auth",
+    "lineno": 205,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "arrow._ordinal_number",
+    "unique_fid": "arrow._ordinal_number.L5849",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_ordinal_number",
+    "lineno": 5849,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        5847,
+        5853
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.strptime",
+    "unique_fid": "arrow.strptime.L353",
+    "project": "arrow",
+    "module": "arrow.py",
+    "name": "strptime",
+    "lineno": 353,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.2,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 5,
+      "covered_branches": 0,
+      "total_func_branches": 2,
+      "func_line_range": [
+        353,
+        385
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.now",
+    "unique_fid": "arrow.now.L182",
+    "project": "arrow",
+    "module": "arrow.py",
+    "name": "now",
+    "lineno": 182,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.2,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 5,
+      "covered_branches": 0,
+      "total_func_branches": 2,
+      "func_line_range": [
+        182,
+        210
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.get_locale_by_class_name",
+    "unique_fid": "arrow.get_locale_by_class_name.L63",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "get_locale_by_class_name",
+    "lineno": 63,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.8,
+      "branch_rate": 0.5,
+      "covered_lines": 4,
+      "total_func_lines": 5,
+      "covered_branches": 1,
+      "total_func_branches": 2,
+      "func_line_range": [
+        63,
+        75
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.get_locale",
+    "unique_fid": "arrow.get_locale.L46",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "get_locale",
+    "lineno": 46,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 6,
+      "total_func_lines": 6,
+      "covered_branches": 2,
+      "total_func_branches": 2,
+      "func_line_range": [
+        46,
+        60
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_timeframe",
+    "unique_fid": "arrow._format_timeframe.L6091",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_timeframe",
+    "lineno": 6091,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.1,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 10,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        6089,
+        6106
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.to",
+    "unique_fid": "arrow.to.L1057",
+    "project": "arrow",
+    "module": "arrow.py",
+    "name": "to",
+    "lineno": 1057,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 0.5,
+      "covered_lines": 5,
+      "total_func_lines": 5,
+      "covered_branches": 1,
+      "total_func_branches": 2,
+      "func_line_range": [
+        1057,
+        1101
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.describe",
+    "unique_fid": "arrow.describe.L6483",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "describe",
+    "lineno": 6483,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.2,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 5,
+      "covered_branches": 0,
+      "total_func_branches": 2,
+      "func_line_range": [
+        6481,
+        6498
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_timeframe",
+    "unique_fid": "arrow._format_timeframe.L5300",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_timeframe",
+    "lineno": 5300,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "arrow.fromdatetime",
+    "unique_fid": "arrow.fromdatetime.L302",
+    "project": "arrow",
+    "module": "arrow.py",
+    "name": "fromdatetime",
+    "lineno": 302,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 0.75,
+      "covered_lines": 6,
+      "total_func_lines": 6,
+      "covered_branches": 3,
+      "total_func_branches": 4,
+      "func_line_range": [
+        302,
+        335
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.describe",
+    "unique_fid": "arrow.describe.L2111",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "describe",
+    "lineno": 2111,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.2,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 5,
+      "covered_branches": 0,
+      "total_func_branches": 2,
+      "func_line_range": [
+        2109,
+        2130
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_timeframe",
+    "unique_fid": "arrow._format_timeframe.L6464",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_timeframe",
+    "lineno": 6464,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.1,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 10,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        6462,
+        6479
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_timeframe",
+    "unique_fid": "arrow._format_timeframe.L3927",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_timeframe",
+    "lineno": 3927,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "arrow.utcfromtimestamp",
+    "unique_fid": "arrow.utcfromtimestamp.L276",
+    "project": "arrow",
+    "module": "arrow.py",
+    "name": "utcfromtimestamp",
+    "lineno": 276,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 2,
+      "func_line_range": [
+        276,
+        299
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_timeframe",
+    "unique_fid": "arrow._format_timeframe.L5560",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_timeframe",
+    "lineno": 5560,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "arrow.meridian",
+    "unique_fid": "arrow.meridian.L246",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "meridian",
+    "lineno": 246,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 6,
+      "total_func_lines": 6,
+      "covered_branches": 4,
+      "total_func_branches": 4,
+      "func_line_range": [
+        246,
+        257
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_relative",
+    "unique_fid": "arrow._format_relative.L4199",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_relative",
+    "lineno": 4199,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.125,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 8,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        4197,
+        4213
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._parse_multiformat",
+    "unique_fid": "arrow._parse_multiformat.L830",
+    "project": "arrow",
+    "module": "parser.py",
+    "name": "_parse_multiformat",
+    "lineno": 830,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.8333,
+      "branch_rate": 0.75,
+      "covered_lines": 10,
+      "total_func_lines": 12,
+      "covered_branches": 3,
+      "total_func_branches": 4,
+      "func_line_range": [
+        830,
+        861
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.fromtimestamp",
+    "unique_fid": "arrow.fromtimestamp.L239",
+    "project": "arrow",
+    "module": "arrow.py",
+    "name": "fromtimestamp",
+    "lineno": 239,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.1,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 10,
+      "covered_branches": 0,
+      "total_func_branches": 6,
+      "func_line_range": [
+        239,
+        273
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._ordinal_number",
+    "unique_fid": "arrow._ordinal_number.L4285",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_ordinal_number",
+    "lineno": 4285,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.0833,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 12,
+      "covered_branches": 0,
+      "total_func_branches": 10,
+      "func_line_range": [
+        4283,
+        4294
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.describe_multi",
+    "unique_fid": "arrow.describe_multi.L148",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "describe_multi",
+    "lineno": 148,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 0.875,
+      "covered_lines": 13,
+      "total_func_lines": 13,
+      "covered_branches": 7,
+      "total_func_branches": 8,
+      "func_line_range": [
+        148,
+        179
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_timeframe",
+    "unique_fid": "arrow._format_timeframe.L3606",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_timeframe",
+    "lineno": 3606,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "arrow.normalize_timestamp",
+    "unique_fid": "arrow.normalize_timestamp.L70",
+    "project": "arrow",
+    "module": "util.py",
+    "name": "normalize_timestamp",
+    "lineno": 70,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.125,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 8,
+      "covered_branches": 0,
+      "total_func_branches": 6,
+      "func_line_range": [
+        73,
+        82
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_relative",
+    "unique_fid": "arrow._format_relative.L4092",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_relative",
+    "lineno": 4092,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.125,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 8,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        4090,
+        4106
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_relative",
+    "unique_fid": "arrow._format_relative.L1241",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_relative",
+    "lineno": 1241,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.1,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 10,
+      "covered_branches": 0,
+      "total_func_branches": 8,
+      "func_line_range": [
+        1241,
+        1256
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._get_frames",
+    "unique_fid": "arrow._get_frames.L1852",
+    "project": "arrow",
+    "module": "arrow.py",
+    "name": "_get_frames",
+    "lineno": 1852,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.0909,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 11,
+      "covered_branches": 0,
+      "total_func_branches": 8,
+      "func_line_range": [
+        1850,
+        1880
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.is_timestamp",
+    "unique_fid": "arrow.is_timestamp.L45",
+    "project": "arrow",
+    "module": "util.py",
+    "name": "is_timestamp",
+    "lineno": 45,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 10,
+      "total_func_lines": 10,
+      "covered_branches": 4,
+      "total_func_branches": 4,
+      "func_line_range": [
+        48,
+        58
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._get_tzinfo",
+    "unique_fid": "arrow._get_tzinfo.L1824",
+    "project": "arrow",
+    "module": "arrow.py",
+    "name": "_get_tzinfo",
+    "lineno": 1824,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.1111,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 9,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        1822,
+        1832
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.parse",
+    "unique_fid": "arrow.parse.L895",
+    "project": "arrow",
+    "module": "parser.py",
+    "name": "parse",
+    "lineno": 895,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.05,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 20,
+      "covered_branches": 0,
+      "total_func_branches": 10,
+      "func_line_range": [
+        895,
+        937
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_timeframe",
+    "unique_fid": "arrow._format_timeframe.L3427",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_timeframe",
+    "lineno": 3427,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.0625,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 16,
+      "covered_branches": 0,
+      "total_func_branches": 10,
+      "func_line_range": [
+        3425,
+        3449
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.triplewise",
+    "unique_fid": "more_itertools.triplewise.L762",
+    "project": "more_itertools",
+    "module": "recipes.py",
+    "name": "triplewise",
+    "lineno": 762,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": null,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        772,
+        785
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.split_into",
+    "unique_fid": "more_itertools.split_into.L1709",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "split_into",
+    "lineno": 1709,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.1429,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 7,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        1706,
+        1748
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.first",
+    "unique_fid": "more_itertools.first.L245",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "first",
+    "lineno": 245,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        245,
+        269
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.circular_shifts",
+    "unique_fid": "more_itertools.circular_shifts.L3136",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "circular_shifts",
+    "lineno": 3136,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.0909,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 11,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        3138,
+        3165
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.consecutive_groups",
+    "unique_fid": "more_itertools.consecutive_groups.L2778",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "consecutive_groups",
+    "lineno": 2778,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        2780,
+        2827
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.rstrip",
+    "unique_fid": "more_itertools.rstrip.L2563",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "rstrip",
+    "lineno": 2563,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 10,
+      "total_func_lines": 10,
+      "covered_branches": 4,
+      "total_func_branches": 4,
+      "func_line_range": [
+        2565,
+        2588
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.repeat_last",
+    "unique_fid": "more_itertools.repeat_last.L1808",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "repeat_last",
+    "lineno": 1808,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "more_itertools.sliced",
+    "unique_fid": "more_itertools.sliced.L1513",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "sliced",
+    "lineno": 1513,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 10,
+      "total_func_lines": 10,
+      "covered_branches": 6,
+      "total_func_branches": 6,
+      "func_line_range": [
+        1510,
+        1541
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.roundrobin",
+    "unique_fid": "more_itertools.roundrobin.L372",
+    "project": "more_itertools",
+    "module": "recipes.py",
+    "name": "roundrobin",
+    "lineno": 372,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.2,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 5,
+      "covered_branches": 0,
+      "total_func_branches": 2,
+      "func_line_range": [
+        391,
+        406
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.substrings",
+    "unique_fid": "more_itertools.substrings.L1071",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "substrings",
+    "lineno": 1071,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 6,
+      "total_func_lines": 6,
+      "covered_branches": 2,
+      "total_func_branches": 2,
+      "func_line_range": [
+        1068,
+        1087
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.random_combination",
+    "unique_fid": "more_itertools.random_combination.L618",
+    "project": "more_itertools",
+    "module": "recipes.py",
+    "name": "random_combination",
+    "lineno": 618,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": null,
+      "covered_lines": 5,
+      "total_func_lines": 5,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        628,
+        641
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.decorator",
+    "unique_fid": "more_itertools.decorator.L3217",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "decorator",
+    "lineno": 3217,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "more_itertools.substrings_indexes",
+    "unique_fid": "more_itertools.substrings_indexes.L1093",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "substrings_indexes",
+    "lineno": 1093,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 5,
+      "total_func_lines": 5,
+      "covered_branches": 2,
+      "total_func_branches": 2,
+      "func_line_range": [
+        1090,
+        1121
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.unique_to_each",
+    "unique_fid": "more_itertools.unique_to_each.L980",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "unique_to_each",
+    "lineno": 980,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.2,
+      "branch_rate": null,
+      "covered_lines": 1,
+      "total_func_lines": 5,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        980,
+        1010
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.split_at",
+    "unique_fid": "more_itertools.split_at.L1547",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "split_at",
+    "lineno": 1547,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 18,
+      "total_func_lines": 18,
+      "covered_branches": 10,
+      "total_func_branches": 10,
+      "func_line_range": [
+        1544,
+        1585
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.exactly_n",
+    "unique_fid": "more_itertools.exactly_n.L3105",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "exactly_n",
+    "lineno": 3105,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.0714,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 14,
+      "covered_branches": 0,
+      "total_func_branches": 10,
+      "func_line_range": [
+        3107,
+        3135
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.rlocate",
+    "unique_fid": "more_itertools.rlocate.L3312",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "rlocate",
+    "lineno": 3312,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "timeout": true
+    }
+  },
+  {
+    "function_id": "more_itertools.idft",
+    "unique_fid": "more_itertools.idft.L5126",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "idft",
+    "lineno": 5126,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 2,
+      "func_line_range": [
+        5140,
+        5161
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.peek",
+    "unique_fid": "more_itertools.peek.L390",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "peek",
+    "lineno": 390,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.1111,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 9,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        390,
+        404
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.random_derangement",
+    "unique_fid": "more_itertools.random_derangement.L1426",
+    "project": "more_itertools",
+    "module": "recipes.py",
+    "name": "random_derangement",
+    "lineno": 1426,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "more_itertools._extract_buffered",
+    "unique_fid": "more_itertools._extract_buffered.L5291",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "_extract_buffered",
+    "lineno": 5291,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.0625,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 16,
+      "covered_branches": 0,
+      "total_func_branches": 6,
+      "func_line_range": [
+        5305,
+        5324
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.count_cycle",
+    "unique_fid": "more_itertools.count_cycle.L2439",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "count_cycle",
+    "lineno": 2439,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.125,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 8,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        2436,
+        2451
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.is_scalar",
+    "unique_fid": "more_itertools.is_scalar.L4595",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "is_scalar",
+    "lineno": 4595,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.0,
+      "branch_rate": 0.0,
+      "covered_lines": 0,
+      "total_func_lines": 8,
+      "covered_branches": 0,
+      "total_func_branches": 2,
+      "func_line_range": [
+        4609,
+        4617
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.index",
+    "unique_fid": "more_itertools.index.L2417",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "index",
+    "lineno": 2417,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.0909,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 11,
+      "covered_branches": 0,
+      "total_func_branches": 10,
+      "func_line_range": [
+        2414,
+        2426
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.set_partitions_helper",
+    "unique_fid": "more_itertools.set_partitions_helper.L3490",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "set_partitions_helper",
+    "lineno": 3490,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.0,
+      "branch_rate": 0.0,
+      "covered_lines": 0,
+      "total_func_lines": 12,
+      "covered_branches": 0,
+      "total_func_branches": 10,
+      "func_line_range": [
+        3499,
+        3511
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools._extract_monotonic",
+    "unique_fid": "more_itertools._extract_monotonic.L5274",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "_extract_monotonic",
+    "lineno": 5274,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.0769,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 13,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        5288,
+        5302
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.value_chain",
+    "unique_fid": "more_itertools.value_chain.L4303",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "value_chain",
+    "lineno": 4303,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 10,
+      "total_func_lines": 10,
+      "covered_branches": 4,
+      "total_func_branches": 4,
+      "func_line_range": [
+        4317,
+        4349
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.combination_index",
+    "unique_fid": "more_itertools.combination_index.L4368",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "combination_index",
+    "lineno": 4368,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 22,
+      "total_func_lines": 22,
+      "covered_branches": 12,
+      "total_func_branches": 12,
+      "func_line_range": [
+        4382,
+        4421
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools._get_slice",
+    "unique_fid": "more_itertools._get_slice.L443",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "_get_slice",
+    "lineno": 443,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.0625,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 16,
+      "covered_branches": 0,
+      "total_func_branches": 8,
+      "func_line_range": [
+        443,
+        467
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools._reader",
+    "unique_fid": "more_itertools._reader.L4074",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "_reader",
+    "lineno": 4074,
+    "strategy": "role_based",
+    "coverage": {
+      "line_rate": 0.0385,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 26,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        4088,
+        4123
+      ]
+    }
+  },
+  {
+    "function_id": "requests.copy",
+    "unique_fid": "requests.copy.L384",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "copy",
+    "lineno": 384,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.1,
+      "branch_rate": null,
+      "covered_lines": 1,
+      "total_func_lines": 10,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        384,
+        393
+      ]
+    }
+  },
+  {
+    "function_id": "requests.path_url",
+    "unique_fid": "requests.path_url.L88",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "path_url",
+    "lineno": 88,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.0833,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 12,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        88,
+        106
+      ]
+    }
+  },
+  {
+    "function_id": "requests.close",
+    "unique_fid": "requests.close.L1030",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "close",
+    "lineno": 1030,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        1030,
+        1041
+      ]
+    }
+  },
+  {
+    "function_id": "requests.urldefragauth",
+    "unique_fid": "requests.urldefragauth.L1052",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "urldefragauth",
+    "lineno": 1052,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 6,
+      "total_func_lines": 6,
+      "covered_branches": 2,
+      "total_func_branches": 2,
+      "func_line_range": [
+        1051,
+        1065
+      ]
+    }
+  },
+  {
+    "function_id": "requests.address_in_network",
+    "unique_fid": "requests.address_in_network.L670",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "address_in_network",
+    "lineno": 670,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": null,
+      "covered_lines": 6,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        669,
+        681
+      ]
+    }
+  },
+  {
+    "function_id": "requests.prepare",
+    "unique_fid": "requests.prepare.L353",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "prepare",
+    "lineno": 353,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": null,
+      "covered_lines": 8,
+      "total_func_lines": 8,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        353,
+        379
+      ]
+    }
+  },
+  {
+    "function_id": "requests.parse_list_header",
+    "unique_fid": "requests.parse_list_header.L363",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "parse_list_header",
+    "lineno": 363,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 7,
+      "total_func_lines": 7,
+      "covered_branches": 4,
+      "total_func_branches": 4,
+      "func_line_range": [
+        365,
+        393
+      ]
+    }
+  },
+  {
+    "function_id": "requests.deregister_hook",
+    "unique_fid": "requests.deregister_hook.L220",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "deregister_hook",
+    "lineno": 220,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": null,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        220,
+        229
+      ]
+    }
+  },
+  {
+    "function_id": "requests.is_ipv4_address",
+    "unique_fid": "requests.is_ipv4_address.L696",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "is_ipv4_address",
+    "lineno": 696,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": null,
+      "covered_lines": 6,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        695,
+        703
+      ]
+    }
+  },
+  {
+    "function_id": "requests.from_key_val_list",
+    "unique_fid": "requests.from_key_val_list.L306",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "from_key_val_list",
+    "lineno": 306,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        308,
+        332
+      ]
+    }
+  },
+  {
+    "function_id": "requests.prepare_cookies",
+    "unique_fid": "requests.prepare_cookies.L612",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "prepare_cookies",
+    "lineno": 612,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "requests.prepare_content_length",
+    "unique_fid": "requests.prepare_content_length.L574",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "prepare_content_length",
+    "lineno": 574,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.1429,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 7,
+      "covered_branches": 0,
+      "total_func_branches": 6,
+      "func_line_range": [
+        574,
+        588
+      ]
+    }
+  },
+  {
+    "function_id": "requests.register_hook",
+    "unique_fid": "requests.register_hook.L209",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "register_hook",
+    "lineno": 209,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "requests.prepare_auth",
+    "unique_fid": "requests.prepare_auth.L590",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "prepare_auth",
+    "lineno": 590,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 10,
+      "total_func_lines": 10,
+      "covered_branches": 6,
+      "total_func_branches": 6,
+      "func_line_range": [
+        590,
+        610
+      ]
+    }
+  },
+  {
+    "function_id": "requests.raise_for_status",
+    "unique_fid": "requests.raise_for_status.L1001",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "raise_for_status",
+    "lineno": 1001,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.0714,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 14,
+      "covered_branches": 0,
+      "total_func_branches": 8,
+      "func_line_range": [
+        1001,
+        1028
+      ]
+    }
+  },
+  {
+    "function_id": "requests.to_key_val_list",
+    "unique_fid": "requests.to_key_val_list.L333",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "to_key_val_list",
+    "lineno": 333,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "requests.is_valid_cidr",
+    "unique_fid": "requests.is_valid_cidr.L707",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "is_valid_cidr",
+    "lineno": 707,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 14,
+      "total_func_lines": 14,
+      "covered_branches": 4,
+      "total_func_branches": 4,
+      "func_line_range": [
+        706,
+        727
+      ]
+    }
+  },
+  {
+    "function_id": "requests._validate_header_part",
+    "unique_fid": "requests._validate_header_part.L1033",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "_validate_header_part",
+    "lineno": 1033,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.1111,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 9,
+      "covered_branches": 0,
+      "total_func_branches": 6,
+      "func_line_range": [
+        1032,
+        1048
+      ]
+    }
+  },
+  {
+    "function_id": "requests.parse_header_links",
+    "unique_fid": "requests.parse_header_links.L902",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "parse_header_links",
+    "lineno": 902,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 20,
+      "total_func_lines": 20,
+      "covered_branches": 6,
+      "total_func_branches": 6,
+      "func_line_range": [
+        901,
+        935
+      ]
+    }
+  },
+  {
+    "function_id": "requests.iter_slices",
+    "unique_fid": "requests.iter_slices.L569",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "iter_slices",
+    "lineno": 569,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 7,
+      "total_func_lines": 7,
+      "covered_branches": 4,
+      "total_func_branches": 4,
+      "func_line_range": [
+        568,
+        575
+      ]
+    }
+  },
+  {
+    "function_id": "requests.content",
+    "unique_fid": "requests.content.L893",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "content",
+    "lineno": 893,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.1111,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 9,
+      "covered_branches": 0,
+      "total_func_branches": 6,
+      "func_line_range": [
+        893,
+        909
+      ]
+    }
+  },
+  {
+    "function_id": "requests.resolve_proxies",
+    "unique_fid": "requests.resolve_proxies.L852",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "resolve_proxies",
+    "lineno": 852,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.9167,
+      "branch_rate": 0.75,
+      "covered_lines": 11,
+      "total_func_lines": 12,
+      "covered_branches": 3,
+      "total_func_branches": 4,
+      "func_line_range": [
+        851,
+        875
+      ]
+    }
+  },
+  {
+    "function_id": "requests.unquote_header_value",
+    "unique_fid": "requests.unquote_header_value.L430",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "unquote_header_value",
+    "lineno": 430,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 6,
+      "total_func_lines": 6,
+      "covered_branches": 4,
+      "total_func_branches": 4,
+      "func_line_range": [
+        432,
+        454
+      ]
+    }
+  },
+  {
+    "function_id": "requests.text",
+    "unique_fid": "requests.text.L912",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "text",
+    "lineno": 912,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.0833,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 12,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        912,
+        947
+      ]
+    }
+  },
+  {
+    "function_id": "requests.set_environ",
+    "unique_fid": "requests.set_environ.L732",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "set_environ",
+    "lineno": 732,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.0909,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 11,
+      "covered_branches": 0,
+      "total_func_branches": 6,
+      "func_line_range": [
+        731,
+        749
+      ]
+    }
+  },
+  {
+    "function_id": "requests.json",
+    "unique_fid": "requests.json.L949",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "json",
+    "lineno": 949,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.0714,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 14,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        949,
+        982
+      ]
+    }
+  },
+  {
+    "function_id": "requests.extract_zipped_paths",
+    "unique_fid": "requests.extract_zipped_paths.L256",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "extract_zipped_paths",
+    "lineno": 256,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.05,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 20,
+      "covered_branches": 0,
+      "total_func_branches": 10,
+      "func_line_range": [
+        257,
+        292
+      ]
+    }
+  },
+  {
+    "function_id": "requests.generate",
+    "unique_fid": "requests.generate.L818",
+    "project": "requests",
+    "module": "requests/models.py",
+    "name": "generate",
+    "lineno": 818,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.0,
+      "branch_rate": 0.0,
+      "covered_lines": 0,
+      "total_func_lines": 18,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        818,
+        839
+      ]
+    }
+  },
+  {
+    "function_id": "requests.proxy_bypass_registry",
+    "unique_fid": "requests.proxy_bypass_registry.L75",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "proxy_bypass_registry",
+    "lineno": 75,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "requests.get_netrc_auth",
+    "unique_fid": "requests.get_netrc_auth.L205",
+    "project": "requests",
+    "module": "requests/utils.py",
+    "name": "get_netrc_auth",
+    "lineno": 205,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.037,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 27,
+      "covered_branches": 0,
+      "total_func_branches": 12,
+      "func_line_range": [
+        206,
+        247
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._ordinal_number",
+    "unique_fid": "arrow._ordinal_number.L5849",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_ordinal_number",
+    "lineno": 5849,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        5847,
+        5853
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.strptime",
+    "unique_fid": "arrow.strptime.L353",
+    "project": "arrow",
+    "module": "arrow.py",
+    "name": "strptime",
+    "lineno": 353,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.2,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 5,
+      "covered_branches": 0,
+      "total_func_branches": 2,
+      "func_line_range": [
+        353,
+        385
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.now",
+    "unique_fid": "arrow.now.L182",
+    "project": "arrow",
+    "module": "arrow.py",
+    "name": "now",
+    "lineno": 182,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.6,
+      "branch_rate": 0.5,
+      "covered_lines": 3,
+      "total_func_lines": 5,
+      "covered_branches": 1,
+      "total_func_branches": 2,
+      "func_line_range": [
+        182,
+        210
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.get_locale_by_class_name",
+    "unique_fid": "arrow.get_locale_by_class_name.L63",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "get_locale_by_class_name",
+    "lineno": 63,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.2,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 5,
+      "covered_branches": 0,
+      "total_func_branches": 2,
+      "func_line_range": [
+        63,
+        75
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.get_locale",
+    "unique_fid": "arrow.get_locale.L46",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "get_locale",
+    "lineno": 46,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 6,
+      "total_func_lines": 6,
+      "covered_branches": 2,
+      "total_func_branches": 2,
+      "func_line_range": [
+        46,
+        60
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_timeframe",
+    "unique_fid": "arrow._format_timeframe.L6091",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_timeframe",
+    "lineno": 6091,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.1,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 10,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        6089,
+        6106
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.to",
+    "unique_fid": "arrow.to.L1057",
+    "project": "arrow",
+    "module": "arrow.py",
+    "name": "to",
+    "lineno": 1057,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 5,
+      "total_func_lines": 5,
+      "covered_branches": 2,
+      "total_func_branches": 2,
+      "func_line_range": [
+        1057,
+        1101
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.describe",
+    "unique_fid": "arrow.describe.L6483",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "describe",
+    "lineno": 6483,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "arrow._format_timeframe",
+    "unique_fid": "arrow._format_timeframe.L5300",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_timeframe",
+    "lineno": 5300,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "arrow.fromdatetime",
+    "unique_fid": "arrow.fromdatetime.L302",
+    "project": "arrow",
+    "module": "arrow.py",
+    "name": "fromdatetime",
+    "lineno": 302,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 6,
+      "total_func_lines": 6,
+      "covered_branches": 4,
+      "total_func_branches": 4,
+      "func_line_range": [
+        302,
+        335
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.describe",
+    "unique_fid": "arrow.describe.L2111",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "describe",
+    "lineno": 2111,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.2,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 5,
+      "covered_branches": 0,
+      "total_func_branches": 2,
+      "func_line_range": [
+        2109,
+        2130
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_timeframe",
+    "unique_fid": "arrow._format_timeframe.L6464",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_timeframe",
+    "lineno": 6464,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.1,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 10,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        6462,
+        6479
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_timeframe",
+    "unique_fid": "arrow._format_timeframe.L3927",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_timeframe",
+    "lineno": 3927,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "arrow.utcfromtimestamp",
+    "unique_fid": "arrow.utcfromtimestamp.L276",
+    "project": "arrow",
+    "module": "arrow.py",
+    "name": "utcfromtimestamp",
+    "lineno": 276,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 2,
+      "func_line_range": [
+        276,
+        299
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_timeframe",
+    "unique_fid": "arrow._format_timeframe.L5560",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_timeframe",
+    "lineno": 5560,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "arrow.meridian",
+    "unique_fid": "arrow.meridian.L246",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "meridian",
+    "lineno": 246,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 6,
+      "total_func_lines": 6,
+      "covered_branches": 4,
+      "total_func_branches": 4,
+      "func_line_range": [
+        246,
+        257
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_relative",
+    "unique_fid": "arrow._format_relative.L4199",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_relative",
+    "lineno": 4199,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.125,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 8,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        4197,
+        4213
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._parse_multiformat",
+    "unique_fid": "arrow._parse_multiformat.L830",
+    "project": "arrow",
+    "module": "parser.py",
+    "name": "_parse_multiformat",
+    "lineno": 830,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.8333,
+      "branch_rate": 0.75,
+      "covered_lines": 10,
+      "total_func_lines": 12,
+      "covered_branches": 3,
+      "total_func_branches": 4,
+      "func_line_range": [
+        830,
+        861
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.fromtimestamp",
+    "unique_fid": "arrow.fromtimestamp.L239",
+    "project": "arrow",
+    "module": "arrow.py",
+    "name": "fromtimestamp",
+    "lineno": 239,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.1,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 10,
+      "covered_branches": 0,
+      "total_func_branches": 6,
+      "func_line_range": [
+        239,
+        273
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._ordinal_number",
+    "unique_fid": "arrow._ordinal_number.L4285",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_ordinal_number",
+    "lineno": 4285,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.0833,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 12,
+      "covered_branches": 0,
+      "total_func_branches": 10,
+      "func_line_range": [
+        4283,
+        4294
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.describe_multi",
+    "unique_fid": "arrow.describe_multi.L148",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "describe_multi",
+    "lineno": 148,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 0.875,
+      "covered_lines": 13,
+      "total_func_lines": 13,
+      "covered_branches": 7,
+      "total_func_branches": 8,
+      "func_line_range": [
+        148,
+        179
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_timeframe",
+    "unique_fid": "arrow._format_timeframe.L3606",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_timeframe",
+    "lineno": 3606,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "arrow.normalize_timestamp",
+    "unique_fid": "arrow.normalize_timestamp.L70",
+    "project": "arrow",
+    "module": "util.py",
+    "name": "normalize_timestamp",
+    "lineno": 70,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.125,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 8,
+      "covered_branches": 0,
+      "total_func_branches": 6,
+      "func_line_range": [
+        73,
+        82
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_relative",
+    "unique_fid": "arrow._format_relative.L4092",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_relative",
+    "lineno": 4092,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.125,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 8,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        4090,
+        4106
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_relative",
+    "unique_fid": "arrow._format_relative.L1241",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_relative",
+    "lineno": 1241,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.1,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 10,
+      "covered_branches": 0,
+      "total_func_branches": 8,
+      "func_line_range": [
+        1241,
+        1256
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._get_frames",
+    "unique_fid": "arrow._get_frames.L1852",
+    "project": "arrow",
+    "module": "arrow.py",
+    "name": "_get_frames",
+    "lineno": 1852,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.0909,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 11,
+      "covered_branches": 0,
+      "total_func_branches": 8,
+      "func_line_range": [
+        1850,
+        1880
+      ]
+    }
+  },
+  {
+    "function_id": "arrow.is_timestamp",
+    "unique_fid": "arrow.is_timestamp.L45",
+    "project": "arrow",
+    "module": "util.py",
+    "name": "is_timestamp",
+    "lineno": 45,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 10,
+      "total_func_lines": 10,
+      "covered_branches": 4,
+      "total_func_branches": 4,
+      "func_line_range": [
+        48,
+        58
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._get_tzinfo",
+    "unique_fid": "arrow._get_tzinfo.L1824",
+    "project": "arrow",
+    "module": "arrow.py",
+    "name": "_get_tzinfo",
+    "lineno": 1824,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "arrow.parse",
+    "unique_fid": "arrow.parse.L895",
+    "project": "arrow",
+    "module": "parser.py",
+    "name": "parse",
+    "lineno": 895,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.05,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 20,
+      "covered_branches": 0,
+      "total_func_branches": 10,
+      "func_line_range": [
+        895,
+        937
+      ]
+    }
+  },
+  {
+    "function_id": "arrow._format_timeframe",
+    "unique_fid": "arrow._format_timeframe.L3427",
+    "project": "arrow",
+    "module": "locales.py",
+    "name": "_format_timeframe",
+    "lineno": 3427,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.0625,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 16,
+      "covered_branches": 0,
+      "total_func_branches": 10,
+      "func_line_range": [
+        3425,
+        3449
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.triplewise",
+    "unique_fid": "more_itertools.triplewise.L762",
+    "project": "more_itertools",
+    "module": "recipes.py",
+    "name": "triplewise",
+    "lineno": 762,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": null,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        772,
+        785
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.split_into",
+    "unique_fid": "more_itertools.split_into.L1709",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "split_into",
+    "lineno": 1709,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.1429,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 7,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        1706,
+        1748
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.first",
+    "unique_fid": "more_itertools.first.L245",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "first",
+    "lineno": 245,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "more_itertools.circular_shifts",
+    "unique_fid": "more_itertools.circular_shifts.L3136",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "circular_shifts",
+    "lineno": 3136,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.0909,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 11,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        3138,
+        3165
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.consecutive_groups",
+    "unique_fid": "more_itertools.consecutive_groups.L2778",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "consecutive_groups",
+    "lineno": 2778,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        2780,
+        2827
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.rstrip",
+    "unique_fid": "more_itertools.rstrip.L2563",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "rstrip",
+    "lineno": 2563,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 10,
+      "total_func_lines": 10,
+      "covered_branches": 4,
+      "total_func_branches": 4,
+      "func_line_range": [
+        2565,
+        2588
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.repeat_last",
+    "unique_fid": "more_itertools.repeat_last.L1808",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "repeat_last",
+    "lineno": 1808,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.1667,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 6,
+      "covered_branches": 0,
+      "total_func_branches": 2,
+      "func_line_range": [
+        1805,
+        1821
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.sliced",
+    "unique_fid": "more_itertools.sliced.L1513",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "sliced",
+    "lineno": 1513,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 10,
+      "total_func_lines": 10,
+      "covered_branches": 6,
+      "total_func_branches": 6,
+      "func_line_range": [
+        1510,
+        1541
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.roundrobin",
+    "unique_fid": "more_itertools.roundrobin.L372",
+    "project": "more_itertools",
+    "module": "recipes.py",
+    "name": "roundrobin",
+    "lineno": 372,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.2,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 5,
+      "covered_branches": 0,
+      "total_func_branches": 2,
+      "func_line_range": [
+        391,
+        406
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.substrings",
+    "unique_fid": "more_itertools.substrings.L1071",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "substrings",
+    "lineno": 1071,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 6,
+      "total_func_lines": 6,
+      "covered_branches": 2,
+      "total_func_branches": 2,
+      "func_line_range": [
+        1068,
+        1087
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.random_combination",
+    "unique_fid": "more_itertools.random_combination.L618",
+    "project": "more_itertools",
+    "module": "recipes.py",
+    "name": "random_combination",
+    "lineno": 618,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": null,
+      "covered_lines": 5,
+      "total_func_lines": 5,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        628,
+        641
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.decorator",
+    "unique_fid": "more_itertools.decorator.L3217",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "decorator",
+    "lineno": 3217,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.0,
+      "branch_rate": null,
+      "covered_lines": 0,
+      "total_func_lines": 9,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        3219,
+        3229
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.substrings_indexes",
+    "unique_fid": "more_itertools.substrings_indexes.L1093",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "substrings_indexes",
+    "lineno": 1093,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 5,
+      "total_func_lines": 5,
+      "covered_branches": 2,
+      "total_func_branches": 2,
+      "func_line_range": [
+        1090,
+        1121
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.unique_to_each",
+    "unique_fid": "more_itertools.unique_to_each.L980",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "unique_to_each",
+    "lineno": 980,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.2,
+      "branch_rate": null,
+      "covered_lines": 1,
+      "total_func_lines": 5,
+      "covered_branches": 0,
+      "total_func_branches": 0,
+      "func_line_range": [
+        980,
+        1010
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.split_at",
+    "unique_fid": "more_itertools.split_at.L1547",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "split_at",
+    "lineno": 1547,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.8889,
+      "branch_rate": 0.9,
+      "covered_lines": 16,
+      "total_func_lines": 18,
+      "covered_branches": 9,
+      "total_func_branches": 10,
+      "func_line_range": [
+        1544,
+        1585
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.exactly_n",
+    "unique_fid": "more_itertools.exactly_n.L3105",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "exactly_n",
+    "lineno": 3105,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "more_itertools.rlocate",
+    "unique_fid": "more_itertools.rlocate.L3312",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "rlocate",
+    "lineno": 3312,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "timeout": true
+    }
+  },
+  {
+    "function_id": "more_itertools.idft",
+    "unique_fid": "more_itertools.idft.L5126",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "idft",
+    "lineno": 5126,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "more_itertools.peek",
+    "unique_fid": "more_itertools.peek.L390",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "peek",
+    "lineno": 390,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.1111,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 9,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        390,
+        404
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.random_derangement",
+    "unique_fid": "more_itertools.random_derangement.L1426",
+    "project": "more_itertools",
+    "module": "recipes.py",
+    "name": "random_derangement",
+    "lineno": 1426,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "more_itertools._extract_buffered",
+    "unique_fid": "more_itertools._extract_buffered.L5291",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "_extract_buffered",
+    "lineno": 5291,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.0625,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 16,
+      "covered_branches": 0,
+      "total_func_branches": 6,
+      "func_line_range": [
+        5305,
+        5324
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.count_cycle",
+    "unique_fid": "more_itertools.count_cycle.L2439",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "count_cycle",
+    "lineno": 2439,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.125,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 8,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        2436,
+        2451
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.is_scalar",
+    "unique_fid": "more_itertools.is_scalar.L4595",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "is_scalar",
+    "lineno": 4595,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": null,
+      "branch_rate": null,
+      "error": "no coverage output"
+    }
+  },
+  {
+    "function_id": "more_itertools.index",
+    "unique_fid": "more_itertools.index.L2417",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "index",
+    "lineno": 2417,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.0909,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 11,
+      "covered_branches": 0,
+      "total_func_branches": 10,
+      "func_line_range": [
+        2414,
+        2426
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.set_partitions_helper",
+    "unique_fid": "more_itertools.set_partitions_helper.L3490",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "set_partitions_helper",
+    "lineno": 3490,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.0,
+      "branch_rate": 0.0,
+      "covered_lines": 0,
+      "total_func_lines": 12,
+      "covered_branches": 0,
+      "total_func_branches": 10,
+      "func_line_range": [
+        3499,
+        3511
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools._extract_monotonic",
+    "unique_fid": "more_itertools._extract_monotonic.L5274",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "_extract_monotonic",
+    "lineno": 5274,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.0769,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 13,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        5288,
+        5302
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.value_chain",
+    "unique_fid": "more_itertools.value_chain.L4303",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "value_chain",
+    "lineno": 4303,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 10,
+      "total_func_lines": 10,
+      "covered_branches": 4,
+      "total_func_branches": 4,
+      "func_line_range": [
+        4317,
+        4349
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools.combination_index",
+    "unique_fid": "more_itertools.combination_index.L4368",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "combination_index",
+    "lineno": 4368,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 1.0,
+      "branch_rate": 1.0,
+      "covered_lines": 22,
+      "total_func_lines": 22,
+      "covered_branches": 12,
+      "total_func_branches": 12,
+      "func_line_range": [
+        4382,
+        4421
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools._get_slice",
+    "unique_fid": "more_itertools._get_slice.L443",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "_get_slice",
+    "lineno": 443,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.0625,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 16,
+      "covered_branches": 0,
+      "total_func_branches": 8,
+      "func_line_range": [
+        443,
+        467
+      ]
+    }
+  },
+  {
+    "function_id": "more_itertools._reader",
+    "unique_fid": "more_itertools._reader.L4074",
+    "project": "more_itertools",
+    "module": "more.py",
+    "name": "_reader",
+    "lineno": 4074,
+    "strategy": "zero_shot",
+    "coverage": {
+      "line_rate": 0.0385,
+      "branch_rate": 0.0,
+      "covered_lines": 1,
+      "total_func_lines": 26,
+      "covered_branches": 0,
+      "total_func_branches": 4,
+      "func_line_range": [
+        4088,
+        4123
+      ]
+    }
+  }
+]

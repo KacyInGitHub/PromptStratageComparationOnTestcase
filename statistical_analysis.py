@@ -164,28 +164,50 @@ def pass_at_k(n: int, c: int, k: int) -> float:
 # ─────────────────────────────────────────────
 # 数据加载
 # ─────────────────────────────────────────────
+# def load_pipeline(path: str) -> dict:
+#     """
+#     从 pipeline_results.json 加载 RQ2 数据。
+#     每条记录含 strategy, trial, static, compile, execution 字段。
+#     """
+#     with open(path, encoding="utf-8") as f:
+#         records = json.load(f)
+#
+#     # 按策略分组，保留所有 trial
+#     data = defaultdict(list)
+#     for r in records:
+#         s = r.get("strategy", "unknown")
+#         compile_ok = int(r.get("compile", {}).get("compile_ok", False))
+#         passed     = r.get("execution", {}).get("passed", 0)
+#         total      = r.get("execution", {}).get("total",  0)
+#         pass_rate  = passed / total if total > 0 else 0.0
+#         data[s].append({
+#             "trial":      r.get("trial"),
+#             "compile_ok": compile_ok,
+#             "pass_rate":  pass_rate,
+#             "passed":     passed,
+#             "total":      total,
+#         })
+#     return dict(data)
+
 def load_pipeline(path: str) -> dict:
-    """
-    从 pipeline_results.json 加载 RQ2 数据。
-    每条记录含 strategy, trial, static, compile, execution 字段。
-    """
     with open(path, encoding="utf-8") as f:
         records = json.load(f)
 
-    # 按策略分组，保留所有 trial
     data = defaultdict(list)
     for r in records:
-        s = r.get("strategy", "unknown")
+        s          = r.get("strategy", "unknown")
         compile_ok = int(r.get("compile", {}).get("compile_ok", False))
         passed     = r.get("execution", {}).get("passed", 0)
         total      = r.get("execution", {}).get("total",  0)
         pass_rate  = passed / total if total > 0 else 0.0
         data[s].append({
-            "trial":      r.get("trial"),
-            "compile_ok": compile_ok,
-            "pass_rate":  pass_rate,
-            "passed":     passed,
-            "total":      total,
+            "trial":       r.get("trial"),
+            "compile_ok":  compile_ok,
+            "pass_rate":   pass_rate,
+            "passed":      passed,
+            "total":       total,
+            "function_id": r.get("function_id"),   # ← 新增
+            "unique_fid":  r.get("unique_fid"),     # ← 新增
         })
     return dict(data)
 
@@ -281,7 +303,12 @@ def analyse_rq2(pipeline_data: dict) -> dict:
         # 按 function_id 分组
         func_trials = defaultdict(list)
         for r in records:
-            fid = r.get("function_id", "unknown")
+            # fid = r.get("function_id", "unknown")
+
+            # start_line = r.get("start_line", 0)
+            # fid = f"{r.get('function_id', 'unknown')}.L{start_line}"
+            fid = r.get("unique_fid") or r.get("function_id", "unknown")  # ← 优先用unique_fid
+
             func_trials[fid].append(1 if r["pass_rate"] > 0 else 0)
 
         pass1_list, pass3_list = [], []

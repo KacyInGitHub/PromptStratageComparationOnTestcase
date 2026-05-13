@@ -136,10 +136,10 @@ def fig1_rq2():
 # ═══════════════════════════════════════════════════════════════════
 def fig2_rq1():
     # 真实数据
-    line_mean = [0.3637, 0.5372, 0.4190, 0.4764]
-    line_iqr = [0.8069, 0.9091, 0.9000, 0.9091]
-    branch_mean = [0.2692, 0.4718, 0.3217, 0.4013]
-    branch_iqr = [0.8125, 1.0000, 0.8750, 1.0000]
+    line_mean = [0.3222, 0.4682, 0.3840, 0.4242]
+    line_iqr = [0.1091, 0.9091, 0.9000, 0.9091]
+    branch_mean = [0.2256, 0.3853, 0.2699, 0.3350]
+    branch_iqr = [0.0000, 1.0000, 0.7500, 1.0000]
 
     fig, (ax1, ax2) = plt.subplots(
         1, 2, figsize=(11, 4.5),
@@ -221,10 +221,10 @@ def fig2_rq1():
 # ═══════════════════════════════════════════════════════════════════
 def fig3_rq3():
     # 真实数据
-    cc_mean = [3.3238, 2.1129, 3.3022, 3.1242]
-    cc_iqr  = [2.5350, 0.3125, 1.6700, 1.8150]
-    ad_mean = [2.3073, 1.1056, 2.2910, 2.1136]
-    ad_iqr  = [2.5450, 0.3250, 1.6800, 1.8150]
+    cc_mean = [3.1953, 2.0931, 3.1544, 3.0060]
+    cc_iqr  = [2.2200, 0.2175, 1.4300, 1.6800]
+    ad_mean = [2.1790, 1.0867, 2.1445, 1.9966]
+    ad_iqr  = [2.2300, 0.2150, 1.4300, 1.6550]
 
     fig, (ax1, ax2) = plt.subplots(
         1, 2, figsize=(11, 4.5),
@@ -263,7 +263,7 @@ def fig3_rq3():
         ax.set_xticks(x)
         ax.set_xticklabels(STRATEGIES)
         ax.set_ylabel(ylabel)
-        ax.set_ylim(0, 6.2)
+        ax.set_ylim(0, 5.3)
         ax.set_title(title, pad=8)
         ax.text(0.02, 0.97, f"{kw_text}\n{note}",
                 transform=ax.transAxes, fontsize=7.5, va="top",
@@ -273,9 +273,9 @@ def fig3_rq3():
         # 显著性括号
         # CoT vs few_shot (p_adj<0.001), few_shot vs role_based (p_adj=0.0005)
         # few_shot vs zero_shot (p_adj<0.001)
-        add_sig_bracket(ax, 0, 1, 5.2, 0.18, "***", "#333")
-        add_sig_bracket(ax, 1, 2, 5.7, 0.18, "***", "#333")
-        add_sig_bracket(ax, 1, 3, 6.0, 0.18, "***", "#333")
+        # add_sig_bracket(ax, 0, 1, 5.2, 0.18, "***", "#333")
+        # add_sig_bracket(ax, 1, 2, 5.7, 0.18, "***", "#333")
+        # add_sig_bracket(ax, 1, 3, 6.0, 0.18, "***", "#333")
 
     fig.suptitle(
         "RQ3: Readability and maintainability of generated test suites",
@@ -292,7 +292,7 @@ def fig3_rq3():
 def fig4_passk():
     # 真实数据
     pass1 = [68.15, 65.56, 59.26, 59.26]
-    pass3 = [96.85, 96.00, 93.35, 93.35]
+    pass3 = [84.44, 73.33, 68.89, 68.89]
 
     fig, ax = plt.subplots(figsize=(7, 4.5))
     x     = np.arange(4)
@@ -359,12 +359,12 @@ def fig4_passk():
 def fig5_summary():
     # 真实均值数据
     raw = {
-        "Compilation\nrate (↑)":      [0.9926, 1.0000, 0.9889, 0.9963],
-        "Execution\npass rate (↑)":   [0.4474, 0.4969, 0.3711, 0.3659],
-        "Line\ncoverage (↑)":         [0.3637, 0.5372, 0.4190, 0.4764],
-        "Branch\ncoverage (↑)":       [0.2692, 0.4718, 0.3217, 0.4013],
-        "Cyclomatic\ncomplexity (↓)": [3.3238, 2.1129, 3.3022, 3.1242],
-        "Assertions\nper func (↓)":   [2.3073, 1.1056, 2.2910, 2.1136],
+        "Compilation\nrate (↑)":      [0.993, 1.0000, 0.9889, 0.9963],
+        "Execution\npass rate (↑)":   [0.682, 0.656, 0.593, 0.593],
+        "Line\ncoverage (↑)":         [0.322, 0.468, 0.384, 0.424],
+        "Branch\ncoverage (↑)":       [0.226, 0.385, 0.270, 0.335],
+        "Cyclomatic\ncomplexity (↓)": [3.20, 2.09, 3.15, 3.01],
+        "Assertions\nper func (↓)":   [2.18, 1.09, 2.14, 2.00],
     }
 
     # 显示用的格式化字符串
@@ -438,11 +438,13 @@ def fig5_summary():
     print("[fig5] saved")
 
 
+
+
 # ─────────────────────────────────────────────
 if __name__ == "__main__":
     #fig1_rq2()
-    fig2_rq1()
+    # fig2_rq1()
     #fig3_rq3()
     #fig4_passk()
-    #fig5_summary()
+    fig5_summary()
     print("\n所有图表生成完毕。")

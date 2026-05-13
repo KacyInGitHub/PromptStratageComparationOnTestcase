@@ -13,6 +13,7 @@ import re
 import subprocess
 import sys
 import tempfile
+import hashlib
 from collections import defaultdict
 from pathlib import Path
 
@@ -94,6 +95,25 @@ CLASS_MAP = {
 }
 
 
+def load_candidate_source_map(candidate_path: str) -> dict:
+    """
+    构建 (project, name, source_hash) -> lineno 的精确查找表
+    用源码内容唯一标识每个候选函数
+    """
+    with open(candidate_path, encoding="utf-8") as f:
+        candidates = json.load(f)
+
+    source_map = {}
+    for c in candidates:
+        source_hash = hashlib.md5(
+            c["source"].strip().encode("utf-8")
+        ).hexdigest()
+        key = (c["project"], c["name"], source_hash)
+        source_map[key] = c["lineno"]
+
+    print(f"[candidate] 加载候选函数 {len(source_map)} 个")
+    return source_map
+
 # ─────────────────────────────────────────────
 # 文件名解析
 # ─────────────────────────────────────────────
@@ -111,15 +131,65 @@ def parse_filename(filename: str) -> dict:
 # ─────────────────────────────────────────────
 # 加载所有JSON文件
 # ─────────────────────────────────────────────
-def load_all(data_dir: str) -> list:
+# def load_all(data_dir: str) -> list:
+#     all_records = []
+#     for path in sorted(Path(data_dir).glob("generated_tests_*.json")):
+#         meta = parse_filename(path.name)
+#         with open(path, encoding="utf-8") as f:
+#             records = json.load(f)
+#         for record in records:
+#             record.update(meta)
+#             all_records.append(record)
+#     print(f"[load] 共加载 {len(all_records)} 条记录")
+#     return all_records
+
+
+def load_all(data_dir: str,
+             candidate_path: str = "candidate_functions.json") -> list:
+    source_map = load_candidate_source_map(candidate_path)
+    unmatched  = []
+
     all_records = []
     for path in sorted(Path(data_dir).glob("generated_tests_*.json")):
         meta = parse_filename(path.name)
         with open(path, encoding="utf-8") as f:
             records = json.load(f)
+
         for record in records:
             record.update(meta)
+
+            # 用源码hash精确匹配lineno
+            project = record.get("project", "")
+            name    = record.get("name", "")
+            source  = record.get("source", "").strip()
+
+            source_hash = hashlib.md5(
+                source.encode("utf-8")
+            ).hexdigest()
+            key    = (project, name, source_hash)
+            lineno = source_map.get(key)
+
+            if lineno is not None:
+                record["lineno"]     = lineno
+                record["unique_fid"] = f"{project}.{name}.L{lineno}"
+            else:
+                record["lineno"]     = 0
+                record["unique_fid"] = f"{project}.{name}.L0"
+                unmatched.append({
+                    "project": project,
+                    "name":    name,
+                    "file":    path.name,
+                })
+
             all_records.append(record)
+
+    if unmatched:
+        print(f"[warn] 未匹配到候选函数的记录: {len(unmatched)} 条")
+        for u in unmatched:
+            print(f"       {u['project']}.{u['name']} in {u['file']}")
+    else:
+        print("[load] ✅ 所有记录均成功匹配到候选函数")
+
     print(f"[load] 共加载 {len(all_records)} 条记录")
     return all_records
 
@@ -279,12 +349,64 @@ def run_tests(source: str, timeout: int = 30) -> dict:
 # ─────────────────────────────────────────────
 # 主流水线
 # ─────────────────────────────────────────────
+# def process_record(record: dict) -> dict:
+#     result = {
+#         "function_id": f"{record['project']}.{record['name']}",
+#         "project":     record["project"],
+#         "module":      record["module"],
+#         "name":        record["name"],
+#         "strategy":    record.get("strategy"),
+#         "trial":       record.get("trial"),
+#         "status":      "pending",
+#         "static":      {},
+#         "compile":     {},
+#         "execution":   {},
+#     }
+#
+#     source = record.get("tests_source", "")
+#     if not source.strip():
+#         result["status"] = "empty"
+#         return result
+#
+#     # Step 1: 静态检测
+#     result["static"] = static_check(source)
+#     if not result["static"]["syntax_valid"]:
+#         result["status"] = "syntax_error"
+#         return result
+#     if not result["static"]["has_test_func"]:
+#         result["status"] = "no_test_func"
+#         return result
+#
+#     # Step 2: 导入修复
+#     source = fix_imports(
+#         source,
+#         record["project"],
+#         record["module"],
+#         record["name"],
+#     )
+#
+#     # Step 3: 编译检查
+#     result["compile"] = compile_check(source)
+#     if not result["compile"]["compile_ok"]:
+#         result["status"] = "compile_error"
+#         return result
+#
+#     # Step 4: 执行
+#     result["execution"] = run_tests(source)
+#     result["status"] = "completed"
+#     result["fixed_source"] = source  # 保存修复后的代码，便于调试
+#
+#     return result
+
 def process_record(record: dict) -> dict:
     result = {
         "function_id": f"{record['project']}.{record['name']}",
+        "unique_fid":  record.get("unique_fid",
+                       f"{record['project']}.{record['name']}.L0"),
         "project":     record["project"],
         "module":      record["module"],
         "name":        record["name"],
+        "lineno":      record.get("lineno", 0),
         "strategy":    record.get("strategy"),
         "trial":       record.get("trial"),
         "status":      "pending",
@@ -323,32 +445,55 @@ def process_record(record: dict) -> dict:
 
     # Step 4: 执行
     result["execution"] = run_tests(source)
-    result["status"] = "completed"
-    result["fixed_source"] = source  # 保存修复后的代码，便于调试
+    result["status"]    = "completed"
+    result["fixed_source"] = source
 
     return result
 
 
-def run_pipeline(data_dir: str, output_path: str):
-    records = load_all(data_dir)
+# def run_pipeline(data_dir: str, output_path: str):
+#     records = load_all(data_dir)
+#     results = []
+#
+#     for i, record in enumerate(records):
+#         print(
+#             f"[{i+1:03d}/{len(records)}] "
+#             f"{record.get('strategy')}/trial{record.get('trial')} "
+#             f"- {record['project']}.{record['name']}",
+#             end=" ... "
+#         )
+#         result = process_record(record)
+#         results.append(result)
+#         print(result["status"])
+#
+#     # 保存结果
+#     with open(output_path, "w", encoding="utf-8") as f:
+#         json.dump(results, f, indent=2, ensure_ascii=False)
+#
+#     # 打印汇总
+#     print_summary_all(results)
+#     print(f"\n结果已保存至: {output_path}")
+
+def run_pipeline(data_dir: str, output_path: str,
+                 candidate_path: str = "candidate_functions.json"):
+    records = load_all(data_dir, candidate_path)
     results = []
 
     for i, record in enumerate(records):
         print(
             f"[{i+1:03d}/{len(records)}] "
             f"{record.get('strategy')}/trial{record.get('trial')} "
-            f"- {record['project']}.{record['name']}",
+            f"- {record['project']}.{record['name']} "
+            f"(L{record.get('lineno', '?')})",
             end=" ... "
         )
         result = process_record(record)
         results.append(result)
         print(result["status"])
 
-    # 保存结果
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
 
-    # 打印汇总
     print_summary_all(results)
     print(f"\n结果已保存至: {output_path}")
 
@@ -483,7 +628,12 @@ def print_summary_all(results: list):
         def pct(x): return f"{x}/{n} ({x/n*100:.1f}%)" if n else "0/0"
         print(f"  {project:<18} {pct(p['exec_passed']):>18} {n:>6}")
 
+# if __name__ == "__main__":
+#     DATA_DIR = "generated_tests/"
+#     OUTPUT   = "pipeline_results.json"
+#     run_pipeline(DATA_DIR, OUTPUT)
 if __name__ == "__main__":
-    DATA_DIR = "generated_tests/"
-    OUTPUT   = "pipeline_results.json"
-    run_pipeline(DATA_DIR, OUTPUT)
+    DATA_DIR       = "generated_tests/"
+    OUTPUT         = "pipeline_results.json"
+    CANDIDATE_PATH = "experiment_data/candidate_functions.json"
+    run_pipeline(DATA_DIR, OUTPUT, CANDIDATE_PATH)
