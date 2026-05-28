@@ -3,10 +3,10 @@ from collections import defaultdict
 from math import comb
 
 # ── 加载文件 ──
-with open("pipeline_results.json", encoding="utf-8") as f:
+with open("../pipeline_results.json", encoding="utf-8") as f:
     records = json.load(f)
 
-with open("experiment_data/candidate_functions.json", encoding="utf-8") as f:
+with open("../experiment_data/candidate_functions.json", encoding="utf-8") as f:
     candidates = json.load(f)
 
 print(f"pipeline记录总数: {len(records)}")
@@ -164,6 +164,6 @@ for s in sorted(grouped.keys()):
           f" {all_fail_count:>6}")
 
 # ── 保存结果 ──
-with open("passk_corrected.json", "w", encoding="utf-8") as f:
+with open("../passk_corrected.json", "w", encoding="utf-8") as f:
     json.dump(corrected, f, indent=2, ensure_ascii=False)
 print("\n修正后结果已保存至 passk_corrected.json")
