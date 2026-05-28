@@ -147,7 +147,7 @@ def fig6_coverage_box():
                               fc="white", ec="gray", alpha=0.85))
 
     fig.suptitle(
-        "RQ1: Distribution of function-level coverage across strategies\n"
+        "RQ2: Distribution of function-level coverage across strategies\n"
         "(boxes = IQR, whiskers = 1.5×IQR, diamonds = mean)",
         fontsize=11, y=1.03)
     plt.savefig(OUT+"fig6_coverage_box.pdf",
@@ -289,7 +289,7 @@ def fig8_pass_box():
     ax.set_ylabel("Execution pass rate (best trial per function)")
     ax.set_ylim(-0.12, 1.18)
     ax.set_title(
-        "RQ2: Distribution of execution pass rate by strategy\n"
+        "RQ1: Distribution of execution pass rate by strategy\n"
         "(best trial selected per function)",
         pad=8)
     # 图例移到右上角
@@ -490,9 +490,9 @@ def fig12_assertion_combined():
 
 # ─────────────────────────────────────────────
 if __name__ == "__main__":
-    # fig6_coverage_box()
+    fig6_coverage_box()
     # fig7_quality_box()
     # fig8_pass_box()
     # fig11_complexity_combined()
-    fig12_assertion_combined()
+    # fig12_assertion_combined()
     print("\n所有箱线图生成完毕。")

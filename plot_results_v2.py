@@ -121,7 +121,7 @@ def fig1_rq2():
     ax2.set_title("(b) Trial-to-trial stability", pad=8)
     ax2.legend(loc="upper left", framealpha=0.9)
 
-    fig.suptitle("RQ2: Test execution pass rate across strategies",
+    fig.suptitle("RQ1: Test execution pass rate across strategies",
                  fontsize=12, y=1.02)
     plt.savefig(OUT+"fig1_rq2_execution.pdf",
                 bbox_inches="tight", dpi=150)
@@ -206,7 +206,7 @@ def fig2_rq1():
     ax2.legend(loc="upper left", framealpha=0.9)
 
     fig.suptitle(
-        "RQ1: Function-level structural coverage by strategy",
+        "RQ2: Function-level structural coverage by strategy",
         fontsize=12, y=1.02)
     plt.savefig(OUT + "fig2_rq1_coverage.pdf",
                 bbox_inches="tight", dpi=150)
@@ -336,7 +336,7 @@ def fig4_passk():
     ax.set_ylabel("Pass rate (%)")
     ax.set_ylim(40, 110)
     ax.set_title(
-        "RQ2: Pass@1 and Pass@3 by prompt strategy",
+        "RQ1: Pass@1 and Pass@3 by prompt strategy",
         pad=8)
     ax.legend(loc="lower right", framealpha=0.9)
     ax.text(0.02, 0.97,
@@ -442,9 +442,9 @@ def fig5_summary():
 
 # ─────────────────────────────────────────────
 if __name__ == "__main__":
-    #fig1_rq2()
-    # fig2_rq1()
+    # fig1_rq2()
+    fig2_rq1()
     #fig3_rq3()
-    #fig4_passk()
-    fig5_summary()
+    # fig4_passk()
+    # fig5_summary()
     print("\n所有图表生成完毕。")
