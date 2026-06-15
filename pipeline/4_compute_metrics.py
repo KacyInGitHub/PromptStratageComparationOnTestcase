@@ -133,7 +133,7 @@ MODULE_DOTTED = {
 # 候选函数加载：source hash -> lineno 映射
 # ─────────────────────────────────────────────
 def load_candidate_source_map(
-        candidate_path: str = "candidate_functions.json") -> dict:
+        candidate_path: str = "../experiment_data/candidate_functions.json") -> dict:
     """
     构建 (project, name, source_hash) -> lineno 的精确查找表。
     用被测函数源码内容唯一标识每个候选函数，
@@ -168,7 +168,7 @@ def parse_strategy(filename: str) -> str:
 
 
 def load_all(data_dir: str,
-             candidate_path: str = "candidate_functions.json") -> list:
+             candidate_path: str = "../experiment_data/candidate_functions.json") -> list:
     """
     加载所有生成测试文件，并通过被测函数源码 hash 精确匹配
     candidate_functions.json 中的行号，写入 lineno 和 unique_fid 字段。
@@ -783,7 +783,7 @@ if __name__ == "__main__":
         help="要计算的指标，或 all / merge"
     )
     parser.add_argument(
-        "--data_dir", default="tests_for_coverage/",
+        "--data_dir", default="../tests_for_coverage/",
         help="JSON 数据目录（merge 模式下不需要）"
     )
     parser.add_argument(
@@ -799,7 +799,7 @@ if __name__ == "__main__":
         help="单条记录执行超时秒数（coverage/mutation 有效）"
     )
     parser.add_argument(
-        "--candidate_path", default="candidate_functions.json",
+        "--candidate_path", default="../experiment_data/candidate_functions.json",
         help="候选函数 JSON 文件路径"
     )
     args = parser.parse_args()

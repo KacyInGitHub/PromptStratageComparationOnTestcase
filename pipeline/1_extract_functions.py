@@ -1,14 +1,11 @@
 """
-function_extractor.py
-=====================
-从三个实验项目中提取候选函数，应用3.2.2节定义的筛选规则。
+1_extract_functions.py
+Usage:
+    python 1_extract_functions.py
 
-使用方法：
-    python function_extractor.py
-
-输出：
-    - candidate_functions.json   所有候选函数的详细信息
-    - extraction_report.txt      筛选过程统计报告
+Output:
+    - candidate_functions.json   Detailed information for all candidate functions
+    - extraction_report.txt      Filtering process statistics report
 """
 
 import ast
@@ -20,18 +17,18 @@ from pathlib import Path
 from typing import Optional
 
 # ─────────────────────────────────────────────
-# 配置：修改为你本地的项目路径
+# Configuration: update to your local project paths
 # ─────────────────────────────────────────────
 PROJECTS = {
     "requests": {
         "path": Path.home() / "PycharmProjects" / "requests" / "src",
-        # 仅从这些模块采样（排除网络依赖模块）
+        # Sample only from these modules (excludes network-dependent modules)
         "include_modules": ["utils.py", "models.py", "structures.py"],
         "sample_size": 30,
     },
     "arrow": {
         "path": Path.home() / "PycharmProjects" / "arrow" / "arrow",
-        "include_modules": None,   # None表示扫描全部模块
+        "include_modules": None,   # None means scan all modules
         "sample_size": 30,
     },
     "more_itertools": {
@@ -41,12 +38,12 @@ PROJECTS = {
     },
 }
 
-# 筛选规则（对应3.2.2节）
-MIN_LINES = 5          # 最少可执行行数
-MAX_LINES = 50         # 最多可执行行数
-RANDOM_SEED = 42       # 随机种子，保证可重现
+# Filtering rules (see section 3.2.2)
+MIN_LINES = 5          # Minimum executable lines
+MAX_LINES = 50         # Maximum executable lines
+RANDOM_SEED = 42       # Random seed for reproducibility
 
-# 复杂度分层（使用radon，若未安装则跳过分层）
+# Complexity tiers (uses radon; skips tiering if not installed)
 COMPLEXITY_TIERS = {
     "low":    (1, 3),
     "medium": (4, 7),
@@ -55,28 +52,28 @@ COMPLEXITY_TIERS = {
 
 
 # ─────────────────────────────────────────────
-# 数据结构
+# Data structures
 # ─────────────────────────────────────────────
 @dataclass
 class FunctionRecord:
     project: str
-    module: str           # 相对路径，如 requests/utils.py
-    name: str             # 函数名
-    qualname: str         # 限定名，如 MyClass.my_method
-    lineno: int           # 起始行号
-    source: str           # 函数源代码
-    lines: int            # 可执行行数
-    complexity: int       # 圈复杂度（-1表示未计算）
+    module: str           # Relative path, e.g. requests/utils.py
+    name: str             # Function name
+    qualname: str         # Qualified name, e.g. MyClass.my_method
+    lineno: int           # Starting line number
+    source: str           # Function source code
+    lines: int            # Executable line count
+    complexity: int       # Cyclomatic complexity (-1 if not computed)
     complexity_tier: str  # low / medium / high / unknown
-    is_method: bool       # 是否为类方法
-    docstring: Optional[str]  # 文档字符串
+    is_method: bool       # Whether it is a class method
+    docstring: Optional[str]  # Docstring
 
 
 # ─────────────────────────────────────────────
-# 工具函数
+# Utility functions
 # ─────────────────────────────────────────────
 def count_executable_lines(node: ast.FunctionDef) -> int:
-    """统计函数中可执行语句行数（排除注释和空行）"""
+    """Count executable statement lines in a function (excludes comments and blank lines)."""
     count = 0
     for child in ast.walk(node):
         if isinstance(child, (
@@ -91,14 +88,14 @@ def count_executable_lines(node: ast.FunctionDef) -> int:
 
 
 def get_complexity(source: str, func_name: str) -> int:
-    """使用radon计算圈复杂度，若未安装返回-1"""
+    """Compute cyclomatic complexity via radon; returns -1 if radon is not installed."""
     try:
         import radon.complexity as rc
         results = rc.cc_visit(source)
         for block in results:
             if block.name == func_name:
                 return block.complexity
-        return 1  # 无分支函数默认复杂度为1
+        return 1  # Default complexity for branch-free functions
     except ImportError:
         return -1
 
@@ -114,37 +111,37 @@ def get_tier(complexity: int) -> str:
 
 def is_excluded(node: ast.FunctionDef, source_lines: list[str]) -> tuple[bool, str]:
     """
-    判断函数是否应被排除，返回 (是否排除, 排除原因)
+    Determine whether a function should be excluded.
+    Returns (should_exclude, reason).
     """
     name = node.name
 
-    # 规则1：构造函数
+    # Rule 1: constructors
     if name == "__init__":
         return True, "constructor"
 
-    # 规则2：魔术方法（__str__, __repr__等）
+    # Rule 2: dunder methods (__str__, __repr__, etc.)
     if name.startswith("__") and name.endswith("__"):
         return True, "dunder_method"
 
-    # 规则3：私有方法（可选，视情况开启）
+    # Rule 3: private methods (optional, enable if needed)
     # if name.startswith("_"):
     #     return True, "private_method"
 
-    # 规则4：纯getter/setter（函数体只有return或赋值）
+    # Rule 4: pure getter/setter (body contains only a return or assignment)
     body = node.body
-    # 跳过docstring
+    # Skip docstring
     real_body = body[1:] if (body and isinstance(body[0], ast.Expr)
                              and isinstance(body[0].value, ast.Constant)) else body
     if len(real_body) == 1 and isinstance(real_body[0], ast.Return):
         return True, "pure_getter"
 
-    # 规则5：行数过少
+    # Rule 5: too few lines
     exec_lines = count_executable_lines(node)
     if exec_lines < MIN_LINES:
         return True, f"too_short({exec_lines}lines)"
 
-    # 规则6：行数过多
-    # 通过起止行号估算总行数
+    # Rule 6: too many lines (estimated from start/end line numbers)
     start = node.lineno - 1
     end = node.end_lineno
     total_lines = end - start
@@ -155,7 +152,7 @@ def is_excluded(node: ast.FunctionDef, source_lines: list[str]) -> tuple[bool, s
 
 
 def extract_source(source_lines: list[str], node: ast.FunctionDef) -> str:
-    """提取函数源代码并去除公共缩进"""
+    """Extract function source code and strip common indentation."""
     start = node.lineno - 1
     end = node.end_lineno
     raw = "".join(source_lines[start:end])
@@ -163,7 +160,7 @@ def extract_source(source_lines: list[str], node: ast.FunctionDef) -> str:
 
 
 def get_docstring(node: ast.FunctionDef) -> Optional[str]:
-    """提取函数文档字符串"""
+    """Extract the function's docstring."""
     if (node.body and isinstance(node.body[0], ast.Expr)
             and isinstance(node.body[0].value, ast.Constant)):
         return str(node.body[0].value.value)
@@ -171,7 +168,7 @@ def get_docstring(node: ast.FunctionDef) -> Optional[str]:
 
 
 # ─────────────────────────────────────────────
-# 主提取逻辑
+# Core extraction logic
 # ─────────────────────────────────────────────
 def scan_file(
     filepath: Path,
@@ -179,8 +176,8 @@ def scan_file(
     project_root: Path,
 ) -> tuple[list[FunctionRecord], dict]:
     """
-    扫描单个Python文件，提取并筛选函数。
-    返回：(通过筛选的函数列表, 统计信息字典)
+    Scan a single Python file and extract filtered functions.
+    Returns (list of functions that passed filtering, stats dict).
     """
     stats = {
         "total": 0,
@@ -203,7 +200,7 @@ def scan_file(
     module_rel = str(filepath.relative_to(project_root))
     records = []
 
-    # 收集所有函数定义（包括类方法）
+    # Collect all function definitions (including class methods)
     for node in ast.walk(tree):
         if not isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef)):
             continue
@@ -211,14 +208,14 @@ def scan_file(
         stats["total"] += 1
         is_method = False
 
-        # 判断是否为类方法
+        # Determine whether the function is a class method
         for parent in ast.walk(tree):
             if isinstance(parent, ast.ClassDef):
                 if node in ast.walk(parent):
                     is_method = True
                     break
 
-        # 应用筛选规则
+        # Apply filtering rules
         # excluded, reason = is_excluded(node, source_lines)
         # if excluded:
         #     key = f"excluded_{reason.split('(')[0]}"
@@ -226,11 +223,11 @@ def scan_file(
         #         stats[key] += 1
         #     continue
 
-        # 将 reason 映射到正确的 stats key
+        # Map reason string to the correct stats key
         REASON_TO_KEY = {
             "constructor": "excluded_constructor",
             "dunder_method": "excluded_dunder",
-            "pure_getter": "excluded_getter",  # 修复这里
+            "pure_getter": "excluded_getter",
         }
 
         excluded, reason = is_excluded(node, source_lines)
@@ -243,10 +240,10 @@ def scan_file(
 
 
 
-        # 提取源代码
+        # Extract source code
         source = extract_source(source_lines, node)
 
-        # 计算圈复杂度
+        # Compute cyclomatic complexity
         complexity = get_complexity(source, node.name)
         tier = get_tier(complexity)
 
@@ -254,7 +251,7 @@ def scan_file(
             project=project_name,
             module=module_rel,
             name=node.name,
-            qualname=node.name,  # 简化版，不追踪类名
+            qualname=node.name,  # Simplified: does not track class name
             lineno=node.lineno,
             source=source,
             lines=count_executable_lines(node),
@@ -273,7 +270,7 @@ def scan_project(
     project_name: str,
     config: dict,
 ) -> tuple[list[FunctionRecord], dict]:
-    """扫描整个项目"""
+    """Scan an entire project."""
     project_path = config["path"]
     include_modules = config["include_modules"]
 
@@ -289,15 +286,15 @@ def scan_project(
         "passed": 0,
     }
 
-    # 确定扫描范围
+    # Determine scan scope
     if include_modules:
-        # 仅扫描指定模块
+        # Scan only the specified modules
         py_files = []
         for module_name in include_modules:
             matches = list(project_path.rglob(module_name))
             py_files.extend(matches)
     else:
-        # 扫描全部Python文件，排除测试文件和配置文件
+        # Scan all Python files, excluding test and config files
         py_files = [
             f for f in project_path.rglob("*.py")
             if not any(part.startswith("test") for part in f.parts)
@@ -329,17 +326,17 @@ def scan_project(
 
 
 # ─────────────────────────────────────────────
-# 分层采样
+# Stratified sampling
 # ─────────────────────────────────────────────
 def stratified_sample(
     records: list[FunctionRecord],
     sample_size: int,
     seed: int = RANDOM_SEED,
 ) -> list[FunctionRecord]:
-    """按复杂度分层采样"""
+    """Sample functions with stratification by complexity tier."""
     random.seed(seed)
 
-    # 按tier分组
+    # Group by tier
     tiers: dict[str, list[FunctionRecord]] = {
         "low": [], "medium": [], "high": [], "unknown": []
     }
@@ -350,11 +347,11 @@ def stratified_sample(
     for tier, funcs in tiers.items():
         print(f"    {tier:8s}: {len(funcs)} functions")
 
-    # 如果没有复杂度信息，直接随机采样
+    # Fall back to random sampling if no complexity info is available
     if all(len(v) == 0 for k, v in tiers.items() if k != "unknown"):
         return random.sample(records, min(sample_size, len(records)))
 
-    # 按比例分配采样数量
+    # Allocate sample quota proportionally
     total = len(records)
     if total == 0:
         return []
@@ -368,7 +365,7 @@ def stratified_sample(
         if not funcs:
             continue
 
-        # 最后一个tier拿剩余所有配额
+        # Last tier gets all remaining quota
         if i == len(tier_order) - 1:
             n = remaining
         else:
@@ -382,7 +379,7 @@ def stratified_sample(
         if remaining <= 0:
             break
 
-    # 如果采样不足，从剩余函数补充
+    # Top up with remaining functions if sample is still short
     if len(sampled) < sample_size:
         sampled_set = set(id(r) for r in sampled)
         remaining_pool = [r for r in records if id(r) not in sampled_set]
@@ -396,13 +393,13 @@ def stratified_sample(
 
 
 # ─────────────────────────────────────────────
-# 报告生成
+# Report generation
 # ─────────────────────────────────────────────
 def generate_report(
     all_results: dict,
     output_path: Path,
 ) -> None:
-    """生成文本格式的筛选报告"""
+    """Generate a plain-text filtering report."""
     lines = []
     lines.append("=" * 60)
     lines.append("FUNCTION EXTRACTION REPORT")
@@ -425,7 +422,7 @@ def generate_report(
         lines.append(f"  Passed filtering:     {stats['passed']}")
         lines.append(f"  Final sample:         {len(sampled)}")
 
-        # 复杂度分布
+        # Complexity distribution
         tier_counts = {"low": 0, "medium": 0, "high": 0, "unknown": 0}
         for r in sampled:
             tier_counts[r.complexity_tier] += 1
@@ -450,10 +447,10 @@ def generate_report(
 
 
 # ─────────────────────────────────────────────
-# 主程序
+# Entry point
 # ─────────────────────────────────────────────
 def main():
-    output_dir = Path("experiment_data")
+    output_dir = Path("../experiment_data")
     output_dir.mkdir(exist_ok=True)
 
     all_results = {}
@@ -465,12 +462,12 @@ def main():
             print(f"  Please update the path in PROJECTS config.")
             continue
 
-        # 扫描项目
+        # Scan project
         records, stats = scan_project(project_name, config)
 
         print(f"\n  Total passed: {stats['passed']} functions")
 
-        # 分层采样
+        # Stratified sampling
         sampled = stratified_sample(records, config["sample_size"])
         print(f"  Sampled: {len(sampled)} functions")
 
@@ -481,7 +478,7 @@ def main():
         }
         all_sampled.extend(sampled)
 
-    # 保存候选函数列表（JSON格式）
+    # Save candidate function list (JSON format)
     output_json = output_dir / "candidate_functions.json"
     with open(output_json, "w", encoding="utf-8") as f:
         json.dump(
@@ -493,10 +490,10 @@ def main():
     print(f"\nCandidate functions saved to: {output_json}")
     print(f"Total functions: {len(all_sampled)}")
 
-    # 生成报告
+    # Generate report
     generate_report(all_results, output_dir / "extraction_report.txt")
 
-    # 打印样本预览
+    # Print sample preview
     print("\n" + "=" * 50)
     print("SAMPLE PREVIEW (first 3 functions)")
     print("=" * 50)

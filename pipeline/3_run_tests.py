@@ -145,7 +145,7 @@ def parse_filename(filename: str) -> dict:
 
 
 def load_all(data_dir: str,
-             candidate_path: str = "candidate_functions.json") -> list:
+             candidate_path: str = "../experiment_data/candidate_functions.json") -> list:
     source_map = load_candidate_source_map(candidate_path)
     unmatched  = []
 
@@ -475,7 +475,7 @@ def process_record(record: dict) -> dict:
 #     print(f"\n结果已保存至: {output_path}")
 
 def run_pipeline(data_dir: str, output_path: str,
-                 candidate_path: str = "candidate_functions.json"):
+                 candidate_path: str = "../experiment_data/candidate_functions.json"):
     records = load_all(data_dir, candidate_path)
     results = []
 
@@ -633,7 +633,7 @@ def print_summary_all(results: list):
 #     OUTPUT   = "pipeline_results.json"
 #     run_pipeline(DATA_DIR, OUTPUT)
 if __name__ == "__main__":
-    DATA_DIR       = "generated_tests/"
-    OUTPUT         = "pipeline_results.json"
-    CANDIDATE_PATH = "experiment_data/candidate_functions.json"
+    DATA_DIR       = "../generated_tests/"
+    OUTPUT         = "../results/pipeline_results.json"
+    CANDIDATE_PATH = "../experiment_data/candidate_functions.json"
     run_pipeline(DATA_DIR, OUTPUT, CANDIDATE_PATH)

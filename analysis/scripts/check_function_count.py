@@ -1,7 +1,7 @@
 import json
 from collections import defaultdict
 
-with open("../metrics_results_new.json") as f:
+with open("../../results/metrics_results.json") as f:
     records = json.load(f)
 
 counts = defaultdict(list)

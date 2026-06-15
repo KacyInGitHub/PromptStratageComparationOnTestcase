@@ -8,9 +8,9 @@ from openai import OpenAI
 # =========================
 # 配置
 # =========================
-INPUT_FILE = "experiment_data/candidate_functions.json"
-OUTPUT_DIR = Path("generated_tests")
-PROMPT_DIR = Path("prompts")
+INPUT_FILE = "../experiment_data/candidate_functions.json"
+OUTPUT_DIR = Path("../generated_tests")
+PROMPT_DIR = Path("../prompts")
 
 STRATEGIES = ["zero_shot", "few_shot", "role_based", "CoT"]
 

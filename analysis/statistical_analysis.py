@@ -508,7 +508,7 @@ def main():
         help="metrics_results.json 路径（最优trial的覆盖率/复杂度/断言数据）"
     )
     parser.add_argument(
-        "--output", default="statistical_results.json",
+        "--output", default="../results/statistical_results.json",
         help="输出 JSON 文件路径"
     )
     args = parser.parse_args()
