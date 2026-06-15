@@ -1,13 +1,12 @@
 """
-plot_results.py  —  基于真实统计数据生成论文图表
+plot_results.py  —  generate thesis figures from real statistical data
 
-输出：
-  fig1_rq1_execution.pdf   RQ2 执行通过率（分组柱状图 + 折线趋势）
-  fig2_rq2_coverage.pdf    RQ1 覆盖率（并排柱状图 + 误差棒）
-  fig3_rq3_quality.pdf     RQ3 可读性指标（并排柱状图）
-  fig4_passk.pdf           Pass@1 vs Pass@3（分组柱状图）
-  fig5_summary.pdf         六指标汇总热力图
-
+Output:
+  fig1_rq1_execution.pdf   RQ2 execution pass rate (grouped bar + trend line)
+  fig2_rq2_coverage.pdf    RQ1 coverage (side-by-side bars + error bars)
+  fig3_rq3_quality.pdf     RQ3 readability metrics (side-by-side bars)
+  fig4_passk.pdf           Pass@1 vs Pass@3 (grouped bar)
+  fig5_summary.pdf         Six-metric summary heatmap
 """
 import matplotlib
 matplotlib.use("Agg")
@@ -48,9 +47,9 @@ def add_sig_bracket(ax, x1, x2, y, h, text, color="black"):
 
 
 # ═══════════════════════════════════════════════════════════════════
-# 图1：RQ2 执行通过率
-#   左：三次 trial 分组柱状图
-#   右：折线趋势图
+# Fig 1: RQ2 execution pass rate
+#   Left:  grouped bar chart for three trials
+#   Right: trend line chart
 # ═══════════════════════════════════════════════════════════════════
 def fig1_rq1():
     by_trial = {
@@ -65,7 +64,7 @@ def fig1_rq1():
         gridspec_kw={"wspace": 0.38}
     )
 
-    # ── 左：分组柱状图 ────────────────────────────
+    # ── Left: grouped bar chart ───────────────────
     x     = np.arange(4)
     bar_w = 0.22
     alphas = [0.55, 0.75, 1.0]
@@ -99,11 +98,11 @@ def fig1_rq1():
              bbox=dict(boxstyle="round,pad=0.3",
                        fc="white", ec="gray", alpha=0.85))
 
-    # 显著性括号（few_shot vs role_based, few_shot vs zero_shot）
+    # Significance brackets (few_shot vs role_based, few_shot vs zero_shot)
     add_sig_bracket(ax1, 1-bar_w/2, 2+bar_w/2, 77, 0.8, "*", "#333")
     add_sig_bracket(ax1, 1-bar_w/2, 3+bar_w/2, 79.5, 0.8, "*", "#333")
 
-    # ── 右：折线趋势 ──────────────────────────────
+    # ── Right: trend line ─────────────────────────
     trials = [1, 2, 3]
     for i, (key, label) in enumerate(zip(KEYS, STRATEGIES)):
         vals = by_trial[key]
@@ -134,12 +133,12 @@ def fig1_rq1():
 
 
 # ═══════════════════════════════════════════════════════════════════
-# 图2：RQ1 覆盖率
-#   左：行覆盖率 & 分支覆盖率并排柱状图（含 IQR 误差棒）
-#   右：折线图显示行-分支差距
+# Fig 2: RQ1 coverage
+#   Left:  side-by-side bar chart for line & branch coverage (with IQR error bars)
+#   Right: line chart showing line–branch gap
 # ═══════════════════════════════════════════════════════════════════
 def fig2_rq2():
-    # 真实数据
+    # Real data
     line_mean = [0.3222, 0.4682, 0.3840, 0.4242]
     line_iqr = [0.1091, 0.9091, 0.9000, 0.9091]
     branch_mean = [0.2256, 0.3853, 0.2699, 0.3350]
@@ -153,7 +152,7 @@ def fig2_rq2():
     x = np.arange(4)
     bar_w = 0.35
 
-    # ── 左：并排柱状图 ────────────────────────────
+    # ── Left: side-by-side bar chart ─────────────
     b1 = ax1.bar(x - bar_w / 2, line_mean,
                  width=bar_w, color=COLORS, alpha=0.88,
                  edgecolor="white", linewidth=0.5,
@@ -181,7 +180,7 @@ def fig2_rq2():
     ax1.set_title("(a) Line and branch coverage by strategy", pad=8)
     ax1.legend(loc="upper left", framealpha=0.9)
 
-    # ── 右：折线图（行 vs 分支差距）────────────────
+    # ── Right: line chart (line vs branch gap) ────
     ax2.plot(STRATEGIES, line_mean,
              marker="o", markersize=7,
              color="#3266ad", linewidth=2.0,
@@ -219,12 +218,12 @@ def fig2_rq2():
 
 
 # ═══════════════════════════════════════════════════════════════════
-# 图3：RQ3 可读性指标
-#   左：圈复杂度柱状图 + 误差棒
-#   右：断言密度柱状图 + 误差棒
+# Fig 3: RQ3 readability metrics
+#   Left:  cyclomatic complexity bar chart + error bars
+#   Right: assertion density bar chart + error bars
 # ═══════════════════════════════════════════════════════════════════
 def fig3_rq3():
-    # 真实数据
+    # Real data
     cc_mean = [3.1953, 2.0931, 3.1544, 3.0060]
     cc_iqr  = [2.2200, 0.2175, 1.4300, 1.6800]
     ad_mean = [2.1790, 1.0867, 2.1445, 1.9966]
@@ -274,7 +273,7 @@ def fig3_rq3():
                 bbox=dict(boxstyle="round,pad=0.3",
                           fc="white", ec="gray", alpha=0.85))
 
-        # 显著性括号
+        # Significance brackets
         # CoT vs few_shot (p_adj<0.001), few_shot vs role_based (p_adj=0.0005)
         # few_shot vs zero_shot (p_adj<0.001)
         # add_sig_bracket(ax, 0, 1, 5.2, 0.18, "***", "#333")
@@ -291,10 +290,10 @@ def fig3_rq3():
 
 
 # ═══════════════════════════════════════════════════════════════════
-# 图4：Pass@1 vs Pass@3
+# Fig 4: Pass@1 vs Pass@3
 # ═══════════════════════════════════════════════════════════════════
 def fig4_passk():
-    # 真实数据
+    # Real data
     pass1 = [68.15, 65.56, 59.26, 59.26]
     pass3 = [84.44, 73.33, 68.89, 68.89]
 
@@ -322,7 +321,7 @@ def fig4_passk():
                 f"{v:.1f}%", ha="center", va="bottom",
                 fontsize=8.5, fontweight="bold")
 
-    # 连线显示 Pass@1 → Pass@3 的提升幅度
+    # Arrows showing gain from Pass@1 to Pass@3
     for i in range(4):
         gain = pass3[i] - pass1[i]
         ax.annotate("",
@@ -358,10 +357,10 @@ def fig4_passk():
 
 
 # ═══════════════════════════════════════════════════════════════════
-# 图5：六指标汇总热力图
+# Fig 5: Six-metric summary heatmap
 # ═══════════════════════════════════════════════════════════════════
 def fig5_summary():
-    # 真实均值数据
+    # Real mean values
     raw = {
         "Compilation\nrate (↑)":      [0.993, 1.0000, 0.9889, 0.9963],
         "Execution\npass rate (↑)":   [0.682, 0.656, 0.593, 0.593],
@@ -371,7 +370,7 @@ def fig5_summary():
         "Assertions\nper func (↓)":   [2.18, 1.09, 2.14, 2.00],
     }
 
-    # 显示用的格式化字符串
+    # Display format strings
     fmt = {
         "Compilation\nrate (↑)":
             [f"{v*100:.1f}%" for v in raw["Compilation\nrate (↑)"]],
@@ -420,7 +419,7 @@ def fig5_summary():
     cbar.set_ticks([0, 0.5, 1])
     cbar.set_ticklabels(["Worst", "Mid", "Best"])
 
-    # 标注每行最优值
+    # Highlight best value in each row
     for i in range(len(metrics)):
         best_j = int(np.argmax(matrix[i]))
         rect = plt.Rectangle(
@@ -442,13 +441,13 @@ def fig5_summary():
     print("[fig5] saved")
 
 
-# ── 加载数据 ──────────────────────────────────────────────────────
+# ── Load data ─────────────────────────────────────────────────────
 with open("../results/metrics_results.json") as f:
     metrics = json.load(f)
 with open("../results/pipeline_results.json") as f:
     pipeline = json.load(f)
 
-# 按策略收集原始值
+# Collect raw values per strategy
 raw = {s: {
     "line_rate": [], "branch_rate": [],
     "avg_complexity": [], "avg_assertions": []
@@ -466,7 +465,7 @@ for r in metrics:
     raw[s]["avg_complexity"].append(comp.get("avg_complexity"))
     raw[s]["avg_assertions"].append(assr.get("avg_assertions"))
 
-# 执行通过率（最优 trial）
+# Execution pass rate (best trial per function)
 pass_tmp = defaultdict(lambda: defaultdict(list))
 for r in pipeline:
     s   = r["strategy"]
@@ -483,7 +482,7 @@ def clean(lst):
     return np.array([v for v in lst if v is not None], dtype=float)
 
 # ═══════════════════════════════════════════════════════════════════
-# 图6：RQ1 覆盖率箱线图
+# Fig 6: RQ1 coverage box plots
 # ═══════════════════════════════════════════════════════════════════
 def fig6_coverage_box():
     fig, (ax1, ax2) = plt.subplots(
@@ -523,14 +522,14 @@ def fig6_coverage_box():
             flier.set_markerfacecolor(color)
             flier.set_markeredgecolor(color)
 
-        # 叠加均值点
+        # Overlay mean diamonds
         means = [clean(raw[s][key]).mean() for s in STRATEGIES]
         ax.scatter(range(1, 5), means,
                    marker="D", s=40, zorder=5,
                    color="white", edgecolor="black",
                    linewidth=1.0, label="Mean")
 
-        # 标注中位数和均值
+        # Annotate median and mean
         for i, (s, m) in enumerate(zip(STRATEGIES, means)):
             arr    = clean(raw[s][key])
             median = float(np.median(arr))
@@ -549,7 +548,7 @@ def fig6_coverage_box():
         ax.set_title(title, pad=8)
         ax.legend(loc="upper right", fontsize=8)
 
-        # 无分支函数的说明
+        # Note about branch-less functions
         if key == "branch_rate":
             ax.text(0.02, 0.97,
                     "Note: 30 functions with no branches excluded\n"
@@ -570,7 +569,7 @@ def fig6_coverage_box():
 
 
 # ═══════════════════════════════════════════════════════════════════
-# 图7：RQ3 可读性指标箱线图
+# Fig 7: RQ3 readability metrics box plots
 # ═══════════════════════════════════════════════════════════════════
 def fig7_quality_box():
     fig, (ax1, ax2) = plt.subplots(
@@ -651,7 +650,7 @@ def fig7_quality_box():
 
 
 # ═══════════════════════════════════════════════════════════════════
-# 图8：RQ2 执行通过率箱线图（最优 trial）
+# Fig 8: RQ2 execution pass rate box plot (best trial)
 # ═══════════════════════════════════════════════════════════════════
 def fig8_pass_box():
     fig, ax = plt.subplots(figsize=(7, 5))
@@ -705,9 +704,8 @@ def fig8_pass_box():
         "RQ1: Distribution of execution pass rate by strategy\n"
         "(best trial selected per function)",
         pad=8)
-    # 图例移到右上角
+    # Legend in upper right; stats annotation in upper left
     ax.legend(loc="upper right", fontsize=8, framealpha=0.9)
-    # 统计注释放左上角，独占空间
     ax.text(0.02, 0.99,
             "KW: H=23.21, p<0.001***\n"
             "Few-shot vs Role-based: p_adj<0.001***\n"
@@ -724,7 +722,7 @@ def fig8_pass_box():
 
 
 # ═══════════════════════════════════════════════════════════════════
-# 图11：圈复杂度复合图（柱状图 + 箱线图）
+# Fig 11: Cyclomatic complexity combined (bar + box)
 # ═══════════════════════════════════════════════════════════════════
 def fig11_complexity_combined():
     cc_mean = [3.1953, 2.0931, 3.1544, 3.0060]
@@ -735,7 +733,7 @@ def fig11_complexity_combined():
         gridspec_kw={"wspace": 0.38}
     )
 
-    # ── 左：柱状图 ────────────────────────────────
+    # ── Left: bar chart ───────────────────────────
     x = np.arange(4)
     bar_w = 0.52
     bars = ax1.bar(x, cc_mean, width=bar_w,
@@ -760,7 +758,7 @@ def fig11_complexity_combined():
              bbox=dict(boxstyle="round,pad=0.3",
                        fc="white", ec="gray", alpha=0.85))
 
-    # ── 右：箱线图 ────────────────────────────────
+    # ── Right: box plot ───────────────────────────
     bp = ax2.boxplot(
         data_list,
         patch_artist=True,
@@ -813,7 +811,7 @@ def fig11_complexity_combined():
 
 
 # ═══════════════════════════════════════════════════════════════════
-# 图12：断言密度复合图（柱状图 + 箱线图）
+# Fig 12: Assertion density combined (bar + box)
 # ═══════════════════════════════════════════════════════════════════
 def fig12_assertion_combined():
     ad_mean = [2.1790, 1.0867, 2.1445, 1.9966]
@@ -824,7 +822,7 @@ def fig12_assertion_combined():
         gridspec_kw={"wspace": 0.38}
     )
 
-    # ── 左：柱状图 ────────────────────────────────
+    # ── Left: bar chart ───────────────────────────
     x = np.arange(4)
     bar_w = 0.52
     bars = ax1.bar(x, ad_mean, width=bar_w,
@@ -849,7 +847,7 @@ def fig12_assertion_combined():
              bbox=dict(boxstyle="round,pad=0.3",
                        fc="white", ec="gray", alpha=0.85))
 
-    # ── 右：箱线图 ────────────────────────────────
+    # ── Right: box plot ───────────────────────────
     bp = ax2.boxplot(
         data_list,
         patch_artist=True,
@@ -915,4 +913,4 @@ if __name__ == "__main__":
     fig8_pass_box()
     fig11_complexity_combined()
     fig12_assertion_combined()
-    print("\n所有图表生成完毕。")
+    print("\nAll figures generated.")

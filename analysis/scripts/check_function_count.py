@@ -7,7 +7,7 @@ with open("../../results/metrics_results.json") as f:
 counts = defaultdict(list)
 for r in records:
     s = r.get("strategy")
-    # 从complexity或assertions字段取test_func_count
+    # Get test_func_count from complexity or assertions field
     count = r.get("complexity", {}).get("test_func_count") or \
             r.get("assertions", {}).get("test_func_count")
     if count is not None:

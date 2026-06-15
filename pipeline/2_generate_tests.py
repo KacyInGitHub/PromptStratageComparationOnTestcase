@@ -6,7 +6,7 @@ from pathlib import Path
 from openai import OpenAI
 
 # =========================
-# 配置
+# Configuration
 # =========================
 INPUT_FILE = "../experiment_data/candidate_functions.json"
 OUTPUT_DIR = Path("../generated_tests")
@@ -18,7 +18,7 @@ client = OpenAI()
 
 
 # =========================
-# 工具函数
+# Utility functions
 # =========================
 def load_functions():
     with open(INPUT_FILE, "r", encoding="utf-8") as f:
@@ -45,24 +45,22 @@ def call_gpt(prompt):
 
 
 # =========================
-# 提取测试代码（关键）
+# Extract test code
 # =========================
 def extract_tests(code_text):
-    """
-    从GPT输出中提取pytest测试代码
-    """
-    # 优先提取 ```python ``` 代码块
+    """Extract pytest test code from GPT output."""
+    # Prefer ```python ``` code blocks
     code_blocks = re.findall(r"```python(.*?)```", code_text, re.DOTALL)
 
     if code_blocks:
         return code_blocks[0].strip()
 
-    # fallback：直接返回全部内容
+    # Fallback: return the full content
     return code_text.strip()
 
 
 # =========================
-# 主逻辑
+# Main logic
 # =========================
 def generate_tests(strategy):
     assert strategy in STRATEGIES, f"Invalid strategy: {strategy}"
@@ -96,7 +94,7 @@ def generate_tests(strategy):
             "name": func["name"],
             "source": func["source"],
             "tests_source": tests_code,
-            "raw_output": raw_output   # ⭐建议保留，方便debug/论文分析
+            "raw_output": raw_output   # kept for debugging and analysis
         }
 
         results.append(result)
@@ -108,7 +106,7 @@ def generate_tests(strategy):
 
 
 # =========================
-# CLI入口
+# CLI entry point
 # =========================
 if __name__ == "__main__":
 

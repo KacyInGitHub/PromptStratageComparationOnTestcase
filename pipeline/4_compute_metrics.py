@@ -1,22 +1,22 @@
 """
-metrics_pipeline.py
-===================
-模块化指标采集脚本，每个指标可单独运行。
+4_compute_metrics.py
+====================
+Modular metric collection script; each metric can be run independently.
 
-使用方式：
-  # 单独运行某个指标
-  python metrics_pipeline.py --metric complexity  --data_dir tests_for_coverage/ --output results_complexity.json
-  python metrics_pipeline.py --metric assertions  --data_dir tests_for_coverage/ --output results_assertions.json
-  python metrics_pipeline.py --metric coverage    --data_dir tests_for_coverage/ --output results_coverage.json
-  python metrics_pipeline.py --metric mutation    --data_dir tests_for_coverage/ --output results_mutation.json
+Usage:
+  # Run a single metric
+  python 4_compute_metrics.py --metric complexity  --data_dir ../tests_for_coverage/ --output results_complexity.json
+  python 4_compute_metrics.py --metric assertions  --data_dir ../tests_for_coverage/ --output results_assertions.json
+  python 4_compute_metrics.py --metric coverage    --data_dir ../tests_for_coverage/ --output results_coverage.json
+  python 4_compute_metrics.py --metric mutation    --data_dir ../tests_for_coverage/ --output results_mutation.json
 
-  # 运行全部指标
-  python metrics_pipeline.py --metric all         --data_dir tests_for_coverage/ --output results_all.json
+  # Run all metrics
+  python 4_compute_metrics.py --metric all         --data_dir ../tests_for_coverage/ --output results_all.json
 
-  # 合并多个已有结果文件
-  python metrics_pipeline.py --metric merge \
+  # Merge multiple existing result files
+  python 4_compute_metrics.py --metric merge \
       --merge_files results_complexity.json results_coverage.json results_assertions.json \
-      --output metrics_results.json
+      --output ../results/metrics_results.json
 """
 
 import ast
@@ -33,7 +33,7 @@ from collections import defaultdict
 from pathlib import Path
 
 # ─────────────────────────────────────────────
-# 配置：导入修复映射
+# Import fix configuration
 # ─────────────────────────────────────────────
 MODULE_IMPORT_CFG = {
     "requests/utils.py": {
@@ -116,7 +116,7 @@ CLASS_MAP = {
     ("arrow",    "parser.py"):           "DateTimeParser",
 }
 
-# 模块点路径映射（用于 importlib 定位实际文件）
+# Dotted module path mapping (used by importlib to locate source files)
 MODULE_DOTTED = {
     "requests/models.py": "requests.models",
     "requests/utils.py":  "requests.utils",
@@ -130,21 +130,20 @@ MODULE_DOTTED = {
 
 
 # ─────────────────────────────────────────────
-# 候选函数加载：source hash -> lineno 映射
+# Candidate function loader: source hash -> lineno map
 # ─────────────────────────────────────────────
 def load_candidate_source_map(
         candidate_path: str = "../experiment_data/candidate_functions.json") -> dict:
     """
-    构建 (project, name, source_hash) -> lineno 的精确查找表。
-    用被测函数源码内容唯一标识每个候选函数，
-    确保同名函数（如 arrow locale 中的多个 _format_relative）
-    能被正确区分并分配各自的行号。
+    Build a (project, name, source_hash) -> lineno lookup table.
+    Uses the source content to uniquely identify each candidate function,
+    correctly distinguishing same-named functions (e.g. multiple _format_relative in arrow locales).
     """
     try:
         with open(candidate_path, encoding="utf-8") as f:
             candidates = json.load(f)
     except FileNotFoundError:
-        print(f"[warn] {candidate_path} 未找到，同名函数将无法区分")
+        print(f"[warn] {candidate_path} not found; same-named functions cannot be distinguished")
         return {}
 
     source_map = {}
@@ -155,12 +154,12 @@ def load_candidate_source_map(
         key = (c["project"], c["name"], source_hash)
         source_map[key] = c["lineno"]
 
-    print(f"[candidate] 加载候选函数 {len(source_map)} 个")
+    print(f"[candidate] loaded {len(source_map)} candidate functions")
     return source_map
 
 
 # ─────────────────────────────────────────────
-# 公共工具
+# Common utilities
 # ─────────────────────────────────────────────
 def parse_strategy(filename: str) -> str:
     match = re.search(r"generated_tests_(.+)\.json", filename)
@@ -170,8 +169,8 @@ def parse_strategy(filename: str) -> str:
 def load_all(data_dir: str,
              candidate_path: str = "../experiment_data/candidate_functions.json") -> list:
     """
-    加载所有生成测试文件，并通过被测函数源码 hash 精确匹配
-    candidate_functions.json 中的行号，写入 lineno 和 unique_fid 字段。
+    Load all generated test files and match each record to candidate_functions.json
+    via source hash, writing lineno and unique_fid fields.
     """
     source_map = load_candidate_source_map(candidate_path)
     unmatched  = []
@@ -206,28 +205,28 @@ def load_all(data_dir: str,
         all_records.extend(records)
 
     if unmatched:
-        print(f"[warn] 未匹配到候选函数的记录: {len(unmatched)} 条")
+        print(f"[warn] {len(unmatched)} records could not be matched to a candidate function")
         for u in sorted(set(unmatched)):
             print(f"       {u}")
     else:
-        print("[load] ✅ 所有记录均成功匹配到候选函数")
+        print("[load] all records matched successfully to candidate functions")
 
-    print(f"[load] 共加载 {len(all_records)} 条记录，来自 {data_dir}")
+    print(f"[load] loaded {len(all_records)} records from {data_dir}")
     return all_records
 
 
 def fix_imports(source: str, project: str, module: str) -> str:
-    # 移除占位符
+    # Remove placeholder imports
     source = re.sub(r"^.*your_module.*$", "", source, flags=re.MULTILINE)
     source = re.sub(r"#\s*Replace.*$",    "", source, flags=re.MULTILINE)
 
-    # 替换 YourClass
+    # Replace YourClass with real class name
     real_class = CLASS_MAP.get((project, module))
     if real_class:
         source = source.replace("YourClass()", f"{real_class}()")
         source = source.replace("YourClass",    real_class)
 
-    # 注入正确 import
+    # Inject correct imports
     cfg = MODULE_IMPORT_CFG.get(module, {})
     inject_lines = []
     if cfg.get("funcs"):
@@ -253,9 +252,9 @@ def fix_imports(source: str, project: str, module: str) -> str:
 
 def base_record(r: dict) -> dict:
     """
-    生成结果记录的基础字段。
-    unique_fid 含行号，用于区分同名函数；
-    function_id 保留原始格式，便于与其他数据源对照。
+    Build the base fields for a result record.
+    unique_fid includes the line number to distinguish same-named functions;
+    function_id keeps the original format for cross-referencing with other data sources.
     """
     return {
         "function_id": f"{r['project']}.{r['name']}",
@@ -272,22 +271,21 @@ def base_record(r: dict) -> dict:
 def save(results: list, output_path: str):
     with open(output_path, "w", encoding="utf-8") as f:
         json.dump(results, f, indent=2, ensure_ascii=False)
-    print(f"\n[save] 结果已保存至: {output_path}  ({len(results)} 条)")
+    print(f"\n[save] results saved to: {output_path}  ({len(results)} records)")
 
 
 # ─────────────────────────────────────────────
-# 指标一：圈复杂度
+# Metric 1: Cyclomatic complexity
 # ─────────────────────────────────────────────
 def metric_complexity(records: list) -> list:
     """
-    使用 radon 计算测试代码中每个 test_ 函数的平均圈复杂度。
-    依赖：pip install radon
-    纯静态分析，无需执行，速度快。
+    Compute mean cyclomatic complexity of each test_ function using radon.
+    Requires: pip install radon. Pure static analysis, no execution needed.
     """
     try:
         from radon.complexity import cc_visit
     except ImportError:
-        print("[error] 请先安装: pip install radon")
+        print("[error] please install: pip install radon")
         sys.exit(1)
 
     results = []
@@ -316,12 +314,12 @@ def metric_complexity(records: list) -> list:
 
 
 # ─────────────────────────────────────────────
-# 指标二：每函数断言数
+# Metric 2: Assertions per test function
 # ─────────────────────────────────────────────
 def metric_assertions(records: list) -> list:
     """
-    使用 AST 统计每个 test_ 函数的断言数量，计算平均值。
-    纯静态分析，无需执行，速度快。
+    Count assertions in each test_ function via AST and compute the mean.
+    Pure static analysis, no execution needed.
     """
     results = []
     for r in records:
@@ -359,16 +357,16 @@ def metric_assertions(records: list) -> list:
 
 
 # ─────────────────────────────────────────────
-# 指标三：行覆盖率 & 分支覆盖率（函数级）
+# Metric 3: Line coverage & branch coverage (function-level)
 # ─────────────────────────────────────────────
 def get_func_lines(module: str, func_name: str,
                    target_lineno: int = 0) -> tuple:
     """
-    用 importlib 定位模块文件，再用 AST 找到函数的起止行号。
-    若提供 target_lineno（>0），在存在多个同名函数时，
-    选取起始行号最接近 target_lineno 的函数；
-    否则返回第一个匹配的函数（向后兼容）。
-    返回 (文件绝对路径, 起始行, 结束行)，找不到返回 (None, None, None)。
+    Locate the module file via importlib and find the function's start/end lines via AST.
+    If target_lineno > 0 and multiple same-named functions exist,
+    select the one whose start line is closest to target_lineno;
+    otherwise return the first match (backwards-compatible behaviour).
+    Returns (absolute_file_path, start_line, end_line), or (None, None, None) if not found.
     """
     import importlib.util
 
@@ -386,7 +384,7 @@ def get_func_lines(module: str, func_name: str,
             source = f.read()
         tree = ast.parse(source)
 
-        # 收集所有同名函数的行号范围
+        # Collect all line ranges for same-named functions
         candidates = []
         for node in ast.walk(tree):
             if (isinstance(node, (ast.FunctionDef, ast.AsyncFunctionDef))
@@ -397,12 +395,12 @@ def get_func_lines(module: str, func_name: str,
             return file_path, None, None
 
         if target_lineno > 0 and len(candidates) > 1:
-            # 多个同名函数：选取起始行号最接近 target_lineno 的函数
+            # Multiple matches: pick the one closest to target_lineno
             best = min(candidates,
                        key=lambda x: abs(x[0] - target_lineno))
             return file_path, best[0], best[1]
         else:
-            # 唯一函数或未提供 target_lineno：返回第一个
+            # Single match or no target_lineno provided: return first
             return file_path, candidates[0][0], candidates[0][1]
 
     except Exception:
@@ -413,11 +411,10 @@ def get_func_lines(module: str, func_name: str,
 
 def metric_coverage(records: list, timeout: int = 60) -> list:
     """
-    函数级行覆盖率 & 分支覆盖率。
-    使用 `coverage run --source=<dotted> -m pytest` 方案，
-    可正确追踪 site-packages 中已安装的包。
-    分母只统计被测函数内的可执行行/分支。
-    依赖：pip install coverage pytest requests arrow more-itertools
+    Function-level line and branch coverage.
+    Uses `coverage run --source=<dotted> -m pytest` to correctly track installed packages.
+    Denominators count only executable lines/branches within the target function.
+    Requires: pip install coverage pytest requests arrow more-itertools
     """
     results = []
     total   = len(records)
@@ -436,7 +433,7 @@ def metric_coverage(records: list, timeout: int = 60) -> list:
             end=" ... ", flush=True,
         )
 
-        # 1. 定位被测函数的行号范围（传入 lineno 精确区分同名函数）
+        # 1. Locate the target function's line range (lineno disambiguates same-named functions)
         file_path, start_line, end_line = get_func_lines(
             module, func_name, target_lineno=lineno
         )
@@ -469,7 +466,7 @@ def metric_coverage(records: list, timeout: int = 60) -> list:
             f.write(test_src)
 
         try:
-            # 2. coverage run --source=<dotted.module> --branch -m pytest
+            # 2. Run coverage with branch tracking
             subprocess.run(
                 [
                     sys.executable, "-m", "coverage", "run",
@@ -482,7 +479,7 @@ def metric_coverage(records: list, timeout: int = 60) -> list:
                 capture_output=True, text=True, timeout=timeout,
             )
 
-            # 3. 导出 JSON 报告
+            # 3. Export JSON coverage report
             subprocess.run(
                 [
                     sys.executable, "-m", "coverage", "json",
@@ -504,7 +501,7 @@ def metric_coverage(records: list, timeout: int = 60) -> list:
             with open(cov_json, encoding="utf-8") as f:
                 cov_data = json.load(f)
 
-            # 4. 找到对应文件的数据（先绝对路径匹配，再文件名兜底）
+            # 4. Find file data (absolute path first, filename fallback)
             file_data = None
             for fname, fdata in cov_data.get("files", {}).items():
                 if os.path.abspath(fname) == os.path.abspath(file_path):
@@ -526,7 +523,7 @@ def metric_coverage(records: list, timeout: int = 60) -> list:
                 results.append(out)
                 continue
 
-            # 5. 只统计函数行号范围内的行和分支
+            # 5. Count only lines and branches within the function's line range
             func_line_set  = set(range(start_line, end_line + 1))
             executed_lines = set(file_data.get("executed_lines", []))
             missing_lines  = set(file_data.get("missing_lines",  []))
@@ -578,13 +575,12 @@ def metric_coverage(records: list, timeout: int = 60) -> list:
 
 
 # ─────────────────────────────────────────────
-# 指标四：变异得分
+# Metric 4: Mutation score
 # ─────────────────────────────────────────────
 def metric_mutation(records: list, timeout: int = 180) -> list:
     """
-    使用 mutmut 对每个函数进行变异测试，计算变异得分。
-    依赖：pip install mutmut
-    耗时最长，建议最后单独运行。
+    Run mutation testing with mutmut and compute mutation score.
+    Requires: pip install mutmut. Most time-consuming; run last as a standalone step.
     """
     results = []
     total = len(records)
@@ -610,7 +606,7 @@ def metric_mutation(records: list, timeout: int = 180) -> list:
         func_path = os.path.join(work_dir, "target.py")
         test_path = os.path.join(work_dir, "test_target.py")
 
-        # 测试代码中的原始 import 替换为 from target import *
+        # Replace original imports in test code with from target import *
         adjusted = re.sub(
             r"^(from\s+\S+\s+import|import\s+(?!pytest|unittest)\S+)",
             r"# \1",
@@ -671,23 +667,23 @@ def metric_mutation(records: list, timeout: int = 180) -> list:
 
 
 # ─────────────────────────────────────────────
-# 合并多个结果文件
+# Merge multiple result files
 # ─────────────────────────────────────────────
 def merge_results(file_paths: list) -> list:
     """
-    按 (unique_fid, strategy) 合并多个指标文件。
-    使用 unique_fid（含行号）作为合并键，确保同名函数不被错误合并。
-    每个文件包含不同指标，合并后每条记录包含所有指标。
+    Merge multiple metric files by (unique_fid, strategy).
+    Uses unique_fid (with line number) as the merge key so same-named functions are not conflated.
+    Each file contains different metrics; the merged records contain all metrics.
     """
     merged = {}
 
     for path in file_paths:
         with open(path, encoding="utf-8") as f:
             records = json.load(f)
-        print(f"[merge] 读取 {path}  ({len(records)} 条)")
+        print(f"[merge] read {path}  ({len(records)} records)")
 
         for r in records:
-            # 优先使用 unique_fid，兼容未含行号的旧格式
+            # Prefer unique_fid; fall back to function_id for older formats without line numbers
             unique_fid = r.get("unique_fid", r["function_id"])
             key = (unique_fid, r.get("strategy"))
             if key not in merged:
@@ -700,18 +696,18 @@ def merge_results(file_paths: list) -> list:
                     "lineno":      r.get("lineno", 0),
                     "strategy":    r.get("strategy"),
                 }
-            # 合并各指标字段
+            # Merge metric fields
             for metric in ["complexity", "assertions", "coverage", "mutation"]:
                 if metric in r:
                     merged[key][metric] = r[metric]
 
     result_list = list(merged.values())
-    print(f"[merge] 合并完成，共 {len(result_list)} 条记录")
+    print(f"[merge] done, {len(result_list)} records total")
     return result_list
 
 
 # ─────────────────────────────────────────────
-# 汇总报告
+# Summary report
 # ─────────────────────────────────────────────
 def print_summary(results: list, metric: str):
     print(f"\n{'='*70}")
@@ -730,23 +726,23 @@ def print_summary(results: list, metric: str):
         return f"{v:.4f}" if v is not None else "  N/A "
 
     if metric in ("complexity", "all", "merge"):
-        print(f"\n{'策略':<20} {'平均圈复杂度':>14} {'函数数':>8}")
-        print("-" * 45)
+        print(f"\n{'Strategy':<20} {'Avg complexity':>14} {'Test funcs':>10}")
+        print("-" * 48)
         for s, recs in sorted(grouped.items()):
             cc  = safe_avg([r.get("complexity", {}).get("avg_complexity") for r in recs])
             cnt = safe_avg([r.get("complexity", {}).get("test_func_count") for r in recs])
-            print(f"  {s:<18} {fmt(cc):>14} {fmt(cnt):>8}")
+            print(f"  {s:<18} {fmt(cc):>14} {fmt(cnt):>10}")
 
     if metric in ("assertions", "all", "merge"):
-        print(f"\n{'策略':<20} {'平均断言数/函数':>16} {'平均总断言数':>14}")
-        print("-" * 55)
+        print(f"\n{'Strategy':<20} {'Avg assertions/func':>20} {'Avg total assertions':>20}")
+        print("-" * 63)
         for s, recs in sorted(grouped.items()):
             avg_a = safe_avg([r.get("assertions", {}).get("avg_assertions")   for r in recs])
             tot_a = safe_avg([r.get("assertions", {}).get("total_assertions")  for r in recs])
-            print(f"  {s:<18} {fmt(avg_a):>16} {fmt(tot_a):>14}")
+            print(f"  {s:<18} {fmt(avg_a):>20} {fmt(tot_a):>20}")
 
     if metric in ("coverage", "all", "merge"):
-        print(f"\n{'策略':<20} {'行覆盖率':>12} {'分支覆盖率':>12}")
+        print(f"\n{'Strategy':<20} {'Line rate':>12} {'Branch rate':>12}")
         print("-" * 48)
         for s, recs in sorted(grouped.items()):
             lr = safe_avg([r.get("coverage", {}).get("line_rate")   for r in recs])
@@ -757,67 +753,66 @@ def print_summary(results: list, metric: str):
             1 for r in results
             if r.get("coverage", {}).get("total_func_branches", 0) == 0
         )
-        print(f"    (其中 {no_branch_count} 个函数无分支，分支覆盖率不适用)")
+        print(f"    ({no_branch_count} functions have no branches; branch coverage N/A)")
 
     if metric in ("mutation", "all", "merge"):
-        print(f"\n{'策略':<20} {'变异得分':>12} {'平均killed':>12} {'平均survived':>14}")
-        print("-" * 62)
+        print(f"\n{'Strategy':<20} {'Mutation score':>14} {'Avg killed':>12} {'Avg survived':>14}")
+        print("-" * 64)
         for s, recs in sorted(grouped.items()):
             ms = safe_avg([r.get("mutation", {}).get("mutation_score") for r in recs])
             ki = safe_avg([r.get("mutation", {}).get("killed")         for r in recs])
             su = safe_avg([r.get("mutation", {}).get("survived")       for r in recs])
-            print(f"  {s:<18} {fmt(ms):>12} {fmt(ki):>12} {fmt(su):>14}")
+            print(f"  {s:<18} {fmt(ms):>14} {fmt(ki):>12} {fmt(su):>14}")
 
 
 # ─────────────────────────────────────────────
-# 入口
+# Entry point
 # ─────────────────────────────────────────────
 METRICS = ["complexity", "assertions", "coverage", "mutation", "all", "merge"]
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description="模块化测试指标采集脚本"
+        description="Modular test metric collection script"
     )
     parser.add_argument(
         "--metric", required=True, choices=METRICS,
-        help="要计算的指标，或 all / merge"
+        help="Metric to compute, or 'all' / 'merge'"
     )
     parser.add_argument(
         "--data_dir", default="../tests_for_coverage/",
-        help="JSON 数据目录（merge 模式下不需要）"
+        help="Directory of JSON data files (not needed in merge mode)"
     )
     parser.add_argument(
         "--output", required=True,
-        help="输出 JSON 文件路径"
+        help="Output JSON file path"
     )
     parser.add_argument(
         "--merge_files", nargs="+",
-        help="merge 模式：要合并的结果文件列表"
+        help="merge mode: list of result files to merge"
     )
     parser.add_argument(
         "--timeout", type=int, default=60,
-        help="单条记录执行超时秒数（coverage/mutation 有效）"
+        help="Per-record execution timeout in seconds (applies to coverage/mutation)"
     )
     parser.add_argument(
         "--candidate_path", default="../experiment_data/candidate_functions.json",
-        help="候选函数 JSON 文件路径"
+        help="Path to candidate_functions.json"
     )
     args = parser.parse_args()
 
-    # merge 模式
     if args.metric == "merge":
         if not args.merge_files:
-            print("[error] merge 模式需要 --merge_files 参数")
+            print("[error] merge mode requires --merge_files")
             sys.exit(1)
         results = merge_results(args.merge_files)
         save(results, args.output)
         print_summary(results, "merge")
         sys.exit(0)
 
-    # 加载数据
+    # Load data
     records = load_all(args.data_dir, args.candidate_path)
 
-    # 按指标分发
+    # Dispatch to the selected metric
     if args.metric == "complexity":
         results = metric_complexity(records)
 
@@ -831,13 +826,13 @@ if __name__ == "__main__":
         results = metric_mutation(records, timeout=args.timeout)
 
     elif args.metric == "all":
-        print("\n[all] 依次计算所有指标...")
+        print("\n[all] computing all metrics in sequence...")
         comp = metric_complexity(records)
         assr = metric_assertions(records)
         cov  = metric_coverage(records,  timeout=args.timeout)
         mut  = metric_mutation(records,   timeout=args.timeout * 3)
 
-        # 在内存中合并四个结果（使用 unique_fid 作为键）
+        # Merge four result sets in memory using unique_fid as key
         merged = {}
         for lst in [comp, assr, cov, mut]:
             for r in lst:

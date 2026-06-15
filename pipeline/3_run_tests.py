@@ -1,9 +1,9 @@
 """
-test_pipeline.py
-================
-自动化测试用例处理流水线
-输入：generated_tests_*.json
-输出：pipeline_results.json
+3_run_tests.py
+==============
+Automated test case processing pipeline.
+Input:  generated_tests_*.json
+Output: pipeline_results.json
 """
 
 import ast
@@ -18,7 +18,7 @@ from collections import defaultdict
 from pathlib import Path
 
 # ─────────────────────────────────────────────
-# 导入路径修复映射
+# Import path fix mappings
 # ─────────────────────────────────────────────
 IMPORT_FIX = {
     "requests": {
@@ -72,7 +72,7 @@ IMPORT_FIX = {
     },
 }
 
-# 占位符替换规则
+# Placeholder replacement patterns
 PLACEHOLDER_PATTERNS = [
     (r"from your_module import.*\n", ""),
     (r"from your_module import.*", ""),
@@ -82,7 +82,7 @@ PLACEHOLDER_PATTERNS = [
     (r"# Replace.*", ""),
 ]
 
-# 真实类名映射
+# Real class name mapping
 CLASS_MAP = {
     ("requests", "requests/models.py"): "PreparedRequest",
     ("requests", "requests/utils.py"): None,
@@ -96,10 +96,7 @@ CLASS_MAP = {
 
 
 def load_candidate_source_map(candidate_path: str) -> dict:
-    """
-    构建 (project, name, source_hash) -> lineno 的精确查找表
-    用源码内容唯一标识每个候选函数
-    """
+    """Build a (project, name, source_hash) -> lineno lookup table using source content as key."""
     with open(candidate_path, encoding="utf-8") as f:
         candidates = json.load(f)
 
@@ -111,11 +108,11 @@ def load_candidate_source_map(candidate_path: str) -> dict:
         key = (c["project"], c["name"], source_hash)
         source_map[key] = c["lineno"]
 
-    print(f"[candidate] 加载候选函数 {len(source_map)} 个")
+    print(f"[candidate] loaded {len(source_map)} candidate functions")
     return source_map
 
 # ─────────────────────────────────────────────
-# 文件名解析
+# Filename parsing
 # ─────────────────────────────────────────────
 def parse_filename(filename: str) -> dict:
     pattern = r"generated_tests_(.+)_trial(\d+)\.json"
@@ -129,7 +126,7 @@ def parse_filename(filename: str) -> dict:
 
 
 # ─────────────────────────────────────────────
-# 加载所有JSON文件
+# Load all JSON files
 # ─────────────────────────────────────────────
 # def load_all(data_dir: str) -> list:
 #     all_records = []
@@ -140,7 +137,7 @@ def parse_filename(filename: str) -> dict:
 #         for record in records:
 #             record.update(meta)
 #             all_records.append(record)
-#     print(f"[load] 共加载 {len(all_records)} 条记录")
+#     print(f"[load] loaded {len(all_records)} records")
 #     return all_records
 
 
@@ -158,7 +155,7 @@ def load_all(data_dir: str,
         for record in records:
             record.update(meta)
 
-            # 用源码hash精确匹配lineno
+            # Match lineno precisely via source hash
             project = record.get("project", "")
             name    = record.get("name", "")
             source  = record.get("source", "").strip()
@@ -184,18 +181,18 @@ def load_all(data_dir: str,
             all_records.append(record)
 
     if unmatched:
-        print(f"[warn] 未匹配到候选函数的记录: {len(unmatched)} 条")
+        print(f"[warn] {len(unmatched)} records could not be matched to a candidate function")
         for u in unmatched:
             print(f"       {u['project']}.{u['name']} in {u['file']}")
     else:
-        print("[load] ✅ 所有记录均成功匹配到候选函数")
+        print("[load] all records matched successfully to candidate functions")
 
-    print(f"[load] 共加载 {len(all_records)} 条记录")
+    print(f"[load] loaded {len(all_records)} records total")
     return all_records
 
 
 # ─────────────────────────────────────────────
-# Step 1: 静态检测
+# Step 1: Static analysis
 # ─────────────────────────────────────────────
 def static_check(source: str) -> dict:
     result = {
@@ -206,11 +203,11 @@ def static_check(source: str) -> dict:
         "has_placeholder": False,
     }
 
-    # 检查占位符
+    # Check for placeholder imports
     if "your_module" in source.lower() or "yourclass" in source.lower():
         result["has_placeholder"] = True
 
-    # 语法检查
+    # Syntax check
     try:
         tree = ast.parse(source)
         result["syntax_valid"] = True
@@ -218,7 +215,7 @@ def static_check(source: str) -> dict:
         result["syntax_error"] = str(e)
         return result
 
-    # 统计 test_ 函数
+    # Count test_ functions
     funcs = [
         n.name for n in ast.walk(tree)
         if isinstance(n, (ast.FunctionDef, ast.AsyncFunctionDef))
@@ -227,7 +224,7 @@ def static_check(source: str) -> dict:
     result["has_test_func"] = len(test_funcs) > 0
     result["test_count"] = len(test_funcs)
 
-    # 检查是否有 assert 语句
+    # Check for assert statements
     result["has_assert"] = any(
         isinstance(n, ast.Assert) for n in ast.walk(tree)
     )
@@ -236,10 +233,10 @@ def static_check(source: str) -> dict:
 
 
 # ─────────────────────────────────────────────
-# Step 2: 导入修复
+# Step 2: Import fixing
 # ─────────────────────────────────────────────
 def fix_imports(source: str, project: str, module: str, func_name: str) -> str:
-    # 移除占位符 import
+    # Remove placeholder imports
     source = re.sub(
         r"^from your_module import.*$", "",
         source, flags=re.MULTILINE
@@ -249,20 +246,19 @@ def fix_imports(source: str, project: str, module: str, func_name: str) -> str:
         source, flags=re.MULTILINE
     )
 
-    # 替换 YourClass
+    # Replace YourClass with real class name
     real_class = CLASS_MAP.get((project, module))
     if real_class:
         source = source.replace("YourClass()", f"{real_class}()")
         source = source.replace("YourClass", real_class)
 
-    # 清理注释
+    # Remove replace-hint comments
     source = re.sub(r"#\s*Replace.*", "", source)
 
-    # 注入真实 import
+    # Inject real imports; insert after the last import line
     imports = IMPORT_FIX.get(project, {}).get(module, [])
     if imports:
         import_block = "\n".join(imports) + "\n"
-        # 插入到第一个非注释、非空行之后（通常是 import pytest 之后）
         lines = source.split("\n")
         insert_pos = 0
         for i, line in enumerate(lines):
@@ -275,7 +271,7 @@ def fix_imports(source: str, project: str, module: str, func_name: str) -> str:
 
 
 # ─────────────────────────────────────────────
-# Step 3: 编译检查
+# Step 3: Compilation check
 # ─────────────────────────────────────────────
 def compile_check(source: str) -> dict:
     import py_compile
@@ -294,7 +290,7 @@ def compile_check(source: str) -> dict:
 
 
 # ─────────────────────────────────────────────
-# Step 4: 执行
+# Step 4: Execution
 # ─────────────────────────────────────────────
 def run_tests(source: str, timeout: int = 30) -> dict:
     with tempfile.NamedTemporaryFile(
@@ -347,7 +343,7 @@ def run_tests(source: str, timeout: int = 30) -> dict:
 
 
 # ─────────────────────────────────────────────
-# 主流水线
+# Main pipeline
 # ─────────────────────────────────────────────
 # def process_record(record: dict) -> dict:
 #     result = {
@@ -368,7 +364,7 @@ def run_tests(source: str, timeout: int = 30) -> dict:
 #         result["status"] = "empty"
 #         return result
 #
-#     # Step 1: 静态检测
+#     # Step 1: static analysis
 #     result["static"] = static_check(source)
 #     if not result["static"]["syntax_valid"]:
 #         result["status"] = "syntax_error"
@@ -377,7 +373,7 @@ def run_tests(source: str, timeout: int = 30) -> dict:
 #         result["status"] = "no_test_func"
 #         return result
 #
-#     # Step 2: 导入修复
+#     # Step 2: fix imports
 #     source = fix_imports(
 #         source,
 #         record["project"],
@@ -385,16 +381,16 @@ def run_tests(source: str, timeout: int = 30) -> dict:
 #         record["name"],
 #     )
 #
-#     # Step 3: 编译检查
+#     # Step 3: compile check
 #     result["compile"] = compile_check(source)
 #     if not result["compile"]["compile_ok"]:
 #         result["status"] = "compile_error"
 #         return result
 #
-#     # Step 4: 执行
+#     # Step 4: execute
 #     result["execution"] = run_tests(source)
 #     result["status"] = "completed"
-#     result["fixed_source"] = source  # 保存修复后的代码，便于调试
+#     result["fixed_source"] = source
 #
 #     return result
 
@@ -420,7 +416,7 @@ def process_record(record: dict) -> dict:
         result["status"] = "empty"
         return result
 
-    # Step 1: 静态检测
+    # Step 1: static analysis
     result["static"] = static_check(source)
     if not result["static"]["syntax_valid"]:
         result["status"] = "syntax_error"
@@ -429,7 +425,7 @@ def process_record(record: dict) -> dict:
         result["status"] = "no_test_func"
         return result
 
-    # Step 2: 导入修复
+    # Step 2: fix imports
     source = fix_imports(
         source,
         record["project"],
@@ -437,13 +433,13 @@ def process_record(record: dict) -> dict:
         record["name"],
     )
 
-    # Step 3: 编译检查
+    # Step 3: compile check
     result["compile"] = compile_check(source)
     if not result["compile"]["compile_ok"]:
         result["status"] = "compile_error"
         return result
 
-    # Step 4: 执行
+    # Step 4: execute
     result["execution"] = run_tests(source)
     result["status"]    = "completed"
     result["fixed_source"] = source
@@ -466,13 +462,10 @@ def process_record(record: dict) -> dict:
 #         results.append(result)
 #         print(result["status"])
 #
-#     # 保存结果
 #     with open(output_path, "w", encoding="utf-8") as f:
 #         json.dump(results, f, indent=2, ensure_ascii=False)
-#
-#     # 打印汇总
 #     print_summary_all(results)
-#     print(f"\n结果已保存至: {output_path}")
+#     print(f"\nResults saved to: {output_path}")
 
 def run_pipeline(data_dir: str, output_path: str,
                  candidate_path: str = "../experiment_data/candidate_functions.json"):
@@ -495,7 +488,7 @@ def run_pipeline(data_dir: str, output_path: str,
         json.dump(results, f, indent=2, ensure_ascii=False)
 
     print_summary_all(results)
-    print(f"\n结果已保存至: {output_path}")
+    print(f"\nResults saved to: {output_path}")
 
 
 def print_summary(results: list):
@@ -509,7 +502,7 @@ def print_summary(results: list):
         print(f"  {status:20s}: {count}")
 
     print()
-    # 按策略统计执行通过率
+    # Pass rate by strategy (at least 1 test passed)
     by_strategy = defaultdict(lambda: {"total": 0, "passed_any": 0})
     for r in results:
         s = r.get("strategy", "unknown")
@@ -518,32 +511,30 @@ def print_summary(results: list):
         if exec_info.get("passed", 0) > 0:
             by_strategy[s]["passed_any"] += 1
 
-    print("按策略统计（至少1个测试通过）:")
+    print("By strategy (at least 1 test passed):")
     for strategy, counts in sorted(by_strategy.items()):
         rate = counts["passed_any"] / counts["total"] * 100 if counts["total"] else 0
         print(f"  {strategy:20s}: {counts['passed_any']}/{counts['total']} ({rate:.1f}%)")
 
-# 更全的数据统计
 def print_summary_all(results: list):
     print("\n" + "=" * 70)
     print("PIPELINE SUMMARY")
     print("=" * 70)
 
-    # 总体状态分布
+    # Overall status distribution
     from collections import Counter, defaultdict
     status_counter = Counter(r["status"] for r in results)
-    print("\n[总体状态分布]")
+    print("\n[Overall status distribution]")
     for status, count in sorted(status_counter.items()):
         print(f"  {status:20s}: {count}")
 
     # ─────────────────────────────────────────────
-    # 按策略 × trial 统计三项通过率
+    # Pass rates by strategy × trial
     # ─────────────────────────────────────────────
-    print("\n[按策略 × Trial 统计]")
-    print(f"\n{'策略':<20} {'Trial':<8} {'静扫通过':>10} {'编译通过':>10} {'执行成功':>10} {'总数':>6}")
+    print("\n[By strategy × Trial]")
+    print(f"\n{'Strategy':<20} {'Trial':<8} {'Syntax OK':>10} {'Compile OK':>10} {'Exec passed':>12} {'Total':>6}")
     print("-" * 70)
 
-    # 聚合数据
     grouped = defaultdict(lambda: {
         "total": 0,
         "syntax_ok": 0,
@@ -556,20 +547,20 @@ def print_summary_all(results: list):
         g = grouped[key]
         g["total"] += 1
 
-        # 静扫通过：syntax_valid = True 且 has_test_func = True
+        # Syntax OK: syntax_valid = True and has_test_func = True
         if (r.get("static", {}).get("syntax_valid") and
                 r.get("static", {}).get("has_test_func")):
             g["syntax_ok"] += 1
 
-        # 编译通过
+        # Compile OK
         if r.get("compile", {}).get("compile_ok"):
             g["compile_ok"] += 1
 
-        # 执行成功：至少1个 passed
+        # Exec passed: at least 1 test passed
         if r.get("execution", {}).get("passed", 0) > 0:
             g["exec_passed"] += 1
 
-    # 按策略、trial排序输出
+    # Print sorted by strategy and trial
     for (strategy, trial), g in sorted(grouped.items()):
         n = g["total"]
         def pct(x): return f"{x}/{n} ({x/n*100:.1f}%)" if n else "0/0"
@@ -582,10 +573,10 @@ def print_summary_all(results: list):
         )
 
     # ─────────────────────────────────────────────
-    # 按策略汇总（跨trial合计）
+    # Totals by strategy (across all trials)
     # ─────────────────────────────────────────────
-    print("\n[按策略汇总（跨Trial合计）]")
-    print(f"\n{'策略':<20} {'静扫通过':>18} {'编译通过':>18} {'执行成功':>18} {'总数':>6}")
+    print("\n[Totals by strategy (all trials combined)]")
+    print(f"\n{'Strategy':<20} {'Syntax OK':>18} {'Compile OK':>18} {'Exec passed':>18} {'Total':>6}")
     print("-" * 70)
 
     strategy_total = defaultdict(lambda: {
@@ -610,10 +601,10 @@ def print_summary_all(results: list):
         )
 
     # ─────────────────────────────────────────────
-    # 按项目统计执行成功率
+    # Exec pass rate by project
     # ─────────────────────────────────────────────
-    print("\n[按项目统计执行成功率]")
-    print(f"\n{'项目':<20} {'执行成功':>18} {'总数':>6}")
+    print("\n[Exec pass rate by project]")
+    print(f"\n{'Project':<20} {'Exec passed':>18} {'Total':>6}")
     print("-" * 45)
 
     proj_total = defaultdict(lambda: {"total": 0, "exec_passed": 0})

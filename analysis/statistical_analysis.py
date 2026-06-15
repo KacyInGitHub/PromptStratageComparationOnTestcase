@@ -1,21 +1,21 @@
 """
 statistical_analysis.py
 =======================
-对六项评估指标进行统计分析，输出论文所需的所有统计数字。
+Statistical analysis of six evaluation metrics for thesis reporting.
 
-输入：
-    - pipeline_results.json    (RQ2: 编译率、执行通过率，含三次trial)
-    - metrics_results.json     (RQ1+RQ3: 覆盖率、复杂度、断言数，最优trial)
+Input:
+    - pipeline_results.json    (RQ2: compilation rate, execution pass rate, three trials)
+    - metrics_results.json     (RQ1+RQ3: coverage, complexity, assertion count, best trial)
 
-输出：
-    - statistical_results.json  完整统计结果
-    - statistical_report.txt    论文可直接引用的文字报告
+Output:
+    - statistical_results.json  Full statistical results
+    - statistical_report.txt    Human-readable report for direct citation in the thesis
 
-使用方法：
+Usage:
     python statistical_analysis.py \
-        --pipeline pipeline_results.json \
-        --metrics  metrics_results.json \
-        --output   statistical_results.json
+        --pipeline ../results/pipeline_results.json \
+        --metrics  ../results/metrics_results.json \
+        --output   ../results/statistical_results.json
 """
 
 import argparse
@@ -29,7 +29,7 @@ from scipy import stats
 from scipy.stats import shapiro, kruskal, wilcoxon
 
 # ─────────────────────────────────────────────
-# 工具函数
+# Utility functions
 # ─────────────────────────────────────────────
 STRATEGIES = ["CoT", "few_shot", "role_based", "zero_shot"]
 STRATEGY_PAIRS = [
@@ -40,13 +40,13 @@ STRATEGY_PAIRS = [
     ("few_shot",   "zero_shot"),
     ("role_based", "zero_shot"),
 ]
-BONFERRONI_N = 6          # 6 对比较
+BONFERRONI_N = 6          # 6 pairwise comparisons
 ALPHA        = 0.05
 ALPHA_ADJ    = ALPHA / BONFERRONI_N   # 0.0083
 
 
 def rank_biserial(x, y):
-    """计算两组数据的 rank-biserial correlation coefficient r"""
+    """Compute rank-biserial correlation coefficient r for two groups."""
     nx, ny = len(x), len(y)
     u_stat, _ = stats.mannwhitneyu(x, y, alternative="two-sided")
     r = 1 - (2 * u_stat) / (nx * ny)
@@ -65,7 +65,7 @@ def effect_size_label(r):
 
 
 def descriptive(values):
-    """计算描述性统计"""
+    """Compute descriptive statistics."""
     arr = np.array([v for v in values if v is not None])
     if len(arr) == 0:
         return {}
@@ -84,7 +84,7 @@ def descriptive(values):
 
 
 def normality_test(values):
-    """Shapiro-Wilk 正态性检验"""
+    """Shapiro-Wilk normality test."""
     arr = np.array([v for v in values if v is not None])
     if len(arr) < 3:
         return {"stat": None, "p": None, "normal": False}
@@ -97,7 +97,7 @@ def normality_test(values):
 
 
 def kruskal_wallis_test(groups: dict):
-    """Kruskal-Wallis 检验，groups = {strategy: [values]}"""
+    """Kruskal-Wallis test. groups = {strategy: [values]}"""
     arrays = [
         np.array([v for v in groups[s] if v is not None])
         for s in STRATEGIES
@@ -115,7 +115,7 @@ def kruskal_wallis_test(groups: dict):
 
 
 def posthoc_tests(groups: dict):
-    """Wilcoxon 事后两两比较 + Bonferroni 校正"""
+    """Pairwise Wilcoxon post-hoc tests with Bonferroni correction."""
     results = []
     for s1, s2 in STRATEGY_PAIRS:
         if s1 not in groups or s2 not in groups:
@@ -123,7 +123,7 @@ def posthoc_tests(groups: dict):
         x = np.array([v for v in groups[s1] if v is not None])
         y = np.array([v for v in groups[s2] if v is not None])
 
-        # 样本数对齐（取较小长度）
+        # Align sample sizes (use smaller length)
         min_n = min(len(x), len(y))
         if min_n < 5:
             continue
@@ -152,7 +152,7 @@ def posthoc_tests(groups: dict):
 
 
 def pass_at_k(n: int, c: int, k: int) -> float:
-    """Pass@k 估计（Chen et al., 2021）"""
+    """Pass@k estimator (Chen et al., 2021)."""
     if n == 0:
         return 0.0
     if n - c < k:
@@ -162,17 +162,16 @@ def pass_at_k(n: int, c: int, k: int) -> float:
 
 
 # ─────────────────────────────────────────────
-# 数据加载
+# Data loading
 # ─────────────────────────────────────────────
 # def load_pipeline(path: str) -> dict:
-#     """
-#     从 pipeline_results.json 加载 RQ2 数据。
-#     每条记录含 strategy, trial, static, compile, execution 字段。
+#     """Load RQ2 data from pipeline_results.json.
+#     Each record contains strategy, trial, static, compile, execution fields.
 #     """
 #     with open(path, encoding="utf-8") as f:
 #         records = json.load(f)
 #
-#     # 按策略分组，保留所有 trial
+#     # Group by strategy, keep all trials
 #     data = defaultdict(list)
 #     for r in records:
 #         s = r.get("strategy", "unknown")
@@ -181,11 +180,11 @@ def pass_at_k(n: int, c: int, k: int) -> float:
 #         total      = r.get("execution", {}).get("total",  0)
 #         pass_rate  = passed / total if total > 0 else 0.0
 #         data[s].append({
-#             "trial":      r.get("trial"),
-#             "compile_ok": compile_ok,
-#             "pass_rate":  pass_rate,
-#             "passed":     passed,
-#             "total":      total,
+#             "trial":       r.get("trial"),
+#             "compile_ok":  compile_ok,
+#             "pass_rate":   pass_rate,
+#             "passed":      passed,
+#             "total":       total,
 #         })
 #     return dict(data)
 
@@ -206,16 +205,15 @@ def load_pipeline(path: str) -> dict:
             "pass_rate":   pass_rate,
             "passed":      passed,
             "total":       total,
-            "function_id": r.get("function_id"),   # ← 新增
-            "unique_fid":  r.get("unique_fid"),     # ← 新增
+            "function_id": r.get("function_id"),
+            "unique_fid":  r.get("unique_fid"),
         })
     return dict(data)
 
 
 def load_metrics(path: str) -> dict:
-    """
-    从 metrics_results.json 加载 RQ1 + RQ3 数据。
-    每条记录含 strategy, coverage, complexity, assertions 字段。
+    """Load RQ1 + RQ3 data from metrics_results.json.
+    Each record contains strategy, coverage, complexity, assertions fields.
     """
     with open(path, encoding="utf-8") as f:
         records = json.load(f)
@@ -242,12 +240,12 @@ def load_metrics(path: str) -> dict:
 
 
 # ─────────────────────────────────────────────
-# RQ2 分析
+# RQ2 analysis
 # ─────────────────────────────────────────────
 def analyse_rq2(pipeline_data: dict) -> dict:
     results = {}
 
-    # ── 编译成功率 ────────────────────────────
+    # ── Compilation rate ───────────────────────
     compile_groups = {}
     for s, records in pipeline_data.items():
         compile_groups[s] = [r["compile_ok"] for r in records]
@@ -259,11 +257,10 @@ def analyse_rq2(pipeline_data: dict) -> dict:
                          for s in STRATEGIES if s in compile_groups},
         "kruskal":      kruskal_wallis_test(compile_groups),
         "posthoc":      posthoc_tests(compile_groups),
-        # 按 trial 汇总
         "by_trial":     {},
     }
 
-    # 按 trial 统计编译率
+    # Compilation rate by trial
     for s, records in pipeline_data.items():
         by_trial = defaultdict(list)
         for r in records:
@@ -273,7 +270,7 @@ def analyse_rq2(pipeline_data: dict) -> dict:
             for t, v in sorted(by_trial.items())
         }
 
-    # ── 执行通过率 ────────────────────────────
+    # ── Execution pass rate ───────────────────
     pass_groups = {}
     for s, records in pipeline_data.items():
         pass_groups[s] = [r["pass_rate"] for r in records]
@@ -300,14 +297,14 @@ def analyse_rq2(pipeline_data: dict) -> dict:
     # ── Pass@k ───────────────────────────────
     passk_results = {}
     for s, records in pipeline_data.items():
-        # 按 function_id 分组
+        # Group by function_id
         func_trials = defaultdict(list)
         for r in records:
             # fid = r.get("function_id", "unknown")
 
             # start_line = r.get("start_line", 0)
             # fid = f"{r.get('function_id', 'unknown')}.L{start_line}"
-            fid = r.get("unique_fid") or r.get("function_id", "unknown")  # ← 优先用unique_fid
+            fid = r.get("unique_fid") or r.get("function_id", "unknown")
 
             func_trials[fid].append(1 if r["pass_rate"] > 0 else 0)
 
@@ -330,7 +327,7 @@ def analyse_rq2(pipeline_data: dict) -> dict:
 
 
 # ─────────────────────────────────────────────
-# RQ1 分析
+# RQ1 analysis
 # ─────────────────────────────────────────────
 def analyse_rq1(metrics_data: dict) -> dict:
     results = {}
@@ -362,7 +359,7 @@ def analyse_rq1(metrics_data: dict) -> dict:
 
 
 # ─────────────────────────────────────────────
-# RQ3 分析
+# RQ3 analysis
 # ─────────────────────────────────────────────
 def analyse_rq3(metrics_data: dict) -> dict:
     results = {}
@@ -387,7 +384,7 @@ def analyse_rq3(metrics_data: dict) -> dict:
 
 
 # ─────────────────────────────────────────────
-# 文字报告生成
+# Text report generation
 # ─────────────────────────────────────────────
 def generate_report(all_results: dict) -> str:
     lines = []
@@ -426,7 +423,7 @@ def generate_report(all_results: dict) -> str:
 
             lines.append(f"\n  [{metric_name}]")
 
-            # 描述性统计
+            # Descriptive statistics
             if "descriptive" in mdata:
                 lines.append(
                     f"  {'Strategy':<14} {'Mean':>8} {'Median':>8}"
@@ -443,7 +440,7 @@ def generate_report(all_results: dict) -> str:
                             f" {d['n']:>5}"
                         )
 
-            # 正态性检验
+            # Normality test
             if "normality" in mdata:
                 lines.append(f"\n  Shapiro-Wilk normality test:")
                 for s in STRATEGIES:
@@ -464,7 +461,7 @@ def generate_report(all_results: dict) -> str:
                     f"  {'SIGNIFICANT' if kw['significant'] else 'not significant'}"
                 )
 
-            # 事后比较
+            # Post-hoc comparisons
             if "posthoc" in mdata and mdata["posthoc"]:
                 lines.append(f"\n  Post-hoc Wilcoxon (Bonferroni-corrected):")
                 lines.append(
@@ -493,43 +490,41 @@ def generate_report(all_results: dict) -> str:
 
 
 # ─────────────────────────────────────────────
-# 主程序
+# Main
 # ─────────────────────────────────────────────
 def main():
     parser = argparse.ArgumentParser(
-        description="统计分析脚本：生成论文所需的所有统计数字"
+        description="Statistical analysis script: compute all metrics for the thesis"
     )
     parser.add_argument(
         "--pipeline", required=True,
-        help="pipeline_results.json 路径（含三次trial的编译/执行数据）"
+        help="Path to pipeline_results.json (compilation/execution data for all three trials)"
     )
     parser.add_argument(
         "--metrics", required=True,
-        help="metrics_results.json 路径（最优trial的覆盖率/复杂度/断言数据）"
+        help="Path to metrics_results.json (coverage/complexity/assertion data for best trial)"
     )
     parser.add_argument(
         "--output", default="../results/statistical_results.json",
-        help="输出 JSON 文件路径"
+        help="Output JSON file path"
     )
     args = parser.parse_args()
 
-    # 加载数据
-    print("[load] 加载 pipeline 数据...")
+    print("[load] loading pipeline data...")
     pipeline_data = load_pipeline(args.pipeline)
-    print(f"       策略: {list(pipeline_data.keys())}")
+    print(f"       strategies: {list(pipeline_data.keys())}")
 
-    print("[load] 加载 metrics 数据...")
+    print("[load] loading metrics data...")
     metrics_data = load_metrics(args.metrics)
-    print(f"       策略: {list(metrics_data.keys())}")
+    print(f"       strategies: {list(metrics_data.keys())}")
 
-    # 执行分析
-    print("\n[analyse] RQ2 正确性指标...")
+    print("\n[analyse] RQ2 correctness metrics...")
     rq2 = analyse_rq2(pipeline_data)
 
-    print("[analyse] RQ1 覆盖率指标...")
+    print("[analyse] RQ1 coverage metrics...")
     rq1 = analyse_rq1(metrics_data)
 
-    print("[analyse] RQ3 可读性指标...")
+    print("[analyse] RQ3 readability metrics...")
     rq3 = analyse_rq3(metrics_data)
 
     all_results = {
@@ -538,17 +533,15 @@ def main():
         "RQ3_readability": rq3,
     }
 
-    # 保存 JSON
     with open(args.output, "w", encoding="utf-8") as f:
         json.dump(all_results, f, indent=2, ensure_ascii=False)
-    print(f"\n[save] JSON 结果已保存至: {args.output}")
+    print(f"\n[save] JSON results saved to: {args.output}")
 
-    # 生成文字报告
     report = generate_report(all_results)
     report_path = Path(args.output).with_suffix(".txt")
     with open(report_path, "w", encoding="utf-8") as f:
         f.write(report)
-    print(f"[save] 文字报告已保存至: {report_path}")
+    print(f"[save] text report saved to: {report_path}")
     print()
     print(report)
 
